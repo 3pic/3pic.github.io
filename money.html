@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1″>
+    <title>Spend Someones Money</title>
+    <meta name="description" content="This website lets you spend a persons money. For example, our game puts how much money Jeff Bezos has into perspective">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
+    <link rel="manifest" href="static/site.webmanifest">
+</head>
+<style>
+    html {
+      scroll-behavior: smooth;
+    }
+    #turnmedred {
+        font-size: 35px;
+    }
+    .mainbox {
+        width: 68%;
+        margin: 1em 1em 1em 1em;
+        padding: 0.7em 0.7em 0.7em 0.7em;
+        text-align: center;
+        border-radius: 12px;
+    }
+    .mainbox2 {
+        width: 69%;
+        margin: 1em 1em 1em 1em;
+        padding: 0.7em 0.7em 0.7em 0.7em;
+        text-align: center;
+        border-radius: 12px;
+    }
+    .mainbox23 {
+        width: 69%;
+        margin: 1em 1em 1em 1em;
+        padding: 0.7em 0.7em 0.7em 0.7em;
+        text-align: center;
+        border-radius: 12px;
+    }
+    #margin {
+        float: left;
+        width: 32%;
+        border-radius: 10px;
+    }
+    #nomargin {
+        float: left;
+        width: 32%; border-radius: 10px;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+    .dropdown-content {
+        display: none;
+    }
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    #JeffBezosNetWorth {
+        font-size: 35px;
+    }
+    .minus1 {
+        margin-top: -1.1em;
+    }
+    #deficet {
+        font-size: 25px;
+    }
+    .mainbox23 {
+        height: 20%; 
+        bottom 0; 
+        margin-top: 20em;
+    }
+    @media (max-width: 800px) {
+        .mainbox2 {
+            width: 80%;
+            margin-left: 2.5em;
+            padding: 0.4em 0.4em 0.4em 0.4em;
+            text-align: center;
+            border-radius: 12px;
+        }   
+        #margin {
+            width: 90%;
+            margin-left: 0em;
+            margin-right: 0em;
+            border-radius: 10px;
+        }
+        #nomargin {
+            margin-left: 0em;
+            margin-right: 0em;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            width: 90%; border-radius: 10px;
+        }
+        .mainbox23 {
+            width: 68%;
+            height: 20%; 
+            bottom 0; 
+            margin-top: 65em;
+        }
+        .minus1 {
+            margin-top: 0.5em;
+        }
+        .subtract {
+            font-size: 11px;
+            margin-bottom: -1em;
+        }
+        #deficet {
+            font-size: 15px;
+        }
+        #JeffBezosNetWorth {
+            font-size: 25px;
+        }
+        #turnmedred {
+            font-size: 25px;
+        }
+    }
+    button {
+        margin-bottom: 0.5em;
+    }
+
+    .onscreen {
+
+    }
+
+
+    
+</style>
+<body style="color: #cccccc; background-color: #1a1a1a; text-align: center;" class="turn#1a1a1a">
+
+
+
+<div id="container" style="">
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="https://3pic.github.io"><b>🤑 3pic.github.io</b></a>
+
+
+  <a class="nav-link btn btn-danger removeme" onclick="" href="/" rel="nofollow"><span>$</span><span id="JeffBezosNetWorth2">0</span></a>
+
+</nav>
+
+
+    <div id="maskingfordevgog" style="text-align: center; overflow: auto; margin-top: 4em; color: white;">
+        <center>
+
+<!--        <div class="bg-dark mainbox" class="mainbox">-->
+<!--            <img src="static/bezos.jpg" style="border-radius: 50%; width: 120px; height: 120px;">-->
+<!--            <h1 style="font-size: 30px; margin-top: 1em; text-shadow: 1.1px 1.1px white;">Spend Jeff Bezos' Money</h1>-->
+<!--            <p>Bezos is the richest man in the world with a network of <b>124.7 Billion</b><br>Spend his money with our TikTok video inspired <br>website where you can cash out on your biggest desires</p>-->
+
+
+<!--        </div>-->
+<center>
+                <div class="bg-dark mainbox" class="mainbox">
+                    <h1 style="font-size: 35px;">Spend Someones Money</h1>
+                    <p style="font-size: 12.5px;"><i>Jeff Bezos, Mark Zuckerberg, Warren Buffet, Federal Gov...</i></p>
+                      <div class="dropdown">
+
+                          <p class="btn btn-secondary"><span style="color: yellow;">&#9733;</span>  Choose A Billionare</p>
+                            <div class="dropdown-content">
+                                <div>
+                                    <button onclick="setbezos()" class="btn btn-secondary btn-sm" style="margin-left: 0.5em; margin-right: 0.5em;">&#9733; Jeff Bezos</button><button onclick="setbuffet()" class="btn btn-secondary btn-sm" style="margin-left: 0.5em; margin-right: 0.5em;">&#9733; Warren Buffet</button><button onclick="setmark()" class="btn btn-secondary btn-sm" style="margin-left: 0.5em; margin-right: 0.5em;">&#9733; Mark Zuckerburg</button><button onclick="bloomberg()" class="btn btn-secondary btn-sm" style="margin-left: 0.5em; margin-right: 0.5em;">&#9733; Mike Bloomberg</button><button onclick="trump()" class="btn btn-secondary btn-sm" style="margin-left: 0.5em; margin-right: 0.5em;">&#9733; Donald Trump </button><button onclick="federal()" class="btn btn-secondary btn-sm" style="margin-left: 0.5em; margin-right: 0.5em;">&#9733; Federal Govt</button>
+                                </div>
+                                                    <p style="font-size: 11px;"><i>Inspired by the neal.fun website...</i></p>
+
+  </div>
+  </div>
+  <div class="onscreen">
+            <p><span id="turnmedred" style="color: #03fc4e; font-weight: bold;">$</span><span id="JeffBezosNetWorth" style="color: #03fc4e; font-weight: bold;"></span></p>
+            <h2 id="deficet">Available For Spending</h2>
+</div>
+
+        </div>
+            <div class="mainbox2">
+                
+<div class="bg-dark" id="margin" style="margin-top: 1em;">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/sienna.png" style="width: 66.5%;">
+                        <p style="font-weight: bold;">Toyota Sienna</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$31,640</p> 
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button class="btn btn-success" style="float: left; margin-left: 10%;" onclick="buytoyotasienna('ToyotaSienna')">Buy</button>  <button onclick="selltoyotasienna('ToyotaSienna')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="ToyotaSienna"></center>
+                    </div>
+                </div>
+                                <div class="bg-dark" id="nomargin" style="margin-top: 1em;">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/camry.png" style="width: 75%;">
+                        <p style="font-weight: bold;">Toyota Camry</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$24,425</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('ToyotaCamry')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('ToyotaCamry')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="ToyotaCamry"></center>
+                    </div>
+                </div>
+                <div class="bg-dark" id="margin" style="margin-top: 1em;">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/grill.png" style="width: 49.5%;">
+                        <p style="font-weight: bold;">Grill</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$299</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('Grill')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('Grill')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="Grill"></center>
+                    </div>
+                </div>
+
+        </div>
+
+        </div>
+
+    <center>
+            <div class="mainbox2">
+                <div class="bg-dark" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/skittles.png" style="width: 50%;">
+                        <p style="font-weight: bold;">Skittles</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$1</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('Skittles')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('Skittles')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="Skittles"></center>
+                    </div>
+                </div>
+                                <div class="bg-dark" id="nomargin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/coffee.png" style="width: 75%;">
+                        <p style="font-weight: bold;">Coffee</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$3</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('Coffee')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('Coffee')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="Coffee"></center>
+                    </div>
+                </div>
+                <div class="bg-dark" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/smartphone.png" style="width: 49%;">
+                        <p style="font-weight: bold;">Smartphone</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$699</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('Smartphone')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('Smartphone')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="Smartphone"></center>
+                    </div>
+                </div>
+                <div class="bg-dark" id="margin" style="margin-top: 1em;">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/tesla.png" style="width: 106%;">
+                        <p style="font-weight: bold;">Tesla</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$70,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('Tesla')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('Tesla')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="Tesla"></center>
+                    </div>
+                </div>
+                <div class="bg-dark" id="nomargin" style="margin-top: 1em;">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/ferrari.png" style="width: 66.5%;">
+                        <p style="font-weight: bold;">Luxury Vehicle</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$200,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('LuxuryVehicle')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('LuxuryVehicle')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="LuxuryVehicle"></center>
+                    </div>
+                </div>
+                <div class="bg-dark" id="margin" style="margin-top: 1em;">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/helicopter.png" style="width: 88%;">
+                        <p style="font-weight: bold;">Helicopter</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$600,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('Helicopter')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('Helicopter')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="Helicopter"></center>
+                    </div>
+                </div>
+
+                <br>
+<!--                <div class="bg-dark" id="margin" style="margin-top: 1em;">-->
+<!--                    <div style="margin-top: 1em; margin-bottom: 1em;">-->
+<!--                        <img src="static/tesla.png" style="height: 50%;">-->
+<!--                        <p style="font-weight: bold;">Tesla</p>-->
+<!--                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$70000</p>-->
+<!--                    </div>-->
+<!--                    <div style="margin-top: 1em; margin-bottom: 1em;">-->
+<!--                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control"></center>-->
+<!--                    </div>-->
+<!--                </div>-->
+<center>
+                <p style="color: #1a1a1a;" class="subtract">Divider (Dev use)</p>
+                </center>
+                <div class="bg-dark minus1" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/highschooldiploma.png" style="width: 64%;">
+                        <p style="font-weight: bold;">College Education</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$100,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('CollegeEducation')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('CollegeEducation')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="CollegeEducation"></center>
+                    </div>
+                </div>
+                <div class="bg-dark minus1" id="nomargin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/rent.png" style="width: 64%;">
+                        <p style="font-weight: bold;">Month of Rent</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$1,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('MonthofRent')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('MonthofRent')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="MonthofRent"></center>
+                    </div>
+                </div>
+                <div class="bg-dark minus1 minus2" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/largemeal.png" style="width: 50%;">
+                        <p style="font-weight: bold;">Large Meal</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$10</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('LargeMeal')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('LargeMeal')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="LargeMeal"></center>
+                    </div>
+                </div>
+                <center>
+                <p style="color: #1a1a1a;" class="subtract">Divider (Dev use)</p>
+                </center>
+                <div class="bg-dark minus1" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/privatejet.png" style="width: 76%;">
+                        <p style="font-weight: bold;">Private Jet</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$1,200,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('PrivateJet')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('PrivateJet')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="PrivateJet"></center>
+                    </div>
+                </div>
+                <div class="bg-dark minus1" id="nomargin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/jetplane.png" style="width: 74%;">
+                        <p style="font-weight: bold;">Passenger Jet</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$150,000,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('PassengerJet')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('PassengerJet')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="PassengerJet"></center>
+                    </div>
+                </div>
+                <div class="bg-dark minus1" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/crane.png" style="width: 50%;">
+                        <p style="font-weight: bold;">Crane</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$790,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('Crane')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('Crane')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="Crane"></center>
+                    </div>
+                </div>
+<center>
+                <p style="color: #1a1a1a;" class="subtract">Divider (Dev use)</p>
+                </center>
+                <div class="bg-dark minus1" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/designerhandbag.png" style="width: 49%;">
+                        <p style="font-weight: bold;">Designer Bag</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$10,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('DesignerBag')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('DesignerBag')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="DesignerBag"></center>
+                    </div>
+                </div>
+                <div class="bg-dark minus1" id="nomargin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/mansion.jpg" style="width: 79%;">
+                        <p style="font-weight: bold;">Mansion</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$30,000,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('Mansion')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('Mansion')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="Mansion"></center>
+                    </div>
+                </div>
+                <div class="bg-dark minus1" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/house.png" style="width: 88%;">
+                        <p style="font-weight: bold;">House</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$290,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('House')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('House')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="House"></center>
+                    </div>
+
+                </div>
+                    <center>
+                <p style="color: #1a1a1a;" class="subtract">Divider (Dev use)</p>
+                </center>
+                <div class="bg-dark minus1 F35Jet" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/F35.png" style="width: 100%;">
+                        <p style="font-weight: bold; margin-top: 14%;">F35 Jet</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$95,000,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('F35Jet')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('F35Jet')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="F35Jet"></center>
+                    </div>
+                </div>
+                <div class="bg-dark minus1" id="nomargin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/NYPD.png" style="width: 56%;">
+                        <p style="font-weight: bold;">Police Cruiser</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$42,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('PoliceCruiser')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('PoliceCruiser')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="PoliceCruiser"></center>
+                    </div>
+                </div>
+                <div class="bg-dark minus1" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/falcon9.png" style="width: 8.7%;">
+                        <p style="font-weight: bold;">Falcon 9 Rocket</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$57,000,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('Falcon9Rocket')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('Falcon9Rocket')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="Falcon9Rocket"></center>
+                    </div>
+
+                </div>
+                <center>
+                <p style="color: #1a1a1a;" class="subtract">Divider (Dev use)</p>
+                </center>
+                <div class="bg-dark minus1" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/mcdonalds.png" style="width: 36%;">
+                        <p style="font-weight: bold; margin-top: 14%;">McDonalds Franchise (To Open)</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$1,500,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('McDonaldsFranchise')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('McDonaldsFranchise')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="McDonaldsFranchise"></center>
+                    </div>
+                </div>
+                <div class="bg-dark minus1" id="nomargin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/pizzahut.png" style="width: 65%;">
+                        <p style="font-weight: bold;">Pizza Hut Pizza</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$10</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('PizzaHut')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('PizzaHut')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="PizzaHut"></center>
+                    </div>
+                </div>
+                <div class="bg-dark minus1" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/doctor.png" style="width: 86%;">
+                        <p style="font-weight: bold;">Surgery</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$100,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('Surgery')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('Surgery')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="Surgery"></center>
+                    </div>
+
+                </div>
+                <center>
+                <p style="color: #1a1a1a;" class="subtract">Divider (Dev use)</p>
+                </center>
+                <div class="bg-dark minus1" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/hotel.webp" style="width: 73%;">
+                        <p style="font-weight: bold; margin-top: 14%;">Hotel Night</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$300</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('HotelNight')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('HotelNight')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="HotelNight"></center>
+                    </div>
+                </div>
+                <div class="bg-dark minus1" id="nomargin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/plate.png" style="width: 65%;">
+                        <p style="font-weight: bold;">End World Hunger</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$112,000,000,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('EndWorldHunger')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('EndWorldHunger')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="EndWorldHunger"></center>
+                    </div>
+                </div>
+                <div class="bg-dark minus1" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/homeless.png" style="width: 67%;">
+                        <p style="font-weight: bold;">End Homelessness</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$20,000,000,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('EndHomelessness')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('EndHomelessness')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="EndHomelessness"></center>
+                    </div>
+
+                </div>
+                <center>
+                <p style="color: #1a1a1a;" class="subtract">Divider (Dev use)</p>
+                </center>
+                <div class="bg-dark minus1" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/tiger.png" style="width: 112%;">
+                        <p style="font-weight: bold; margin-top: 14%;">Tiger</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$10,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('Tiger')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('Tiger')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="Tiger"></center>
+                    </div>
+                </div>
+                <div class="bg-dark minus1" id="nomargin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/amazon.png" style="width: 50%;">
+                        <p style="font-weight: bold;">Everything on Amazon</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$12,800,000,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('EverythingonAmazon')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('EverythingonAmazon')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="EverythingonAmazon"></center>
+                    </div>
+                </div>
+                <div class="bg-dark minus1" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/skyscraper.png" style="width: 80%;">
+                        <p style="font-weight: bold;">Skyscraper</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$3,800,000,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('Skyscraper')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('Skyscraper')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="Skyscraper"></center>
+                    </div>
+
+                </div>
+                <center>
+                <p style="color: #1a1a1a;" class="subtract">Divider (Dev use)</p>
+                </center>
+                <div class="bg-dark minus1" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/nuclearpowerplant.png" style="width: 75%;">
+                        <p style="font-weight: bold; margin-top: 14%;">Nuclear Power Plant</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$8,000,000,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('NuclearPowerPlant')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('NuclearPowerPlant')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="NuclearPowerPlant"></center>
+                    </div>
+                </div>
+                <div class="bg-dark minus1" id="nomargin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/coalpowerplant.png" style="width: 70%;">
+                        <p style="font-weight: bold;">Coal Power Plant</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$2,000,000,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('CoalPowerPlant')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('CoalPowerPlant')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="CoalPowerPlant"></center>
+                    </div>
+                </div>
+                <div class="bg-dark minus1" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/cruiseship.png" style="width: 100%;">
+                        <p style="font-weight: bold; margin-top: 14%;">Cruise Ship</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$600,000,000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button onclick="buytoyotasienna('CruiseShip')" class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button onclick="selltoyotasienna('CruiseShip')" class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input value=0 style="max-width: 100px; text-align: center;" class="form-control" id="CruiseShip"></center>
+                    </div>
+
+                </div>
+                <br>
+
+        </div>
+
+        </div>
+
+<center>
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
+<div class="bg-dark mainbox23" style="">
+                    <p style="font-size: 12px;"></p>
+<!-- 
+                        <p><span id="turnmedred" style="color: #03fc4e; font-weight: bold; font-size: 40px; text-shadow: 0px 0px white;">$</span><span id="JeffBezosNetWorth" style="color: #03fc4e; font-weight: bold; font-size: 35px; text-shadow: 0px 0px white;"></span></p> -->
+            <h2 style="font-size: 25px; styl" id="deficet"><a href="/">3pic.github.io</a></h2>
+            <!-- <span>$</span><span id="JeffBezosNetWorth2">0</span> -->
+            <p style="font-size: 11px;">Inspired by the neal.fun website..</p>
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="This website lets you spend billionaires money on random things like cars, mansions and designer handbags! (It really puts into perspective how much $ they have!)" data-url="https://3pic.github.io/" data-hashtags="#Billionare #Website" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><br><div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+            <p style="font-size: 11px; margin-top: 0.5em;">All Rights Reserved 2020 - 2021 &copy;</p>
+
+        </div>
+<center>
+
+
+</div>
+    </center>
+                </center>
+            </center>
+        </center>
+    </center>
+
+</center>
+<script>
+    var moneydynamic = 0
+    document.getElementById("JeffBezosNetWorth").innerHTML = moneydynamic;
+
+    function setbezos() {
+        moneydynamic = 124700000000
+        document.getElementById("JeffBezosNetWorth").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth2").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth").style.color = "limegreen"
+        document.getElementById("turnmedred").style.color = "limegreen"
+        document.getElementById("deficet").innerHTML = "Available For Spending"
+        document.getElementById("JeffBezosNetWorth").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth2").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth").style.color = "limegreen"
+        document.getElementById("turnmedred").style.color = "limegreen"
+        document.getElementById("deficet").innerHTML = "Available For Spending"
+        document.getElementById("ToyotaSienna").value = 0
+        document.getElementById("ToyotaCamry").value = 0
+        document.getElementById("Grill").value = 0
+        document.getElementById("Skittles").value = 0
+        document.getElementById("Coffee").value = 0
+        document.getElementById("Smartphone").value = 0
+        document.getElementById("Tesla").value = 0
+        document.getElementById("LuxuryVehicle").value = 0
+        document.getElementById("CollegeEducation").value = 0
+        document.getElementById("LargeMeal").value = 0
+        document.getElementById("PrivateJet").value = 0
+        document.getElementById("PassengerJet").value = 0
+        document.getElementById("Crane").value = 0
+        document.getElementById("DesignerBag").value = 0
+        document.getElementById("Mansion").value = 0
+        document.getElementById("House").value = 0
+        document.getElementById("F35Jet").value = 0
+        document.getElementById("PoliceCruiser").value = 0
+        document.getElementById("Falcon9Rocket").value = 0
+        document.getElementById("McDonaldsFranchise").value = 0
+        document.getElementById("PizzaHut").value = 0
+        document.getElementById("Surgery").value = 0
+        document.getElementById("HotelNight").value = 0
+        document.getElementById("EndWorldHunger").value = 0
+        document.getElementById("EndHomelessness").value = 0
+        document.getElementById("Tiger").value = 0
+        document.getElementById("EverythingonAmazon").value = 0
+        document.getElementById("Skyscraper").value = 0
+        document.getElementById("NuclearPowerPlant").value * 0
+        document.getElementById("CoalPowerPlant").value = 0
+        document.getElementById("CruiseShip").value = 0
+    }
+    function setbuffet() {
+        moneydynamic = 76300000000
+        document.getElementById("JeffBezosNetWorth").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth2").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth").style.color = "limegreen"
+        document.getElementById("turnmedred").style.color = "limegreen"
+        document.getElementById("deficet").innerHTML = "Available For Spending"
+        document.getElementById("JeffBezosNetWorth").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth2").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth").style.color = "limegreen"
+        document.getElementById("turnmedred").style.color = "limegreen"
+        document.getElementById("deficet").innerHTML = "Available For Spending"
+        document.getElementById("ToyotaSienna").value = 0
+        document.getElementById("ToyotaCamry").value = 0
+        document.getElementById("Grill").value = 0
+        document.getElementById("Skittles").value = 0
+        document.getElementById("Coffee").value = 0
+        document.getElementById("Smartphone").value = 0
+        document.getElementById("Tesla").value = 0
+        document.getElementById("LuxuryVehicle").value = 0
+        document.getElementById("CollegeEducation").value = 0
+        document.getElementById("LargeMeal").value = 0
+        document.getElementById("PrivateJet").value = 0
+        document.getElementById("PassengerJet").value = 0
+        document.getElementById("Crane").value = 0
+        document.getElementById("DesignerBag").value = 0
+        document.getElementById("Mansion").value = 0
+        document.getElementById("House").value = 0
+        document.getElementById("F35Jet").value = 0
+        document.getElementById("PoliceCruiser").value = 0
+        document.getElementById("Falcon9Rocket").value = 0
+        document.getElementById("McDonaldsFranchise").value = 0
+        document.getElementById("PizzaHut").value = 0
+        document.getElementById("Surgery").value = 0
+        document.getElementById("HotelNight").value = 0
+        document.getElementById("EndWorldHunger").value = 0
+        document.getElementById("EndHomelessness").value = 0
+        document.getElementById("Tiger").value = 0
+        document.getElementById("EverythingonAmazon").value = 0
+        document.getElementById("Skyscraper").value = 0
+        document.getElementById("NuclearPowerPlant").value * 0
+        document.getElementById("CoalPowerPlant").value = 0
+        document.getElementById("CruiseShip").value = 0
+    }
+    function setmark() {
+        moneydynamic = 64900000000
+        document.getElementById("JeffBezosNetWorth").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth2").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth").style.color = "limegreen"
+        document.getElementById("turnmedred").style.color = "limegreen"
+        document.getElementById("deficet").innerHTML = "Available For Spending"      
+        document.getElementById("JeffBezosNetWorth").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth2").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth").style.color = "limegreen"
+        document.getElementById("turnmedred").style.color = "limegreen"
+        document.getElementById("deficet").innerHTML = "Available For Spending"
+        document.getElementById("ToyotaSienna").value = 0
+        document.getElementById("ToyotaCamry").value = 0
+        document.getElementById("Grill").value = 0
+        document.getElementById("Skittles").value = 0
+        document.getElementById("Coffee").value = 0
+        document.getElementById("Smartphone").value = 0
+        document.getElementById("Tesla").value = 0
+        document.getElementById("LuxuryVehicle").value = 0
+        document.getElementById("CollegeEducation").value = 0
+        document.getElementById("LargeMeal").value = 0
+        document.getElementById("PrivateJet").value = 0
+        document.getElementById("PassengerJet").value = 0
+        document.getElementById("Crane").value = 0
+        document.getElementById("DesignerBag").value = 0
+        document.getElementById("Mansion").value = 0
+        document.getElementById("House").value = 0
+        document.getElementById("F35Jet").value = 0
+        document.getElementById("PoliceCruiser").value = 0
+        document.getElementById("Falcon9Rocket").value = 0
+        document.getElementById("McDonaldsFranchise").value = 0
+        document.getElementById("PizzaHut").value = 0
+        document.getElementById("Surgery").value = 0
+        document.getElementById("HotelNight").value = 0
+        document.getElementById("EndWorldHunger").value = 0
+        document.getElementById("EndHomelessness").value = 0
+        document.getElementById("Tiger").value = 0
+        document.getElementById("EverythingonAmazon").value = 0
+        document.getElementById("Skyscraper").value = 0
+        document.getElementById("NuclearPowerPlant").value * 0
+        document.getElementById("CoalPowerPlant").value = 0
+        document.getElementById("CruiseShip").value = 0  
+    }
+    function trump() {
+        moneydynamic = 2400000000
+        document.getElementById("JeffBezosNetWorth").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth2").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth").style.color = "limegreen"
+        document.getElementById("turnmedred").style.color = "limegreen"
+        document.getElementById("deficet").innerHTML = "Available For Spending"
+        document.getElementById("JeffBezosNetWorth").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth2").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth").style.color = "limegreen"
+        document.getElementById("turnmedred").style.color = "limegreen"
+        document.getElementById("deficet").innerHTML = "Available For Spending"
+        document.getElementById("ToyotaSienna").value = 0
+        document.getElementById("ToyotaCamry").value = 0
+        document.getElementById("Grill").value = 0
+        document.getElementById("Skittles").value = 0
+        document.getElementById("Coffee").value = 0
+        document.getElementById("Smartphone").value = 0
+        document.getElementById("Tesla").value = 0
+        document.getElementById("LuxuryVehicle").value = 0
+        document.getElementById("CollegeEducation").value = 0
+        document.getElementById("LargeMeal").value = 0
+        document.getElementById("PrivateJet").value = 0
+        document.getElementById("PassengerJet").value = 0
+        document.getElementById("Crane").value = 0
+        document.getElementById("DesignerBag").value = 0
+        document.getElementById("Mansion").value = 0
+        document.getElementById("House").value = 0
+        document.getElementById("F35Jet").value = 0
+        document.getElementById("PoliceCruiser").value = 0
+        document.getElementById("Falcon9Rocket").value = 0
+        document.getElementById("McDonaldsFranchise").value = 0
+        document.getElementById("PizzaHut").value = 0
+        document.getElementById("Surgery").value = 0
+        document.getElementById("HotelNight").value = 0
+        document.getElementById("EndWorldHunger").value = 0
+        document.getElementById("EndHomelessness").value = 0
+        document.getElementById("Tiger").value = 0
+        document.getElementById("EverythingonAmazon").value = 0
+        document.getElementById("Skyscraper").value = 0
+        document.getElementById("NuclearPowerPlant").value * 0
+        document.getElementById("CoalPowerPlant").value = 0
+        document.getElementById("CruiseShip").value = 0
+    }
+    function bloomberg() {
+        moneydynamic = 53400000000
+        document.getElementById("JeffBezosNetWorth").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth2").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth").style.color = "limegreen"
+        document.getElementById("turnmedred").style.color = "limegreen"
+        document.getElementById("deficet").innerHTML = "Available For Spending" 
+        document.getElementById("JeffBezosNetWorth").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth2").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth").style.color = "limegreen"
+        document.getElementById("turnmedred").style.color = "limegreen"
+        document.getElementById("deficet").innerHTML = "Available For Spending"
+        document.getElementById("ToyotaSienna").value = 0
+        document.getElementById("ToyotaCamry").value = 0
+        document.getElementById("Grill").value = 0
+        document.getElementById("Skittles").value = 0
+        document.getElementById("Coffee").value = 0
+        document.getElementById("Smartphone").value = 0
+        document.getElementById("Tesla").value = 0
+        document.getElementById("LuxuryVehicle").value = 0
+        document.getElementById("CollegeEducation").value = 0
+        document.getElementById("LargeMeal").value = 0
+        document.getElementById("PrivateJet").value = 0
+        document.getElementById("PassengerJet").value = 0
+        document.getElementById("Crane").value = 0
+        document.getElementById("DesignerBag").value = 0
+        document.getElementById("Mansion").value = 0
+        document.getElementById("House").value = 0
+        document.getElementById("F35Jet").value = 0
+        document.getElementById("PoliceCruiser").value = 0
+        document.getElementById("Falcon9Rocket").value = 0
+        document.getElementById("McDonaldsFranchise").value = 0
+        document.getElementById("PizzaHut").value = 0
+        document.getElementById("Surgery").value = 0
+        document.getElementById("HotelNight").value = 0
+        document.getElementById("EndWorldHunger").value = 0
+        document.getElementById("EndHomelessness").value = 0
+        document.getElementById("Tiger").value = 0
+        document.getElementById("EverythingonAmazon").value = 0
+        document.getElementById("Skyscraper").value = 0
+        document.getElementById("NuclearPowerPlant").value * 0
+        document.getElementById("CoalPowerPlant").value = 0
+        document.getElementById("CruiseShip").value = 0
+
+    }
+    function federal() {
+        moneydynamic = 3800000000000
+        document.getElementById("JeffBezosNetWorth").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth2").innerHTML = moneydynamic;
+        document.getElementById("JeffBezosNetWorth").style.color = "limegreen"
+        document.getElementById("turnmedred").style.color = "limegreen"
+        document.getElementById("deficet").innerHTML = "Available For Spending"
+        document.getElementById("ToyotaSienna").value = 0
+        document.getElementById("ToyotaCamry").value = 0
+        document.getElementById("Grill").value = 0
+        document.getElementById("Skittles").value = 0
+        document.getElementById("Coffee").value = 0
+        document.getElementById("Smartphone").value = 0
+        document.getElementById("Tesla").value = 0
+        document.getElementById("LuxuryVehicle").value = 0
+        document.getElementById("CollegeEducation").value = 0
+        document.getElementById("LargeMeal").value = 0
+        document.getElementById("PrivateJet").value = 0
+        document.getElementById("PassengerJet").value = 0
+        document.getElementById("Crane").value = 0
+        document.getElementById("DesignerBag").value = 0
+        document.getElementById("Mansion").value = 0
+        document.getElementById("House").value = 0
+        document.getElementById("F35Jet").value = 0
+        document.getElementById("PoliceCruiser").value = 0
+        document.getElementById("Falcon9Rocket").value = 0
+        document.getElementById("McDonaldsFranchise").value = 0
+        document.getElementById("PizzaHut").value = 0
+        document.getElementById("Surgery").value = 0
+        document.getElementById("HotelNight").value = 0
+        document.getElementById("EndWorldHunger").value = 0
+        document.getElementById("EndHomelessness").value = 0
+        document.getElementById("Tiger").value = 0
+        document.getElementById("EverythingonAmazon").value = 0
+        document.getElementById("Skyscraper").value = 0
+        document.getElementById("NuclearPowerPlant").value * 0
+        document.getElementById("CoalPowerPlant").value = 0
+        document.getElementById("CruiseShip").value = 0
+    }
+    function buytoyotasienna(spanid) {
+        var currentvaluecamry = parseInt(document.getElementById(spanid).value) + 1;
+        document.getElementById(spanid).value = currentvaluecamry
+
+        sum2 = parseInt(currentvaluecamry)
+        toyotasienna = document.getElementById("ToyotaSienna").value * 31640
+        toyotacamry = document.getElementById("ToyotaCamry").value * 24425
+        grill = document.getElementById("Grill").value * 299
+        skittles = document.getElementById("Skittles").value * 1
+        coffee = document.getElementById("Coffee").value * 3
+        smartphone = document.getElementById("Smartphone").value * 699
+        tesla = document.getElementById("Tesla").value * 70000
+        luxuryvehicle = document.getElementById("LuxuryVehicle").value * 200000
+        collegeeducation = document.getElementById("CollegeEducation").value * 600000
+        largemeal = document.getElementById("LargeMeal").value * 10
+        privatejet = document.getElementById("PrivateJet").value * 1200000
+        passengerjet = document.getElementById("PassengerJet").value * 150000000
+        crane = document.getElementById("Crane").value * 790000
+        designerbag = document.getElementById("DesignerBag").value * 10000
+        mansion = document.getElementById("Mansion").value * 30000000
+        house = document.getElementById("House").value * 290000
+        f35jet = document.getElementById("F35Jet").value * 95000000
+        policecruiser = document.getElementById("PoliceCruiser").value * 42000
+        falcon9rocket = document.getElementById("Falcon9Rocket").value * 57000000
+        mcdonaldsfranchise = document.getElementById("McDonaldsFranchise").value * 1500000
+        pizzahut = document.getElementById("PizzaHut").value * 10
+        surgery = document.getElementById("Surgery").value * 100000
+        hotelnight = document.getElementById("HotelNight").value * 300
+        endoworldhunger = document.getElementById("EndWorldHunger").value * 112000000000
+        endhomelessness = document.getElementById("EndHomelessness").value * 20000000000
+        tiger = document.getElementById("Tiger").value * 100000
+        everythingonamazon = document.getElementById("EverythingonAmazon").value * 12800000000
+        skyscraper = document.getElementById("Skyscraper").value * 3800000000
+        nuclearpowerplant = document.getElementById("NuclearPowerPlant").value * 800000000
+        coalpowerplant = document.getElementById("CoalPowerPlant").value * 2000000000
+        cruiseship = document.getElementById("CruiseShip").value * 600000000
+
+        moneydynamic2 = toyotasienna + toyotacamry + grill + skittles + coffee + smartphone + tesla + luxuryvehicle + collegeeducation + largemeal + privatejet + passengerjet + crane + designerbag + mansion + house + f35jet + policecruiser + falcon9rocket + mcdonaldsfranchise + pizzahut + surgery + hotelnight + endoworldhunger + endhomelessness + tiger + everythingonamazon + nuclearpowerplant + coalpowerplant + cruiseship
+        // Money Dynamic2 will be all of the variables added together awaiting to be subtracted from moneydynamic
+        // var sum2 = parseInt(currentvaluecamry);
+        // sum2 += 1;
+        // document.getElementById(spanid).value = sum2;
+        // var currentvaluecamry = document.getElementById(spanid).value;
+
+        // moneydynamic2 = cost * currentvaluecamry
+        updatedmoneydynamic = moneydynamic - moneydynamic2
+        document.getElementById("JeffBezosNetWorth").innerHTML = updatedmoneydynamic
+        document.getElementById("JeffBezosNetWorth2").innerHTML = updatedmoneydynamic
+
+        if (updatedmoneydynamic >= 0) {
+            console.log("GREATER")
+            document.getElementById("JeffBezosNetWorth").style.color = "limegreen"
+            document.getElementById("turnmedred").style.color = "limegreen"
+            document.getElementById("deficet").innerHTML = "Available For Spending"
+        }
+        if (updatedmoneydynamic < 0) {
+            console.log("LESS")
+            document.getElementById("JeffBezosNetWorth").style.color = "red"
+            document.getElementById("turnmedred").style.color = "red"
+            document.getElementById("deficet").innerHTML = "In Deficet"
+        }
+        console.log(moneydynamic)
+
+        
+    }
+    function selltoyotasienna(spanid) {
+        var currentvaluecamry = 0;
+        document.getElementById(spanid).value = currentvaluecamry
+        toyotasienna = document.getElementById("ToyotaSienna").value * 31640
+        toyotacamry = document.getElementById("ToyotaCamry").value * 24425
+        grill = document.getElementById("Grill").value * 299
+        skittles = document.getElementById("Skittles").value * 1
+        coffee = document.getElementById("Coffee").value * 3
+        smartphone = document.getElementById("Smartphone").value * 699
+        tesla = document.getElementById("Tesla").value * 70000
+        luxuryvehicle = document.getElementById("LuxuryVehicle").value * 200000
+        collegeeducation = document.getElementById("CollegeEducation").value * 600000
+        largemeal = document.getElementById("LargeMeal").value * 10
+        privatejet = document.getElementById("PrivateJet").value * 1200000
+        passengerjet = document.getElementById("PassengerJet").value * 150000000
+        crane = document.getElementById("Crane").value * 790000
+        designerbag = document.getElementById("DesignerBag").value * 10000
+        mansion = document.getElementById("Mansion").value * 30000000
+        house = document.getElementById("House").value * 290000
+        f35jet = document.getElementById("F35Jet").value * 95000000
+        policecruiser = document.getElementById("PoliceCruiser").value * 42000
+        falcon9rocket = document.getElementById("Falcon9Rocket").value * 57000000
+        mcdonaldsfranchise = document.getElementById("McDonaldsFranchise").value * 1500000
+        pizzahut = document.getElementById("PizzaHut").value * 10
+        surgery = document.getElementById("Surgery").value * 100000
+        hotelnight = document.getElementById("HotelNight").value * 300
+        endoworldhunger = document.getElementById("EndWorldHunger").value * 112000000000
+        endhomelessness = document.getElementById("EndHomelessness").value * 20000000000
+        tiger = document.getElementById("Tiger").value * 100000
+        everythingonamazon = document.getElementById("EverythingonAmazon").value * 12800000000
+        skyscraper = document.getElementById("Skyscraper").value * 3800000000
+        nuclearpowerplant = document.getElementById("NuclearPowerPlant").value * 800000000
+        coalpowerplant = document.getElementById("CoalPowerPlant").value * 2000000000
+        cruiseship = document.getElementById("CruiseShip").value * 600000000
+
+        moneydynamic2 = toyotasienna + toyotacamry + grill + skittles + coffee + smartphone + tesla + luxuryvehicle + collegeeducation + largemeal + privatejet + passengerjet + crane + designerbag + mansion + house + f35jet + policecruiser + falcon9rocket + mcdonaldsfranchise + pizzahut + surgery + hotelnight + endoworldhunger + endhomelessness + tiger + everythingonamazon + nuclearpowerplant + coalpowerplant + cruiseship
+        // Money Dynamic2 will be all of the variables added together awaiting to be subtracted from moneydynamic
+        // var sum2 = parseInt(currentvaluecamry);
+        // sum2 += 1;
+        // document.getElementById(spanid).value = sum2;
+        // var currentvaluecamry = document.getElementById(spanid).value;
+
+        // moneydynamic2 = cost * currentvaluecamry
+        updatedmoneydynamic = moneydynamic - moneydynamic2
+        document.getElementById("JeffBezosNetWorth").innerHTML = updatedmoneydynamic
+        document.getElementById("JeffBezosNetWorth2").innerHTML = updatedmoneydynamic
+
+        if (updatedmoneydynamic >= 0) {
+            console.log("GREATER")
+            document.getElementById("JeffBezosNetWorth").style.color = "limegreen"
+            document.getElementById("turnmedred").style.color = "limegreen"
+            document.getElementById("deficet").innerHTML = "Available For Spending"
+        }
+        if (updatedmoneydynamic < 0) {
+            console.log("LESS")
+            document.getElementById("JeffBezosNetWorth").style.color = "red"
+            document.getElementById("turnmedred").style.color = "red"
+            document.getElementById("deficet").innerHTML = "In Deficet"
+        }
+    }
+</script>
+</body>
+
+</html>

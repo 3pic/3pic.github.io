@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1″>
+    <title>Spend Someones Money</title>
+    <meta name="description" content="This website lets you spend a persons money. For example, our game puts how much money Jeff Bezos has into perspective">
+    <meta name="google-site-verification" content="ENQ9n1V4rvA6leMytUmttgBGMMBaH5NBZXMNwnWZDg0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153516768-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-153516768-2');
+    </script>
+</head>
+<style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .mainbox {
+        width: 68%;
+        margin: 1em 1em 1em 1em;
+        padding: 0.7em 0.7em 0.7em 0.7em;
+        text-align: center;
+        border-radius: 12px;
+    }
+    .mainbox2 {
+        width: 69%;
+        margin: 1em 1em 1em 1em;
+        padding: 0.7em 0.7em 0.7em 0.7em;
+        text-align: center;
+        border-radius: 12px;
+    }
+    #margin {
+        float: left;
+        width: 32%;
+        border-radius: 10px;
+    }
+    #nomargin {
+        float: left;
+        width: 32%; border-radius: 10px;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+    .dropdown-content {
+        display: none;
+    }
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+</style>
+<body style="color: #cccccc; background-color: #1a1a1a; text-align: center;" class="turn#1a1a1a">
+
+<!--Facebook SDK | Required-->
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
+
+<!--Facebook SDK-->
+
+<div id="container" style="">
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="/"><b>🤑 3pic.github.io</b></a>
+
+
+  <a class="nav-link btn btn-danger removeme" onclick="" href="https://codepen.io/Rapidtransit22/pen/JjYjBqJ" rel="nofollow">Embed This Website</a>
+
+</nav>
+
+
+    <div id="second" style="text-align: center; overflow: auto; margin-top: 4em; color: white;">
+        <center>
+
+<!--        <div class="bg-dark mainbox" class="mainbox">-->
+<!--            <img src="static/bezos.jpg" style="border-radius: 50%; width: 120px; height: 120px;">-->
+<!--            <h1 style="font-size: 30px; margin-top: 1em; text-shadow: 1.1px 1.1px white;">Spend Jeff Bezos' Money</h1>-->
+<!--            <p>Bezos is the richest man in the world with a network of <b>124.7 Billion</b><br>Spend his money with our TikTok video inspired <br>website where you can cash out on your biggest desires</p>-->
+
+
+<!--        </div>-->
+                <div class="bg-dark mainbox" class="mainbox">
+                    <h1 style="font-size: 35px;">Spend Someones Money</h1>
+                    <p style="font-size: 12px;"><i>Inspired by the neal.fun Website!</i></p>
+                      <div class="dropdown">
+
+                          <p class="btn btn-secondary"><span style="color: yellow;">&#9733;</span>  Choose A Person</p>
+                            <div class="dropdown-content">
+                                <div>
+                                    <button onclick="setbezos()" class="btn btn-secondary btn-sm" style="margin-left: 0.5em; margin-right: 0.5em;">&#9733; Jeff Bezos</button><button onclick="setbuffet()" class="btn btn-secondary btn-sm" style="margin-left: 0.5em; margin-right: 0.5em;">&#9733; Warren Buffet</button><button onclick="setmark()" class="btn btn-secondary btn-sm" style="margin-left: 0.5em; margin-right: 0.5em;">&#9733; Mark Zuckerburg</button>
+                                </div>
+  </div>
+  </div>
+            <p><span style="color: #03fc4e; font-weight: bold; font-size: 40px; text-shadow: 0px 0px white;">$</span><span id="JeffBezosNetWorth" style="color: #03fc4e; font-weight: bold; font-size: 35px; text-shadow: 0px 0px white;"></span></p>
+            <h2 style="font-size: 25px;">Available For Spending</h2>
+
+
+        </div>
+            <div class="mainbox2">
+                <div class="bg-dark" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/whopper.png" style="width: 95%;">
+                        <p style="font-weight: bold;">Burger</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$5</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input style="max-width: 100px; text-align: center;" class="form-control"></center>
+                    </div>
+                </div>
+                                <div class="bg-dark" id="nomargin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/diploma.png" style="width: 50%;">
+                        <p style="font-weight: bold;">College Education(s)</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$100000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input style="max-width: 100px; text-align: center;" class="form-control"></center>
+                    </div>
+                </div>
+                <div class="bg-dark" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/ipad.png" style="width: 43%;">
+                        <p style="font-weight: bold;">iPad</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$399</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input style="max-width: 100px; text-align: center;" class="form-control"></center>
+                    </div>
+                </div>
+<div class="bg-dark" id="margin" style="margin-top: 1em;">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/sienna.png" style="width: 66.5%;">
+                        <p style="font-weight: bold;">Toyota Sienna</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$31640</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input style="max-width: 100px; text-align: center;" class="form-control"></center>
+                    </div>
+                </div>
+                                <div class="bg-dark" id="nomargin" style="margin-top: 1em;">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/camry.png" style="width: 75%;">
+                        <p style="font-weight: bold;">Toyota Camry</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$24425</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input style="max-width: 100px; text-align: center;" class="form-control"></center>
+                    </div>
+                </div>
+                <div class="bg-dark" id="margin" style="margin-top: 1em;">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/grill.png" style="width: 49.5%;">
+                        <p style="font-weight: bold;">Grill</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$299</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input style="max-width: 100px; text-align: center;" class="form-control"></center>
+                    </div>
+                </div>
+        </div>
+
+        </div>
+
+    <center>
+            <div class="mainbox2">
+                <div class="bg-dark" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/skittles.png" style="width: 50%;">
+                        <p style="font-weight: bold;">Skittles</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$1</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input style="max-width: 100px; text-align: center;" class="form-control"></center>
+                    </div>
+                </div>
+                                <div class="bg-dark" id="nomargin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/coffee.png" style="width: 75%;">
+                        <p style="font-weight: bold;">Coffee</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$3</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input style="max-width: 100px; text-align: center;" class="form-control"></center>
+                    </div>
+                </div>
+                <div class="bg-dark" id="margin">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/smartphone.png" style="width: 49%;">
+                        <p style="font-weight: bold;">Smartphone</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$699</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input style="max-width: 100px; text-align: center;" class="form-control"></center>
+                    </div>
+                </div>
+                <div class="bg-dark" id="margin" style="margin-top: 1em;">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/tesla.png" style="width: 106%;">
+                        <p style="font-weight: bold;">Tesla</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$70000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input style="max-width: 100px; text-align: center;" class="form-control"></center>
+                    </div>
+                </div>
+                <div class="bg-dark" id="nomargin" style="margin-top: 1em;">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/ferrari.png" style="width: 66.5%;">
+                        <p style="font-weight: bold;">Luxury Vehicle</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$200000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input style="max-width: 100px; text-align: center;" class="form-control"></center>
+                    </div>
+                </div>
+                <div class="bg-dark" id="margin" style="margin-top: 1em;">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/helicopter.png" style="width: 88%;">
+                        <p style="font-weight: bold;">Helicopter</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$600000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input style="max-width: 100px; text-align: center;" class="form-control"></center>
+                    </div>
+                </div>
+
+                <br>
+<!--                <div class="bg-dark" id="margin" style="margin-top: 1em;">-->
+<!--                    <div style="margin-top: 1em; margin-bottom: 1em;">-->
+<!--                        <img src="static/tesla.png" style="height: 50%;">-->
+<!--                        <p style="font-weight: bold;">Tesla</p>-->
+<!--                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$70000</p>-->
+<!--                    </div>-->
+<!--                    <div style="margin-top: 1em; margin-bottom: 1em;">-->
+<!--                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input style="max-width: 100px; text-align: center;" class="form-control"></center>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <center>
+                <p style="color: #1a1a1a;">Divider (Dev use)</p>
+                </center>
+                <div class="bg-dark" id="margin" style="margin-top: -1.1em;">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/privatejet.png" style="width: 76%;">
+                        <p style="font-weight: bold;">Private Jet</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$1200000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input style="max-width: 100px; text-align: center;" class="form-control"></center>
+                    </div>
+                </div>
+                <div class="bg-dark" id="nomargin" style="margin-top: -1.1em;">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/jetplane.png" style="width: 74%;">
+                        <p style="font-weight: bold;">Passenger Jet</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$150000000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input style="max-width: 100px; text-align: center;" class="form-control"></center>
+                    </div>
+                </div>
+                <div class="bg-dark" id="margin" style="margin-top: -1.1em;">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/crane.png" style="width: 50%;">
+                        <p style="font-weight: bold;">Crane</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$70000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input style="max-width: 100px; text-align: center;" class="form-control"></center>
+                    </div>
+                </div>
+<center>
+                <p style="color: #1a1a1a;">Divider (Dev use)</p>
+                </center>
+                <div class="bg-dark" id="margin" style="margin-top: -1.1em;">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/designerhandbag.png" style="width: 49%;">
+                        <p style="font-weight: bold;">Designer Bag</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$10000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input style="max-width: 100px; text-align: center;" class="form-control"></center>
+                    </div>
+                </div>
+                <div class="bg-dark" id="nomargin" style="margin-top: -1.1em;">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/jetplane.png" style="width: 74%;">
+                        <p style="font-weight: bold;">Passenger Jet</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$150000000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input style="max-width: 100px; text-align: center;" class="form-control"></center>
+                    </div>
+                </div>
+                <div class="bg-dark" id="margin" style="margin-top: -1.1em;">
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <img src="static/house.png" style="width: 88%;">
+                        <p style="font-weight: bold;">House</p>
+                        <p style="color: limegreen; font-weight: bold; font-size: 19px;">$300000</p>
+                    </div>
+                    <div style="margin-top: 1em; margin-bottom: 1em;">
+                        <button class="btn btn-success" style="float: left; margin-left: 10%;">Buy</button>  <button class="btn btn-danger" style="float: right; margin-right: 10%;">Sell</button> <center><input style="max-width: 100px; text-align: center;" class="form-control"></center>
+                    </div>
+                </div>
+        </div>
+
+        </div>
+
+
+
+<!--                <p> Hey</p>-->
+<center>
+
+<!--<p>hi</p>-->
+</div>
+    </center>
+                </center>
+</center>
+<script>
+    var moneydynamic = 0
+    document.getElementById("JeffBezosNetWorth").innerHTML = moneydynamic;
+
+    function setbezos() {
+        var moneydynamic = 124700000000
+        document.getElementById("JeffBezosNetWorth").innerHTML = moneydynamic;
+    }
+    function setbuffet() {
+        var moneydynamic = 76300000000
+        document.getElementById("JeffBezosNetWorth").innerHTML = moneydynamic;
+    }
+    function setmark() {
+        var moneydynamic = 64900000000
+        document.getElementById("JeffBezosNetWorth").innerHTML = moneydynamic;
+    }
+</script>
+</body>
+
+</html>

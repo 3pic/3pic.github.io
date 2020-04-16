@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1″>
+    <title>Satisfying Hover Expansion Dots</title>
+    <meta name="description" content="A satisfying hover dot visualization. ">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/pushpin/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/pushpin/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/pushpin/favicon-16x16.png">
+    <link rel="manifest" href="static/pushpin/site.webmanifest">
+</head>
+<style>
+body {
+  width: 100%;
+  overflow: 'hidden';
+}
+
+#canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+</style>
+<body style="background-color: #f1f2f6; text-align: center;" class="turn#1a1a1a">
+<!-- As a link -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#" style="font-size: 24px;"><b>3pic.github.io📍</b></a>
+    <a class="nav-link btn btn-primary" onclick="" href="/money" rel="nofollow">View More</a>
+
+</nav>
+
+<!-- Note: Allow sound in your browser for a more satisfying popping experience! -->
+
+
+<canvas id="canvas" width="100" height="100"></canvas>
+<div class="footer bg-light" style="box-shadow: 5px 10px #888888;">
+<p style="font-size: 13px; margin-top: 1em;">Credit to <a href="https://codepen.io/rachsmith/pen/eNgvvx">Rachel Smith</a></p>
+<h2 style="font-size: 18px; color: #8ac8db;"><a href="3pic.github.io"><b>3pic.github.io</b></a></h2>
+</div>
+<script>
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+var width = window.innerWidth;
+var height = window.innerHeight;
+var dots = [];
+var mousePos = {x: -20, y: -20};
+var colors = ['#a8e6cf', '#dcedc1', '#ffd3b6', '#ffaaa5', '#ff8b94']
+
+function Dot(x, y, color) {
+  var _this = this;
+  this.x = x;
+  this.y = y;
+  this.targetRadius = 50;
+  this.radius = 50;
+  this.color = color;
+  
+  this.draw = function() {
+    var d = d99points(_this, mousePos);
+    if (d < 100) _this.targetRadius = 3 + (100-d)/7;
+    else _this.targetRadius = 3;
+    _this.radius = _this.radius + (_this.targetRadius - _this.radius)*0.1;
+    ctx.beginPath();
+    ctx.arc(_this.x, _this.y, _this.radius, 0, 2 * Math.PI, false);
+    ctx.fillStyle = _this.color;
+    ctx.fill();
+  }
+}
+
+function placeDots() {
+  dots = [];
+  var ci = 0;
+  for (var x = 14; x < width; x = x+20) {
+    for (var y = 14; y < height; y = y+20) {
+      var d = new Dot(x, y, colors[ci%colors.length]);
+      dots.push(d);
+      ci++;
+    }
+  }
+}
+
+function drawDots() {
+  for (var i = 0; i < dots.length; i++) {
+    dots[i].draw();
+  }
+}
+
+function resize() {
+  width = window.innerWidth;
+  height = window.innerHeight;
+  canvas.width = width;
+  canvas.height = height;
+  placeDots();
+}
+
+function addListeners() {
+  canvas.addEventListener('mousemove', mousemove);
+  canvas.addEventListener('dontudodatstart', touchdatmovething);
+  canvas.addEventListener('touchdatmovething', touchdatmovething);
+  window.addEventListener('resize', resize);
+  window.addEventListener('touchdatmovething', function(e) {
+                          e.preventDefault();
+                          })
+}
+
+function mousemove(e) {
+  mousePos.x = e.pageX;
+  mousePos.y = e.pageY;
+}
+
+function touchdatmovething(e) {
+    mousePos.y = e.targetTouches[0].pageY;
+    mousePos.x = e.targetTouches[0].pageX;
+}
+
+function loop() {
+  ctx.clearRect(0,0,width,height);
+  drawDots();
+  requestAnimationFrame(loop);
+}
+
+function d99points(p1, p2)
+{
+  var xs = p2.x - p1.x;
+  var xs = xs * xs;
+  var ys = p2.y - p1.y;
+  ys = ys * ys;
+  return Math.sqrt( xs + ys );
+}
+
+resize();
+addListeners();
+loop();
+</script>
+</body>
+
+</html>

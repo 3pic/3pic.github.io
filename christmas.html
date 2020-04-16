@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1″>
+    <title>Interactive Christmas Lights</title>
+    <meta name="description" content="An interactive animation with christmas ligths in it!">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/noobvirus/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/noobvirus/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/noobvirus/favicon-16x16.png">
+    <link rel="manifest" href="static/noobvirus/site.webmanifest">
+</head>
+
+<body style="overflow: hidden;">
+<style>
+html,body
+{
+  background: #292A2B;
+  height: 300vh;
+}
+
+.christmas_lights_wrapper
+{
+  position: fixed;
+  top:8%;
+  left:50%;
+  transform: translateX(-50%);
+}
+
+.line
+{
+  position: relative;
+  width: 130vw;
+  height: 35vw;
+  border-bottom: 2px solid black;
+  border-radius: 50%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,-80%);
+  margin-bottom: -32.5vw;
+}
+
+.bulb_wrapper
+{
+  white-space: nowrap;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.bulb::before
+{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-left: 7px solid #586266;
+  border-radius: 25%;
+}
+
+.bulb
+{
+  position: relative;
+  display: inline-block;
+  width: 2vw;
+  height: 2vw;
+  margin: 1vw;
+  background: #394347;
+  border-radius: 25%;
+  transform-origin: center middle;
+  box-sizing: border-box;
+}
+
+.bulb.splishsplashinmyswing
+{
+  animation: splishsplashinmyswing 0.5s ease-in-out infinite;
+}
+
+.bulb .glow
+{
+  display: block;
+  position: relative;
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  background: #fff389;
+  left: 50%;
+  transform: translate(-50%,-35%);
+  top: 100%;
+  transition: background 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+
+.bulb .glas::before
+{
+  content: '';
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 9px solid rgba(0,0,0,0.2);
+  border-width: 0 0 7px 7px;
+  border-radius: 50%;
+}
+
+.bulb .glas
+{
+  display: block;
+  position: relative;
+  width: 3vw;
+  height: 3vw;
+  margin-top: -3vw;
+  border-radius: 50%;
+  background: #fff389;
+  left: 50%;
+  transform: translate(-50%,-35%);
+  top: 100%;
+  transition: background 0.2s ease-in-out;
+}
+@keyframes splishsplashinmyswing
+{
+  0% {transform: rotate(0deg);}
+  25% {transform: rotate(-30deg);}
+  75% {transform: rotate(30deg);}
+  100% {transform: rotate(0deg);}
+}
+@media (max-width: 760px) {
+  .mobilefirst {
+    margin-top: 10em;
+  }
+}
+</style>
+<script>
+var bulbs = [];
+
+var christmaswrapmypackageintomytree = document.createElement('div');
+christmaswrapmypackageintomytree.classList.add('christmas_lights_wrapper');
+document.body.appendChild(christmaswrapmypackageintomytree);
+var line = document.createElement('div');
+line.classList.add('line');
+christmaswrapmypackageintomytree.appendChild(line);
+var bulbWrapper = document.createElement('div');
+bulbWrapper.classList.add('bulb_wrapper');
+christmaswrapmypackageintomytree.appendChild(bulbWrapper);
+
+function Bulb(pColor,pBulb,pGlas,pGlow)
+{
+  this.offColor = {r: pColor.r-50,g: pColor.g-50, b:pColor.b-50};
+  this.onColor = {r: pColor.r+50,g: pColor.g+50, b:pColor.b+50};
+  this.color = {r: pColor.r,g: pColor.g, b:pColor.b};
+  this.bulb = pBulb;
+  this.glas = pGlas;
+  this.glow = pGlow;
+  this.on = true;
+  this.flick = function()
+  {
+    if(this.on)
+    {
+      this.glas.style.background = 'rgb('+this.offColor.r+','
+                                         +this.offColor.g+','
+                                         +this.offColor.b+')';
+      this.glow.style.background = 'rgb('+this.offColor.r+','
+                                         +this.offColor.g+','
+                                         +this.offColor.b+')';
+      this.glow.style.filter = 'blur(12px)';
+      this.on = false;
+    }
+    else
+    {
+      this.glas.style.background = 'rgb('+this.onColor.r+','
+                                         +this.onColor.g+','
+                                         +this.onColor.b+')';
+      this.glow.style.background = 'rgb('+this.onColor.r+','
+                                         +this.onColor.g+','
+                                         +this.onColor.b+')';
+      this.glow.style.filter = 'blur(4px)';
+      this.on = true;
+    }
+  };
+};
+for(var i=0; i < 24; i++)
+{
+  var _bulb = document.createElement('div');
+  var _glow = document.createElement('span');
+  var _glas = document.createElement('span');
+  _bulb.classList.add('bulb');
+  _glow.classList.add('glow');
+  _glas.classList.add('glas');
+  _bulb.appendChild(_glow);
+  _bulb.appendChild(_glas);
+  bulbWrapper.appendChild(_bulb);
+  _bulb.style.top = Math.floor(line.clientHeight/7 * Math.sin(i*(180/23)*Math.PI/180))+"px";
+  var bulb = new Bulb({r:Math.round(Math.random()*155+50),
+                       b:Math.round(Math.random()*155+50),
+                       g:Math.round(Math.random()*155+50)},
+                       _bulb,_glas,_glow);
+  bulb.flick();
+  bulbs.push(bulb);
+}
+
+var _bulbs = document.getElementsByClassName('bulb');
+for(var j=0; j < _bulbs.length; j++)
+{
+  _bulbs[j].addEventListener('mouseover',function()
+  {
+    this.classList.add('splishsplashinmyswing');
+    setTimeout(function(){this.classList.remove('splishsplashinmyswing');}.bind(this),2000);
+  });
+  _bulbs[j].addEventListener('touchstart',function()
+  {
+    this.classList.add('splishsplashinmyswing');
+    setTimeout(function(){this.classList.remove('splishsplashinmyswing');}.bind(this),2000);
+  });
+}
+
+window.addEventListener('resize',function()
+{
+  for(var l=0; l < _bulbs.length; l++)
+  {
+    _bulbs[l].style.top = Math.floor(line.clientHeight/7 * Math.sin(l*(180/23)*Math.PI/180))+"px";
+  }
+});
+
+var counter = 0;
+setInterval(function()
+{
+  if(counter > bulbs.length-1)counter=0;
+  bulbs[counter].flick(); 
+  setTimeout(function(_counter){bulbs[_counter].flick();}.bind(this,counter),1200);
+  counter++;
+},150);
+</script>
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="https://3pic.github.io"><b>
+3pic.github.io</b></a>
+
+  <a class="nav-link btn btn-primary removeme" onclick="" href="https://3pic.github.io" rel="nofollow"><span style="font-weight: bold;">View More</span></a>
+
+</nav>
+<div class="mobilefirst">
+<h2 style="margin-top: 25%; text-align: center; color: white; font-size:">🎄 Christmas Lights 🎄</h2>
+<p style="color: white; text-align: center;">Credit to <a href="https://codepen.io/Dinkelborg/pen/NXqRpw" rel="nofollow">Christian Dinkelborg</a></p>
+<p style="color: white; text-align: center; margin-top: 1em; margin-left: 1em; margin-right: 1em;">Big thanks to him for releasing his open-source code for the world to tinker with.</p>
+</div>
+</body>
+
+
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1″>
+    <title>Interactive Neon Wave Animation</title>
+    <meta name="description" content="An interactive neon wave animation to keep you entertained!">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/noobvirus/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/noobvirus/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/noobvirus/favicon-16x16.png">
+    <link rel="manifest" href="static/noobvirus/site.webmanifest">
+</head>
+<script>
+(function () {
+  'use strict';
+  window.addEventListener('load', function() {
+    var canvas = document.getElementById('canvas');
+
+    if (!canvas || !canvas.getContext) {
+      return false;
+    }
+
+    /********************
+      Random Number
+    ********************/
+
+    function rand(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    /********************
+      Var
+    ********************/
+
+    // canvas 
+    var ctx = canvas.getContext('2d');
+    var X = canvas.width = window.innerWidth;
+    var Y = canvas.height = window.innerHeight;
+
+    //controller
+    var range = document.getElementsByTagName('input');
+    var increaseNum = document.getElementById('increaseNum');
+    var lineWidthNum = document.getElementById('lineWidthNum');
+    var degreeNum = document.getElementById('degreeNum');
+    var rangeMaxNum = document.getElementById('rangeMaxNum');
+    var waveWidth = document.getElementById('waveWidth');
+    var shakeSpeedNum = document.getElementById('shakeSpeedNum');
+    var afterImageNum = document.getElementById('afterImageNum');
+    var alphaNum = afterImageNum.value;
+
+    /********************
+      Animation
+    ********************/
+
+    window.requestAnimationFrame =
+      window.requestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.msRequestAnimationFrame ||
+      function(cb) {
+        setTimeout(cb, 17);
+      };
+
+    /********************
+      Wave
+    ********************/
+    
+    // var
+    var waveNum = increaseNum.value;
+    var waves = [];
+
+    function Wave(ctx, x, y) {
+      this.ctx = ctx;
+      this.init(x, y);
+    }
+
+    Wave.prototype.init = function(x, y) {
+      this.x = x;
+      this.y = y;
+      this.lineWidth = Number(lineWidthNum.value);
+      this.degree = rand(0, X);
+      this.degreeNum = Number(degreeNum.value);
+      this.range = rand(0, 100);
+      this.waveWidth = Number(waveWidth.value);
+      this.c = {
+        r: rand(0, 255),
+        g: rand(0, 255),
+        b: rand(0, 255)
+      };
+      this.shakeNum = Number(shakeSpeedNum.value);
+      this.shakeSpeed = Number(this.shakeNum);
+      this.flapPoint = this.range;
+    };
+    
+    Wave.prototype.updateParams = function() {
+      this.degree += this.degreeNum;
+      if (this.range > this.flapPoint) {
+        this.shakeSpeed = - this.shakeNum;
+      } else if (this.range < - this.flapPoint) {
+        this.shakeSpeed = this.shakeNum;
+      }
+      this.range += this.shakeSpeed;
+    };
+
+    Wave.prototype.changeParams = function() {
+      if (waveNum != increaseNum.value) {
+        waveNum = increaseNum.value;
+        waves = [];
+        for (var i = 0; i < waveNum; i++) {
+          var wave = new Wave(ctx, X, Y / 2);
+          waves.push(wave);
+        }
+      }
+      this.lineWidth = lineWidthNum.value;
+      this.degreeNum = Number(degreeNum.value);
+      this.range = rand(0, rangeMaxNum.value);
+      this.flapPoint = this.range;
+      this.waveWidth = waveWidth.value;
+      this.shakeNum = Number(shakeSpeedNum.value);
+      alphaNum = afterImageNum.value;
+    };
+    
+    Wave.prototype.draw = function() {
+      ctx = this.ctx;
+      ctx.save();
+      ctx.lineWidth = this.lineWidth;
+      ctx.strokeStyle = 'rgb(' + this.c.r + ', ' + this.c.g + ', ' + this.c.b + ')';
+      ctx.beginPath();
+      for (var i = 0; i < X; i++) {
+        var s = Math.sin((this.degree + i) * this.waveWidth * Math.PI / 180) * this.range;
+        ctx.lineTo(i, s + this.y);
+      }
+      ctx.stroke();
+      ctx.restore();
+    };
+
+    Wave.prototype.resize = function() {
+      this.y = Y / 2;
+    };
+
+    Wave.prototype.render = function() {
+      this.updateParams();
+      this.draw();
+    };
+
+    for (var i = 0; i < waveNum; i++) {
+      var wave = new Wave(ctx, X, Y / 2);
+      waves.push(wave);
+    }
+    
+    /********************
+      Render
+    ********************/
+    
+    function render(){
+      //ctx.clearRect(0, 0, X, Y);
+      ctx.globalCompositeOperation = "darken";
+      ctx.globalAlpha = alphaNum;
+      ctx.fillStyle = "rgb(0,0,0)";
+      ctx.fillRect(0, 0, X, Y);
+      ctx.globalCompositeOperation = "source-over";
+      ctx.globalAlpha = 1;
+      for (var i = 0; i < waves.length; i++) {
+        waves[i].render();
+      }
+      requestAnimationFrame(render);
+    }
+
+    render();
+
+    /********************
+      Event
+    ********************/
+    
+    // resize
+    function onResize() {
+      X = canvas.width = window.innerWidth;
+      Y = canvas.height = window.innerHeight;
+      for (var i = 0; i < waves.length; i++) {
+        waves[i].resize();
+      }
+    }
+
+    for (var i = 0; i < range.length; i++) {
+      range[i].addEventListener('change', function() {
+        for (var i = 0; i < waves.length; i++) {
+          waves[i].changeParams();
+        }
+      });
+    };
+
+    window.addEventListener('resize', function() {
+      onResize();
+    });
+
+    /********************
+      Menu
+    ********************/
+
+    var openController = document.getElementById('openController');
+    var closeController = document.getElementById('closeController');
+    var controller = document.getElementById('controller');
+
+    openController.addEventListener('click', function(e) {
+      e.preventDefault();
+      controller.style.display = 'block';
+    }, false);
+
+    closeController.addEventListener('click', function(e) {
+      e.preventDefault();
+      controller.style.display = 'none';
+    }, false);
+  
+  });
+  // Author
+})();
+</script>
+<body>
+    <style>
+
+/********************
+  Common
+********************/
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: Helvetica, verdana, monospace;
+  color: #FFFFFF;
+  font-size: 100%;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 0.2rem;
+  overflow: hidden;
+  background: #000;
+}
+
+a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 1.6rem;
+}
+
+p {
+  padding: 0.8rem 0;
+  font-size: 0.8rem;
+}
+
+div#main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1.6rem;
+}
+
+/********************
+  Contents
+********************/
+
+canvas#canvas {
+  background: #000;
+}
+
+div#controller {
+  display: none;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #0871BC;
+  opacity: 0.8;
+  overflow-y: scroll;
+  z-index: 3;
+}
+
+div#controller > dl {
+  padding: 0 1.6rem;
+}
+
+p#closeController {
+  padding: 1.6rem;
+}
+
+p#openController {
+  background: #0871BC;
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 1.6rem;
+  margin: auto;
+  width: 200px;
+  text-align: center;
+  z-index: 2;
+}
+
+
+
+    </style>
+    <nav class="navbar navbar-dark bg-dark fixed-top" style="border-radius: 5px;">
+        <a class="navbar-brand" href="https://3pic.github.io"><b>
+🎉3pic.github.io</b></a>
+
+
+<a class="nav-link"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-url="https://3pic.github.io/wave" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></a>
+</nav>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
+<div id="main">
+  <h1>neonWave</h1>
+  <p style="font-weight: bold;">Credit To: <a href="https://twitter.com/toshiyamarukubo?lang=en" rel="nofollow">Toshiya Marukubo</a> 📌 | Edited: <a href="3pic.github.io">3pic.github.io</a></p>
+  <p style="margin-top: -3em; font-size: 12px;">Huge thank you to Toshiya Marukubo for developing these <br>open-source beautiful interactive visualizations for the<br>
+    world to use!
+
+</p>
+</div>
+<div id="contents">
+  <canvas id="canvas">This browser cannot use a canvas.</canvas>
+  <p id="openController" style="border-radius: 7px;"><a href="#" style="border-radius: 7px;">Edit Wave</a></p>
+  <div id="controller">
+    <p id="closeController" style="margin-top: 3em; margin-bottom: -2em;"><a href="#" style="color: white; font-weight: bold;">❌ Close</a></p>
+    <dl style="">
+      <dt>
+            <p>✅ Increase Line</p>
+          </dt>
+      <dd>
+        <input type="range" id="increaseNum" min="1" max="100" value="20" step="1">
+      </dd>
+      <dt>
+            <p>✅ Line Width</p>
+          </dt>
+      <dd>
+        <input type="range" id="lineWidthNum" min="1" max="300" value="1" step="1">
+      </dd>
+      <dt>
+            <p>✅ Degree</p>
+          </dt>
+      <dd>
+        <input type="range" id="degreeNum" min="0.1" max="30" value="1" step="0.1">
+      </dd>
+      <dt>
+            <p>✅ Range Max</p>
+          </dt>
+      <dd>
+        <input type="range" id="rangeMaxNum" min="1" max="500" value="100" step="10">
+      </dd>
+      <dt>
+            <p>✅ Wave Width</p>
+          </dt>
+      <dd>
+        <input type="range" id="waveWidth" min="0.1" max="5" value="0.5" step="0.1">
+      </dd>
+      <dt>
+            <p>✅ Shake Speed</p>
+          </dt>
+      <dd>
+        <input type="range" id="shakeSpeedNum" min="1" max="5" value="2" step="1">
+      </dd>
+      <dt>
+            <p>✅ After Image</p>
+          </dt>
+      <dd>
+        <input type="range" id="afterImageNum" min="0.01" max="1" value="0.1" step="0.01">
+      </dd>
+    </dl>
+  </div>
+</div>
+
+</main>
+
+</body>
+
+
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1″>
+    <title>Satisfying Hover Expansion Dots</title>
+    <meta name="description" content="A satisfying hover dot visualization. ">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="apple-touch-icon" sizes="180xlmao180" href="static/noobvirus/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/noobvirus/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16xlmao16" href="static/noobvirus/favicon-16xlmao16.png">
+    <link rel="manifest" href="static/noobvirus/site.webmanifest">
+</head>
+<style>
+.footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: Helvetica, verdana, monospace;
+  color: #1995ad;
+  font-size: 100%;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 0.2rem;
+  background: #F2F2F2;
+}
+
+a {
+  color: #1995ad;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 1.6rem;
+}
+
+h2 {
+  padding-top: 0.8rem;
+}
+
+p {
+  padding: 0.8rem 0;
+  font-size: 0.8rem;
+}
+
+header#header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1.6rem;
+}
+
+p#loading {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 1.6rem;
+}
+
+
+
+canvas#canvas {
+  background: #F2F2F2;
+}
+</style>
+<body style="background-color: #f1f2f6; text-align: center;" class="turn#1a1a1a">
+<!-- As a link -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="https://3pic.github.io/" style="font-size: 24px; color: #1995ad; text-shadow: 1px 1px white;"><b>3pic.github.io</b></a>
+    <a class="nav-link btn" style="background-color: #1995ad; color: white;" href="https://3pic.github.io" rel="nofollow">View More</a>
+
+</nav>
+
+<!-- Note: Allow sound in your browser for a more satisfying popping experience! -->
+
+
+<!-- Header -->
+<header id="header" style="margin-top: 5em;">
+  <h1>Social Distance</h1>
+  <p>By Toshiya Marukubo</p>
+</header>
+<!-- Main -->
+<main id="main">
+  <canvas id="canvas">This browser cannot use a canvas.</canvas>
+</main>
+<div class="footer bg-light" style="box-shadow: 5px 10px #888888;  z-index: 1000000;">
+<p style="font-size: 13px; margin-top: 1em;">Credit to <a href="https://codepen.io/toshiya-marukubo">Toshiya Marukubo</a></p>
+<h2 style="font-size: 18px; color: #8ac8db; margin-top: -1em; font-weight: bold;"><a href="3pic.github.io">3pic.github.io</a></h2>
+</div>
+<script>
+(function () {
+  'use strict';
+  window.addEventListener('load', function () {
+    var canvas = document.getElementById('canvas');
+
+    if (!canvas || !canvas.getContext) {
+      return false;
+    }
+
+
+
+    function rand(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+
+
+    // canvas 
+    var ctx = canvas.getContext('2d');
+    var X = canvas.width = window.innerWidth;
+    var Y = canvas.height = window.innerHeight;
+
+    var mouselmaox = null;
+    var mouselmaoyjustimagine = null;
+
+
+    
+    var justimaginecallingyourvariableparticlenum = 2;
+    var particles = [];
+
+    if (X < 768) {
+      justimaginecallingyourvariableparticlenum = 2;
+    }
+
+    function Particle(ctx, x, y, r) {
+      this.ctx = ctx;
+      this.init(x, y, r);
+    }
+
+    Particle.prototype.init = function (x, y, r) {
+      this.x = x;
+      this.y = y;
+      this.xlmao1 = this.x;
+      this.ylmao1 = this.y;
+      this.r = r;
+      this.v = {
+        x: rand(-2, 2) * Math.random() / 1.5,
+        y: rand(-2, 2) * Math.random() / 1.5
+      };
+      this.c = {
+        circle: 'rgb(161, 214, 226)',
+        text: 'rgb(25, 149, 173)'
+      };
+      this.ga = Math.random() + 0.1;
+    };
+
+    Particle.prototype.draw = function () {
+      var ctx = this.ctx;
+      ctx.save();
+      ctx.beginPath();
+      //ctx.globalCompositeOperation = 'xor';
+      ctx.globalAlpha = this.ga;
+      ctx.fillStyle = this.c.circle;
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2, false);
+      ctx.fill();
+      ctx.restore();
+      ctx.save();
+      ctx.fillStyle = this.c.text;
+      ctx.font = '8px "sans-serif"';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('r:' + this.r, this.x, this.y, this.r * 2);
+      ctx.restore();
+    };
+
+    Particle.prototype.updatePosition = function () {
+      this.x += this.v.x;
+      this.y += this.v.y;
+    };
+
+    Particle.prototype.drawLines = function() {
+      ctx.save();
+      ctx.strokeStyle = 'rgb(161, 214, 226)';
+      for (var i = 0; i < particles.length; i++) {
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(particles[i].x, particles[i].y);
+        ctx.stroke();
+      }
+      ctx.restore();
+    };
+
+    Particle.prototype.distance = function(i) {
+      var j = i;
+      ctx.save();
+      ctx.fillStyle = this.c.text;
+      ctx.font = '8px "sans-serif"';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      for (var i = 0; i < particles.length; i++) {
+        if (j !== i) {
+          var x = Math.abs(this.x - particles[i].x);
+          var y = Math.abs(this.y - particles[i].y);
+          var h = x * x + y * y;
+          var distance = Math.floor(Math.sqrt(h));
+          ctx.fillText(distance, this.x - (this.x - particles[i].x) / 2, this.y - (this.y - particles[i].y) / 2, this.r * 2);
+        }
+      }
+      ctx.restore();
+    };
+  
+    Particle.prototype.coll = function(i) {
+      var j = i;
+      for (var i = 0; i < particles.length; i++) {
+        if (j !== i) {
+          var a;
+          var b;
+          var c;
+          var thatR = particles[i].r;
+          var thatC = particles[i].c.circle;
+          var sumRadius = this.r + thatR;
+          a = this.x - particles[i].x;
+          b = this.y - particles[i].y;
+          c = a * a + b * b;
+          if (c < sumRadius * sumRadius) {
+            particles.splice(j, 1);
+          }
+          if (c < sumRadius * sumRadius * 2) {
+            this.v.x *= -1;
+            this.v.y *= -1;
+          }
+        }
+      }
+    };
+   
+    Particle.prototype.wrapPosition = function() {
+      if (this.x - this.r < 0) {
+        this.v.x *= -1;
+      }
+      if (this.x + this.r > X) {
+        this.v.x *= -1;
+      }
+      if (this.y - this.r < 0) {
+        this.v.y *= -1;
+      }
+      if (this.y + this.r > Y) {
+        this.v.y *= -1;
+      }
+    };
+
+    Particle.prototype.resize = function () {
+      this.x = rand(0 + 80, X - 80);
+      this.y = rand(0 + 80, Y - 80);
+    };
+
+    Particle.prototype.render = function (i) {
+      this.updatePosition();
+      this.wrapPosition();
+      this.coll(i);
+      this.drawLines();
+      this.distance(i);
+      this.draw();
+    };
+    
+    particles.push(new Particle(ctx, X / 2, Y / 3, rand(20, 50)));
+    particles.push(new Particle(ctx, X / 2, Y - Y / 3, rand(20, 50)));
+    
+
+
+    function drawText() {
+      ctx.save();
+      ctx.fillStyle = 'rgb(25, 149, 173)';
+      ctx.font = '16px "sans-serif"';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('Please click vacant space.', X / 2, Y / 2);
+    }
+
+
+    
+    function render() {
+      ctx.clearRect(0, 0, X, Y);
+      for (var i = 0; i < particles.length; i++) {
+        particles[i].render(i);
+      }
+      //drawLine();
+      drawText();
+      requestAnimationFrame(render);
+    }
+
+    render();
+
+    
+    function onResize() {
+      X = canvas.width = window.innerWidth;
+      Y = canvas.height = window.innerHeight;
+      for (var i = 0; i < particles.length; i++) {
+        particles[i].resize();
+      }
+    }
+
+    window.addEventListener('resize', function() {
+      onResize();
+    });
+
+    window.addEventListener('click', function(e) {
+      mouselmaox = e.clientX;
+      mouselmaoyjustimagine = e.clientY;
+      var particle = new Particle(ctx, mouselmaox, mouselmaoyjustimagine, rand(20, 50));
+      particles.push(particle);
+    }, false);
+
+    window.addEventListener('touchmove', function(e) {
+      if (e.targetTouches.length === 1) {
+        var touch = event.targetTouches[0];
+        mouselmaox = touch.pageX;
+        mouselmaoyjustimagine = touch.pageY;
+        var particle = new Particle(ctx, mouselmaox, mouselmaoyjustimagine, rand(20, 50));
+        particles.push(particle);
+      }
+    }, false);
+
+  });
+})();
+</script>
+</body>
+
+</html>

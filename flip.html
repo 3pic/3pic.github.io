@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1″>
+    <title>Tower Stacker - Tower Blocks</title>
+    <meta name="description" content="A remodeled in CSS version of tower blocks by Steve Gardener and bearror.">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/noobvirus/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/noobvirus/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/noobvirus/favicon-16x16.png">
+    <link rel="manifest" href="static/noobvirus/site.webmanifest">
+</head>
+<script>
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    var canvas = document.getElementById('canvas');
+
+    if (!canvas || !canvas.getContext) {
+      return false;
+    }
+
+    /********************
+      Random Number
+    ********************/
+
+    function rand(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    /********************
+      Var
+    ********************/
+
+    var resetBtn = document.getElementById('resetBtn');
+    var stayBtn = document.getElementById('stayBtn');
+    var stay = false;
+    var countSick = document.getElementById('countSick'); 
+    // canvas 
+    var ctx = canvas.getContext('2d');
+    var X = canvas.width = window.innerWidth;
+    var Y = canvas.height = window.innerHeight;
+    
+    var splitNum = 22;
+
+    if (X < 768) {
+      splitNum = 8;
+    }
+
+    var xSplit = X / splitNum;
+    var ySplit = Y / splitNum;
+    var sick = 1;
+    var healthy = splitNum * splitNum - 1;
+
+    /********************
+      Animation
+    ********************/
+
+    window.requestAnimationFrame =
+      window.requestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.msRequestAnimationFrame ||
+      function(cb) {
+        setTimeout(cb, 17);
+      };
+
+    /********************
+      Circle
+    ********************/
+    
+    // var
+    var rowMax = splitNum;
+    var colMax = splitNum;
+    var circles = [];
+    
+    function Circle(ctx, x, y, c) {
+      this.ctx = ctx;
+      this.init(x, y, c);
+    }
+
+    Circle.prototype.init = function(x, y, c) {
+      this.ctx = ctx;
+      this.x = x;
+      this.y = y;
+      this.x1 = this.x;
+      this.y1 = this.y;
+      this.v = {
+        x: rand(-1, 1),
+        y: rand(-1, 1)
+      };
+      this.c = c;
+      this.r = ySplit / 8;
+    };
+
+    Circle.prototype.draw = function() {
+      var ctx = this.ctx;
+      ctx.beginPath();
+      ctx.fillStyle = this.c;
+      ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
+      ctx.closePath();
+      ctx.fill();
+    };
+
+    Circle.prototype.stayHome = function() {
+      this.v.x = 0;
+      this.v.y = 0;
+    };
+
+    function countSickSick() {
+      for (var i = 0; i < circles.length; i++) {
+        if (circles[i].c == 'rgb(255, 57, 57)') {
+          countSick.textContent = sick;
+          countHealthy.textContent = healthy;
+          sick++;
+          healthy--;
+        }
+      }
+    }
+
+    Circle.prototype.resize = function() {
+      this.x = rand(0, X);
+      this.y = rand(0, Y);
+    };
+
+    Circle.prototype.coll = function(i) {
+      var j = i;
+      for (var i = 0; i < circles.length; i++) {
+        if (j !== i) {
+          var a;
+          var b;
+          var c;
+          var thatR = circles[i].r;
+          var thatC = circles[i].c;
+          var sumRadius = this.r + thatR;
+          a = this.x - circles[i].x;
+          b = this.y - circles[i].y;
+          c = a * a + b * b;
+          if (c < sumRadius * sumRadius) {
+            if (this.c !== thatC) {
+              this.c = 'rgb(255, 57, 57)';
+            }
+            this.v.x *= -1;
+            this.v.y *= -1;
+          }
+        }
+      }
+    };
+    
+    Circle.prototype.updatePosition = function() {
+      this.x += this.v.x;
+      this.y += this.v.y;
+    };
+
+    Circle.prototype.wrapPosition = function() {
+      if (this.x - this.r < 0) {
+        this.v.x *= -1;
+      }
+      if (this.x + this.r > X) {
+        this.v.x *= -1;
+      }
+      if (this.y - this.r < 0) {
+        this.v.y *= -1;
+      }
+      if (this.y + this.r > Y) {
+        this.v.y *= -1;
+      }
+    };
+
+
+    Circle.prototype.render = function(i) {
+      if (stay === true) this.stayHome();
+      this.updatePosition();
+      this.coll(i);
+      this.wrapPosition();
+      this.draw();
+    };
+
+    for (var i = 0; i < colMax; i++) {
+      for (var j = 0; j < rowMax; j++) {
+        var color;
+        i === colMax / 2  && j === rowMax  / 2 ? color = 'rgb(255, 57, 57)' : color = 'rgb(193, 242, 95)';
+        var circle = new Circle(ctx, xSplit * i + xSplit / 2, ySplit * j + ySplit / 2, color);
+        circles.push(circle);
+      }
+    }
+
+    /********************
+      Render
+    ********************/
+    
+    function render(i){
+      ctx.clearRect(0, 0, X, Y);
+      for (var i = 0; i < circles.length; i++) {
+        circles[i].render(i);
+      }
+      countSickSick();
+      sick = 1;
+      healthy = splitNum * splitNum - 1;
+      requestAnimationFrame(render);
+    }
+
+    render();
+
+    /********************
+      Event
+    ********************/
+    
+    // resize
+    function onResize() {
+      X = canvas.width = window.innerWidth;
+      Y = canvas.height = window.innerHeight;
+      for (var i = 0; i < circles.length; i++) {
+        circles[i].resize();
+      }
+    }
+    
+    window.addEventListener('resize', function() {
+      onResize();
+    });
+
+    resetBtn.addEventListener('click', function() {
+      circles = [];
+      stay = false;
+      stayBtn.textContent = 'Social Distance';
+      for (var i = 0; i < colMax; i++) {
+        for (var j = 0; j < rowMax; j++) {
+          var color;
+          i === colMax / 2  && j === rowMax  / 2 ? color = 'rgb(255, 57, 57)' : color = 'rgb(193, 242, 95)';
+          var circle = new Circle(ctx, xSplit * i + xSplit / 2, ySplit * j + ySplit / 2, color);
+          circles.push(circle);
+        }
+      }
+    }, false);
+
+    stayBtn.addEventListener('click', function() {
+      if (stay === true) {
+        stay = false;
+        stayBtn.textContent = 'Social Distance';
+        for (var i = 0; i < circles.length; i++) {
+          circles[i].v.x = rand(-1, 1);
+          circles[i].v.y = rand(-1, 1);
+        }
+      } else {
+        stay = true;
+        stayBtn.textContent = 'Go Out';
+      }
+    }, false);
+
+  }); 
+  // Author
+  console.log('File Name / stayHome.js\nCreated Date / April 12, 2020\nAuthor / Toshiya Marukubo\nTwitter / https://twitter.com/toshiyamarukubo');
+})();
+
+</script>
+<body>
+    <style>
+:root { --x: 0px; --y: 0px; --z: 0px; --ox: 0px; --oy: 0px; }
+
+html, body {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  background-color: #d0cbc7;
+  color: #333344;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  user-select: none;
+}
+
+#onscreenfixed {
+  position: fixed;
+  top: 4em;
+  left: 0.5em;
+  border: 3px solid #333344;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+#score, #instructions, #start { position: absolute; transition: all 0.5s ease; }
+
+#score { top: 25px; opacity: 0; font-size: 10vh; transform: translateY(-100px); }
+#instructions { top: 16vh; opacity: 0; text-align: center; }
+#start { top: 22vh; opacity: 1; border: 3px solid #333344; padding: 10px 20px; font-size: 30px; transform: translateY(0); }
+
+#score.ready { opacity: 1; transform: translateY(0); }
+#instructions.ready { opacity: 1; }
+#start.ready { opacity: 0; transform: translateY(-50px); }
+
+#score.lose { font-size: 15vh; }
+
+#viewport {
+  perspective: none;
+  margin-top: 50px;
+  transform-style: preserve-3d;
+  transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg);
+}
+
+#scene {
+  height: 200px;
+  width: 200px;
+  transform-style: preserve-3d;
+  transition: transform 0.2s;
+}
+
+#base {
+  height: 200px;
+  width: 200px;
+  background-color: #333344;
+  transform: translateZ(-30px);
+}
+
+.block, .chunk, #base {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.block:before, .chunk:before, #base:before, .block:after, .chunk:after, #base:after {
+  content: '';
+  position: absolute;
+  background-color: inherit;
+  filter: brightness(75%);
+}
+
+.block:before, .chunk:before, #base:before {
+  right: 0;
+  width: 30px;
+  height: 100%;
+  transform: rotateX(-90deg) translate3D(calc(100% - 15px), 15px, 0) rotateX(90deg) rotateY(90deg);
+}
+
+.block:after, .chunk:after, #base:after {
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  transform: rotateY(-90deg) translate3D(-15px, calc(100% - 15px), 0) rotateY(90deg) rotateX(90deg);
+}
+
+.block:last-child:nth-child(even) { animation: 6s ease-in-out 0s infinite none running slide-y; }
+.block:last-child:nth-child(odd) { animation: 6s ease-in-out 0s infinite none running slide-x; }
+.fall-y { animation: 1s ease-in 0s fall-y; }
+.fall-x { animation: 1s ease-in 0s fall-x; }
+
+@keyframes slide-x {
+  0% { transform: translate3D(-220px, var(--y), var(--z)); }
+  50% { transform: translate3D(220px, var(--y), var(--z)); }
+  100% { transform: translate3D(-220px, var(--y), var(--z)); }
+}
+@keyframes slide-y {
+  0% { transform: translate3D(var(--x), -220px, var(--z)); }
+  50% { transform: translate3D(var(--x), 220px, var(--z)); }
+  100% { transform: translate3D(var(--x), -220px, var(--z)); }
+}
+
+@keyframes fall-x {
+  from {
+    transform: translate3D(var(--ox), var(--oy), calc(var(--z) - 30px));
+  } to {
+    transform: translate3D(var(--ox), var(--oy), calc(var(--z) - 120px)) rotateY(60deg);
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+@keyframes fall-y {
+  from {
+    transform: translate3D(var(--ox), var(--oy), calc(var(--z) - 30px));
+  } to {
+    transform: translate3D(var(--ox), var(--oy), calc(var(--z) - 120px)) rotateX(-60deg);
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+.block.disappear { width: 0 !important; height: 0 !important; transition: all 0.2s; }
+
+/* bearror logo ✖ᴥ✖ */
+svg { position: fixed; bottom: 10px; right: 10px; fill: #888; opacity: 0.2; }
+
+
+.footer {
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+  position: fixed;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+</style>
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="https://3pic.github.io"><b>
+3pic.github.io</b></a>
+
+
+  <!-- <a class="nav-link btn btn-danger removeme" onclick="" href="https://3pic.github.io" rel="nofollow"><span style="font-weight: bold;">View More</span></a> -->
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button nav-link" data-size="large" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</nav>
+
+<div id="score" style="margin-top: 1.5em;">0</div>
+<p id="onscreenfixed" style="font-size: 15px;">Credit to Steve Gardener & bearror<br><a href="https://3pic.github.io/" style="font-size: 15px; font-weight: bold;">3pic.github.io</a></p>
+<div id="instructions" style="margin-top: 0.5em;">Click or press the spacebar to place the block</div>
+<div id="start">👉 Start<br></div>
+<div id="viewport">
+  <div id="scene">
+    <div id="base"></div>
+    <div id="blocks"></div>
+  </div>
+</div>
+<!-- <div class="footer bg-dark" style="color: white;">
+  <p style="margin-top: 0.5em;">Credits to Steve Gardener & bearror | <a href="https://3pic.github.io" style="font-size: 18px; font-weight: bold;">3pic.github.io</a></p>
+  <p><a href="https://3pic.github.io" style="font-weight: bold; font-size: 18px; margin-bottom:"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+</div> -->
+
+<!-- #333344; -->
+<script>
+  const STATE = { flag: 'ready', blocks: [], height: 200, width: 200, x: 0, y: 0 }
+
+const SCENE = document.getElementById('scene')
+const BLOCKS = document.getElementById('blocks')
+const SCORE = document.getElementById('score')
+const START = document.getElementById('start')
+const INSTRUCTIONS = document.getElementById('instructions')
+
+const getDepth = index => index * 30
+const setCSS = (name, value) => document.documentElement.style.setProperty(name, value)
+
+// gets either the x or the y translation of `element` based on `x`
+function getTranslateValue (element, x) {
+  const transform = window.getComputedStyle(element).getPropertyValue('transform')
+  let match = transform.match(/^matrix3d\((.+)\)$/)
+  
+  if (match) return parseFloat(match[1].split(', ')[x ? 12 : 13])
+  match = transform.match(/^matrix\((.+)\)$/)
+
+  return match ? parseFloat(match[1].split(', ')[x ? 4 : 5]) : 0
+}
+
+// creates a generic block element of `type` at `index`
+function create (type, index, height, width) {
+  const element = document.createElement('div')
+
+  element.className = type
+  element.style.height = `${height}px`
+  element.style.width = `${width}px`
+  element.style.backgroundColor = `rgb(${
+    Math.floor(Math.sin(0.3 * index) * 55 + 200)}, ${
+    Math.floor(Math.sin(0.3 * index + 2) * 55 + 200)}, ${
+    Math.floor(Math.sin(0.3 * index + 4) * 55 + 200)})`
+
+  return element
+}
+
+// renders a temporary chunk
+function renderChunk (index, height, width) {
+  const chunk = create('chunk', index, height, width)
+
+  chunk.classList.add(index % 2 === 0 ? 'fall-x' : 'fall-y')
+  chunk.addEventListener('animationend', () => chunk.remove())
+  SCENE.appendChild(chunk)
+}
+
+// renders the scene where `index` is the last block
+function renderScene (index) {
+  if (index === STATE.blocks.length - 1) BLOCKS.appendChild(STATE.blocks[index])
+  STATE.blocks.forEach((block, id) => (id > index) ? block.remove() : null)
+  SCENE.style.transform = `translateZ(${getDepth(-index)}px)`
+  SCORE.textContent = index
+  setCSS('--z', `${getDepth(index)}px`)
+}
+
+// attempts to place a block at the current position -- returns true / false
+// (being a little cute here just to reuse the same function for both axes)
+function placeBlock (index) {
+  const even = index % 2 === 0
+  const [size, pos, posPerp, cssPos, cssOffset, cssOffsetPerp] = even
+    ? ['width', 'x', 'y', '--x', '--ox', '--oy']
+    : ['height', 'y', 'x', '--y', '--oy', '--ox']
+  const block = STATE.blocks[index]
+  const offset = getTranslateValue(block, even)
+  const delta = Math.abs(STATE[pos] - offset)
+  const less = offset < STATE[pos]
+  
+  if ((STATE[size] -= delta) <= 1) return false // failed to place the block
+  STATE[pos] = less ? offset + delta : offset
+  setCSS(cssPos, `${less ? STATE[pos] : offset}px`)
+  setCSS(cssOffset, `${less ? offset : offset + STATE[size]}px`)
+  setCSS(cssOffsetPerp, `${STATE[posPerp]}px`)
+  renderChunk(index, even ? STATE.height : delta, even ? delta : STATE.width)
+
+  block.style.width = `${STATE.width}px`
+  block.style.height = `${STATE.height}px`
+  block.style.animation = 'none'
+  block.style.transform = `translate3D(${STATE.x}px, ${STATE.y}px, ${getDepth(index)}px)`
+
+  return true
+}
+
+function ready () {
+  STATE.flag = 'play'
+  START.classList.add('ready')
+  SCORE.classList.add('ready')
+  INSTRUCTIONS.classList.add('ready')
+}
+
+function init () {
+  ['--x', '--y', '--z', '--ox', '--oy'].forEach(css => setCSS(css, '0px'))
+  Object.assign(STATE, { flag: 'play', height: 200, width: 200, x: 0, y: 0 })
+}
+
+// recursively clears all blocks and initializes the game afterwards
+function reset () {
+  const block = STATE.blocks.pop()
+  
+  STATE.flag = 'reset'
+  SCORE.classList.remove('lose')
+  block.classList.add('disappear')
+  block.addEventListener('transitionend', () => block.remove())
+  renderScene(STATE.blocks.length)
+
+  if (STATE.blocks.length > 0) return setTimeout(reset, 75)
+  return setTimeout(init, 250)
+}
+
+function lose () {
+  STATE.flag = 'lose'
+  SCORE.classList.add('lose')
+  INSTRUCTIONS.classList.remove('ready')
+  BLOCKS.lastChild.remove()
+}
+
+function performInput () {
+  const index = STATE.blocks.length
+
+  if (STATE.flag === 'ready') ready()
+  if (STATE.flag === 'reset') return
+  if (STATE.flag === 'lose') return reset()
+  if (index > 0 && !placeBlock(index - 1)) return lose()
+  if (index > 3) INSTRUCTIONS.classList.remove('ready')
+
+  STATE.blocks.push(create('block', index, STATE.height, STATE.width))
+  renderScene(index)
+}
+  
+window.addEventListener('click', performInput)
+window.addEventListener('keydown', e => (e.key === ' ') ? performInput() : null)
+
+</script>
+</body>
+
+
+</html>
