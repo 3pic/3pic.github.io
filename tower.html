@@ -298,9 +298,9 @@ html, body {
 #instructions { top: 16vh; opacity: 0; text-align: center; }
 #start { top: 22vh; opacity: 1; border: 3px solid #333344; padding: 10px 20px; font-size: 30px; transform: translateY(0); }
 
-#score.ready { opacity: 1; transform: translateY(0); }
-#instructions.ready { opacity: 1; }
-#start.ready { opacity: 0; transform: translateY(-50px); }
+#score.fortreadyup { opacity: 1; transform: translateY(0); }
+#instructions.fortreadyup { opacity: 1; }
+#start.fortreadyup { opacity: 0; transform: translateY(-50px); }
 
 #score.lose { font-size: 15vh; }
 
@@ -407,9 +407,9 @@ svg { position: fixed; bottom: 10px; right: 10px; fill: #888; opacity: 0.2; }
   <!-- <a class="nav-link btn btn-danger removeme" onclick="" href="https://3pic.github.io" rel="nofollow"><span style="font-weight: bold;">View More</span></a> -->
 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button nav-link" data-size="large" data-url="https://3pic.github.io/tower" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </nav>
-
+<!-- Credit to Steve Gardener & bearror -->
 <div id="score" style="margin-top: 1.5em;">0</div>
-<p id="onscreenfixed" style="font-size: 15px;"><b>Tower Stacker</b>: Credit to Steve Gardener & bearror<br><a href="https://3pic.github.io/" style="font-size: 15px; font-weight: bold;">3pic.github.io</a></p>
+<p id="onscreenfixed" style="font-size: 15px;"><b>Tower Stacker</b>: 3D Satisfying Towers<br><a href="https://3pic.github.io/" style="font-size: 15px; font-weight: bold;">3pic.github.io</a></p>
 <div id="instructions" style="margin-top: 0.5em;">Click or press the spacebar to place the block</div>
 <div id="start">👉 Start<br></div>
 <div id="viewport">
@@ -425,7 +425,7 @@ svg { position: fixed; bottom: 10px; right: 10px; fill: #888; opacity: 0.2; }
 
 <!-- #333344; -->
 <script>
-  const STATE = { flag: 'ready', blocks: [], height: 200, width: 200, x: 0, y: 0 }
+  const STATE = { flag: 'fortreadyup', blocks: [], height: 200, width: 200, x: 0, y: 0 }
 
 const SCENE = document.getElementById('scene')
 const BLOCKS = document.getElementById('blocks')
@@ -507,11 +507,11 @@ function snicksnack (index) {
   return true
 }
 
-function ready () {
+function fortreadyup () {
   STATE.flag = 'play'
-  START.classList.add('ready')
-  SCORE.classList.add('ready')
-  INSTRUCTIONS.classList.add('ready')
+  START.classList.add('fortreadyup')
+  SCORE.classList.add('fortreadyup')
+  INSTRUCTIONS.classList.add('fortreadyup')
 }
 
 function init () {
@@ -536,18 +536,18 @@ function reset () {
 function lose () {
   STATE.flag = 'lose'
   SCORE.classList.add('lose')
-  INSTRUCTIONS.classList.remove('ready')
+  INSTRUCTIONS.classList.remove('fortreadyup')
   BLOCKS.lastChild.remove()
 }
 
 function inputthing () {
   const index = STATE.blocks.length
 
-  if (STATE.flag === 'ready') ready()
+  if (STATE.flag === 'fortreadyup') fortreadyup()
   if (STATE.flag === 'reset') return
   if (STATE.flag === 'lose') return reset()
   if (index > 0 && !snicksnack(index - 1)) return lose()
-  if (index > 3) INSTRUCTIONS.classList.remove('ready')
+  if (index > 3) INSTRUCTIONS.classList.remove('fortreadyup')
 
   STATE.blocks.push(create('block', index, STATE.height, STATE.width))
   renderScene(index)
