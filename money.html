@@ -136,7 +136,7 @@
             font-size: 12.2px;
         }
         .spendmoney {
-            font-size: 25px;
+            font-size: 23px;
             font-weight: bold;
         }
     }
@@ -665,6 +665,7 @@
         document.getElementById("NuclearPowerPlant").value * 0
         document.getElementById("CoalPowerPlant").value = 0
         document.getElementById("CruiseShip").value = 0
+        document.getElementById("Helicopter").value = 0
     }
     function setbuffet() {
         moneydynamic = 76300000000
@@ -709,6 +710,7 @@
         document.getElementById("NuclearPowerPlant").value * 0
         document.getElementById("CoalPowerPlant").value = 0
         document.getElementById("CruiseShip").value = 0
+        document.getElementById("Helicopter").value = 0       
     }
     function setmark() {
         moneydynamic = 64900000000
@@ -752,7 +754,8 @@
         document.getElementById("Skyscraper").value = 0
         document.getElementById("NuclearPowerPlant").value * 0
         document.getElementById("CoalPowerPlant").value = 0
-        document.getElementById("CruiseShip").value = 0  
+        document.getElementById("CruiseShip").value = 0
+        document.getElementById("Helicopter").value = 0         
     }
     function trump() {
         moneydynamic = 2400000000
@@ -797,6 +800,7 @@
         document.getElementById("NuclearPowerPlant").value * 0
         document.getElementById("CoalPowerPlant").value = 0
         document.getElementById("CruiseShip").value = 0
+        document.getElementById("Helicopter").value = 0        
     }
     function bloomberg() {
         moneydynamic = 53400000000
@@ -841,7 +845,7 @@
         document.getElementById("NuclearPowerPlant").value * 0
         document.getElementById("CoalPowerPlant").value = 0
         document.getElementById("CruiseShip").value = 0
-
+        document.getElementById("Helicopter").value = 0
     }
     function federal() {
         moneydynamic = 3800000000000
@@ -881,6 +885,7 @@
         document.getElementById("NuclearPowerPlant").value * 0
         document.getElementById("CoalPowerPlant").value = 0
         document.getElementById("CruiseShip").value = 0
+        document.getElementById("Helicopter").value = 0
     }
     function buytoyotasienna(spanid) {
         var currentvaluecamry = parseInt(document.getElementById(spanid).value) + 1;
@@ -895,7 +900,7 @@
         smartphone = document.getElementById("Smartphone").value * 699
         tesla = document.getElementById("Tesla").value * 70000
         luxuryvehicle = document.getElementById("LuxuryVehicle").value * 200000
-        collegeeducation = document.getElementById("CollegeEducation").value * 600000
+        collegeeducation = document.getElementById("CollegeEducation").value * 100000
         largemeal = document.getElementById("LargeMeal").value * 10
         privatejet = document.getElementById("PrivateJet").value * 1200000
         passengerjet = document.getElementById("PassengerJet").value * 150000000
@@ -914,12 +919,13 @@
         endhomelessness = document.getElementById("EndHomelessness").value * 20000000000
         tiger = document.getElementById("Tiger").value * 100000
         everythingonamazon = document.getElementById("EverythingonAmazon").value * 12800000000
+        helicopter = document.getElementById("Helicopter").value * 600000
         skyscraper = document.getElementById("Skyscraper").value * 3800000000
         nuclearpowerplant = document.getElementById("NuclearPowerPlant").value * 800000000
         coalpowerplant = document.getElementById("CoalPowerPlant").value * 2000000000
         cruiseship = document.getElementById("CruiseShip").value * 600000000
 
-        moneydynamic2 = toyotasienna + toyotacamry + grill + skittles + coffee + smartphone + tesla + luxuryvehicle + collegeeducation + largemeal + privatejet + passengerjet + crane + designerbag + mansion + house + f35jet + policecruiser + falcon9rocket + mcdonaldsfranchise + pizzahut + surgery + hotelnight + endoworldhunger + endhomelessness + tiger + everythingonamazon + nuclearpowerplant + coalpowerplant + cruiseship + skyscraper
+        moneydynamic2 = toyotasienna + toyotacamry + grill + skittles + coffee + smartphone + tesla + luxuryvehicle + collegeeducation + largemeal + privatejet + passengerjet + crane + designerbag + mansion + house + f35jet + policecruiser + falcon9rocket + mcdonaldsfranchise + pizzahut + surgery + hotelnight + endoworldhunger + endhomelessness + tiger + everythingonamazon + nuclearpowerplant + coalpowerplant + cruiseship + skyscraper + helicopter
         // Money Dynamic2 will be all of the variables added together awaiting to be subtracted from moneydynamic
         // var sum2 = parseInt(currentvaluecamry);
         // sum2 += 1;
@@ -952,13 +958,14 @@
         document.getElementById(spanid).value = currentvaluecamry
         toyotasienna = document.getElementById("ToyotaSienna").value * 31640
         toyotacamry = document.getElementById("ToyotaCamry").value * 24425
+        helicopter = document.getElementById("Helicopter").value * 600000
         grill = document.getElementById("Grill").value * 299
         skittles = document.getElementById("Skittles").value * 1
         coffee = document.getElementById("Coffee").value * 3
         smartphone = document.getElementById("Smartphone").value * 699
         tesla = document.getElementById("Tesla").value * 70000
         luxuryvehicle = document.getElementById("LuxuryVehicle").value * 200000
-        collegeeducation = document.getElementById("CollegeEducation").value * 600000
+        collegeeducation = document.getElementById("CollegeEducation").value * 100000
         largemeal = document.getElementById("LargeMeal").value * 10
         privatejet = document.getElementById("PrivateJet").value * 1200000
         passengerjet = document.getElementById("PassengerJet").value * 150000000
@@ -981,8 +988,9 @@
         nuclearpowerplant = document.getElementById("NuclearPowerPlant").value * 800000000
         coalpowerplant = document.getElementById("CoalPowerPlant").value * 2000000000
         cruiseship = document.getElementById("CruiseShip").value * 600000000
+        helicopter = document.getElementById("Helicopter").value * 600000
 
-        moneydynamic2 = toyotasienna + toyotacamry + grill + skittles + coffee + smartphone + tesla + luxuryvehicle + collegeeducation + largemeal + privatejet + passengerjet + crane + designerbag + mansion + house + f35jet + policecruiser + falcon9rocket + mcdonaldsfranchise + pizzahut + surgery + hotelnight + endoworldhunger + endhomelessness + tiger + everythingonamazon + nuclearpowerplant + coalpowerplant + cruiseship + skyscraper
+        moneydynamic2 = toyotasienna + toyotacamry + grill + skittles + coffee + smartphone + tesla + luxuryvehicle + collegeeducation + largemeal + privatejet + passengerjet + crane + designerbag + mansion + house + f35jet + policecruiser + falcon9rocket + mcdonaldsfranchise + pizzahut + surgery + hotelnight + endoworldhunger + endhomelessness + tiger + everythingonamazon + nuclearpowerplant + coalpowerplant + cruiseship + skyscraper + helicopter
         // Money Dynamic2 will be all of the variables added together awaiting to be subtracted from moneydynamic
         // var sum2 = parseInt(currentvaluecamry);
         // sum2 += 1;
