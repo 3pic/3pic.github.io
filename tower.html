@@ -291,7 +291,12 @@ html, body {
   border: 3px solid #333344;
   padding: 0.5em 0.5em 0.5em 0.5em;
 }
-
+@media (max-width: 760px) {
+  #onscreenfixed {
+    position: fixed;
+    display: none;
+  }
+}
 #score, #instructions, #start { position: absolute; transition: all 0.5s ease; }
 
 #score { top: 25px; opacity: 0; font-size: 10vh; transform: translateY(-100px); }
