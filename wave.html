@@ -307,7 +307,12 @@ p#openController {
   text-align: center;
   z-index: 2;
 }
-
+@media (max-width: 760px) {
+  .mobileonlytext {
+    position: fixed;
+    display: none;
+  }
+}
 
 
     </style>
@@ -323,7 +328,7 @@ p#openController {
 <div id="main">
   <h1>neonWave</h1>
   <p style="font-weight: bold;">Credit To: <a href="https://twitter.com/toshiyamarukubo?lang=en" rel="nofollow">Toshiya Marukubo</a> 📌 | Edited: <a href="3pic.github.io">3pic.github.io</a></p>
-  <p style="margin-top: -3em; font-size: 12px;">Huge thank you to Toshiya Marukubo for developing these <br>open-source beautiful interactive visualizations for the<br>
+  <p style="margin-top: -3em; font-size: 12px;" class="mobileonlytext">Huge thank you to Toshiya Marukubo for developing these <br>open-source beautiful interactive visualizations for the<br>
     world to use!
 
 </p>
