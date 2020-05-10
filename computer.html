@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1″>
+    <title>Interactive Keyboard with Color On Click</title>
+    <meta name="description" content="An interactive multi colored keyboard animation">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/noobvirus/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/noobvirus/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/noobvirus/favicon-16x16.png">
+    <link rel="manifest" href="static/noobvirus/site.webmanifest">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153516768-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-153516768-3');
+</script>
+</head>
+
+<body>
+<style>
+:root {
+  --fan-color-1: hsla(217, 100%, 50%, 100%);
+  --fan-color-2: hsla(342, 100%, 50%, 100%);
+  --fan-color-3: hsla(153, 100%, 50%, 100%);
+  --fan-color-4: hsla(190, 100%, 50%, 100%);
+  --fan-color-5: hsla(332, 100%, 50%, 100%);
+  --fan-color-6: rgb(255, 255, 0);
+  --tower-4: #202020;
+  --tower-3: #404040;
+  --tower-2: #606060;
+  --tower-1: #808080;
+}
+
+body {
+  background: #333333;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  margin: 0;
+}
+
+.tower-frame {
+  height: 12em;
+  perspective: 750px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateY(43deg) translate(-50%, -49%);
+  width: 10em;
+}
+
+.tower-face {
+  background: var(--tower-2);
+  height: inherit;
+  position: absolute;
+  width: inherit;
+}
+
+.button-wrapper {
+  align-items: center;
+  background: #82828d;
+  border-radius: 50%;
+  box-shadow: inset 0px 1px 1px #82828d, 0px 1px 3px rgba(0, 0, 0, 0.5);
+  display: flex;
+  height: 23px;
+  justify-content: center;
+  margin-bottom: 1em;
+  width: 32px;
+}
+
+.button {
+  background: var(--tower-1);
+  border-radius: 50%;
+  border: 2px solid var(--tower-4);
+  box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 1),
+    0px 1px 3px rgba(0, 0, 0, 0.5);
+  height: 13px;
+  width: 18px;
+}
+
+.button:active {
+  width: 15px;
+  height: 11px;
+}
+
+.tower-front {
+  align-items: flex-end;
+  display: flex;
+  justify-content: center;
+  transform: rotateY(5deg) translateZ(9.98em);
+}
+
+.tower-back {
+  transform: rotateY(5deg);
+}
+
+.tower-left {
+  background: var(--tower-3);
+  transform: rotateY(-85deg) translate3d(5em, 0, 5em);
+  mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MCA2MCI+CiAgPGRlZnM+CiAgICA8cGF0dGVybiBpZD0iYSIgd2lkdGg9IjIiIGhlaWdodD0iMiIgeD0iMSIgeT0iMSIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxjaXJjbGUgY3g9IjEiIGN5PSIxIiByPSIuNSIvPgogICAgPC9wYXR0ZXJuPgogICAgPG1hc2sgaWQ9ImIiPgogICAgICA8cGF0aCBmaWxsPSIjZmZmIiBkPSJNMCAwaDYwdjYwSDB6Ii8+CiAgICAgIDxwYXRoIGZpbGw9InVybCgjYSkiIGQ9Ik05IDloMzB2NDJIOXoiLz4KICAgIDwvbWFzaz4KICA8L2RlZnM+CiAgPHBhdGggZD0iTTAgMGg1MHY2MEgweiIgbWFzaz0idXJsKCNiKSIvPgo8L3N2Zz4K#holes-mask");
+  -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MCA2MCI+CiAgPGRlZnM+CiAgICA8cGF0dGVybiBpZD0iYSIgd2lkdGg9IjIiIGhlaWdodD0iMiIgeD0iMSIgeT0iMSIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxjaXJjbGUgY3g9IjEiIGN5PSIxIiByPSIuNSIvPgogICAgPC9wYXR0ZXJuPgogICAgPG1hc2sgaWQ9ImIiPgogICAgICA8cGF0aCBmaWxsPSIjZmZmIiBkPSJNMCAwaDYwdjYwSDB6Ii8+CiAgICAgIDxwYXRoIGZpbGw9InVybCgjYSkiIGQ9Ik05IDloMzB2NDJIOXoiLz4KICAgIDwvbWFzaz4KICA8L2RlZnM+CiAgPHBhdGggZD0iTTAgMGg1MHY2MEgweiIgbWFzaz0idXJsKCNiKSIvPgo8L3N2Zz4K#holes-mask");
+  mask-position: center center;
+  -webkit-mask-positon: center center;
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+}
+
+.tower-right {
+  transform: rotateY(95deg) translate3d(-5em, 0, 5em);
+}
+
+.tower-top {
+  background: var(--tower-1);
+  height: 10em;
+  transform: rotateX(90deg) rotateZ(-5deg) translate3d(0, 5em, 5em);
+  width: 10em;
+}
+
+.tower-bottom {
+  box-shadow: -12px -12px 15px -5px #202020;
+  height: 10em;
+  transform: rotateX(-90deg) rotateZ(5deg) translate3d(0, -5em, 7em);
+  width: 10em;
+}
+
+.pad-1,
+.pad-2,
+.pad-3 {
+  background: #3e4449;
+  border-radius: 50%;
+  height: 0.7em;
+  position: absolute;
+  width: 1em;
+}
+
+.pad-1 {
+  left: 0.7em;
+  top: 24em;
+}
+
+.pad-2 {
+  left: 12.5em;
+  top: 28.6em;
+}
+
+.pad-3 {
+  left: 22em;
+  top: 28.2em;
+}
+
+/* FAN COOLER */
+
+.fan-frame {
+  height: 8em;
+  perspective: 750px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translate3d(4em, 13em, 2.6em);
+  width: 2em;
+}
+
+.fan-face {
+  background: rgb(56, 56, 56);
+  height: inherit;
+  position: absolute;
+  width: inherit;
+}
+
+.fan-front {
+  transform: rotateY(5deg) translate3d(0, 0, 5.2em);
+}
+
+.fan-left {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  transform: rotateY(-85deg) translate3d(1em, 0, 4em);
+  width: 8em;
+}
+
+.fan-top {
+  transform: rotateX(90deg) translate3d(0em, 1.2em, 4em);
+}
+
+.wrapper {
+  border-radius: 10em;
+  height: 6em;
+  width: 6em;
+}
+
+@keyframes lights {
+  0% {
+    box-shadow: -8px 3px 10px var(--fan-color-1),
+      3px -8px 10px var(--fan-color-1), 3px 3px 20px var(--fan-color-1),
+      0 0 25px var(--fan-color-1) inset, 0 0 45px var(--fan-color-1) inset,
+      -8px -8px 15px var(--fan-color-1), 0 0 25px var(--fan-color-1);
+  }
+  20% {
+    box-shadow: -8px 3px 10px var(--fan-color-2),
+      3px -8px 10px var(--fan-color-2), 3px 3px 20px var(--fan-color-2),
+      0 0 25px var(--fan-color-2) inset, 0 0 45px var(--fan-color-2) inset,
+      -8px -8px 15px var(--fan-color-2), 0 0 25px var(--fan-color-2);
+  }
+  40% {
+    box-shadow: -8px 3px 10px var(--fan-color-3),
+      3px -8px 10px var(--fan-color-3), 3px 3px 20px var(--fan-color-3),
+      0 0 25px var(--fan-color-3) inset, 0 0 45px var(--fan-color-3) inset,
+      -8px -8px 15px var(--fan-color-3), 0 0 25px var(--fan-color-3);
+  }
+  60% {
+    box-shadow: -8px 3px 10px var(--fan-color-4),
+      3px -8px 10px var(--fan-color-4), 3px 3px 20px var(--fan-color-4),
+      0 0 25px var(--fan-color-4) inset, 0 0 45px var(--fan-color-4) inset,
+      -8px -8px 15px var(--fan-color-4), 0 0 25px var(--fan-color-4);
+  }
+  80% {
+    box-shadow: -8px 3px 10px var(--fan-color-5),
+      3px -8px 10px var(--fan-color-5), 3px 3px 20px var(--fan-color-5),
+      0 0 25px var(--fan-color-5) inset, 0 0 45px var(--fan-color-5) inset,
+      -8px -8px 15px var(--fan-color-5), 0 0 25px var(--fan-color-5);
+  }
+  100% {
+    box-shadow: -8px 3px 10px var(--fan-color-6),
+      3px -8px 10px var(--fan-color-6), 3px 3px 20px var(--fan-color-6),
+      0 0 25px var(--fan-color-6) inset, 0 0 45px var(--fan-color-6) inset,
+      -8px -8px 15px var(--fan-color-6), 0 0 25px var(--fan-color-6);
+  }
+}
+
+.blades {
+  border-radius: 10em;
+  height: 6em;
+  position: absolute;
+  width: 6em;
+}
+
+.blade-1,
+.blade-2,
+.blade-3,
+.blade-4 {
+  height: 2em;
+  width: 2em;
+  position: absolute;
+  border-radius: 0 50% 100%;
+  box-shadow: 0 0 10px rgba(13, 13, 13, 0.9);
+  background: rgba(13, 13, 13, 0.8);
+}
+
+.blade-1 {
+  left: 2em;
+  top: 4em;
+  transform: rotate(45deg);
+}
+
+.blade-2 {
+  left: 0.4em;
+  top: 2em;
+  transform: rotate(150deg);
+}
+
+.blade-3 {
+  left: 2.3em;
+  top: 0.5em;
+  transform: rotate(230deg);
+}
+
+.blade-4 {
+  left: 3.9em;
+  top: 2.4em;
+  transform: rotate(320deg);
+}
+
+.bearing {
+  background: black;
+  border-radius: 50%;
+  height: 1.5em;
+  position: absolute;
+  right: 3.2em;
+  top: 3.5em;
+  width: 1.5em;
+}
+
+/* HARD DRIVE */
+
+.drive-frame {
+  height: 4em;
+  perspective: 750px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translate3d(4em, 12em, 2.6em);
+  width: 2em;
+}
+
+.drive-face {
+  background: #d9d9d9;
+  height: inherit;
+  position: absolute;
+  width: inherit;
+}
+
+.drive-front {
+  transform: rotateY(5deg) translate3d(0, 0, 5.2em);
+}
+
+.drive-left {
+  border-left: 5px solid black;
+  display: flex;
+  transform: rotateY(-85deg) translate3d(1em, 0, 4em);
+  width: 8em;
+}
+
+.drive-bottom {
+  transform: rotateX(-90deg) translate3d(0em, -1em, 4em);
+}
+
+input {
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+}
+
+label {
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked ~ .wrapper {
+  animation: lights 5s infinite linear;
+}
+
+input[type="checkbox"]:checked ~ .wrapper .blades {
+  animation: spinBlades 150ms infinite linear;
+}
+
+@keyframes spinBlades {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+input[type="checkbox"]:not(:checked) ~ .wrapper .blades {
+  animation: turnOffBlades 750ms ease-out;
+}
+
+@keyframes turnOffBlades {
+  0% {
+    transform: rotate(720deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+
+
+Resources1×0.5×0.25×Rerun
+
+</style>
+    <nav class="navbar navbar-dark bg-dark fixed-top" style="border-radius: 5px;">
+        <a class="navbar-brand" href="https://3pic.github.io"><b>
+3Pic.GitHub.io &trade;</b></a>
+
+
+<a class="nav-link"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-url="https://3pic.github.io/wave" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></a>
+</nav>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
+<div class="tower-frame" style="margin-top: 10%;">
+  <div class="fan-frame">
+    <div class="fan-face fan-front"></div>
+    <div class="fan-face fan-left">
+      <input id="checkbox" checked type="checkbox"></input>
+      <div class="wrapper">
+        <div class="blades">
+          <div class="blade-1"></div>
+          <div class="blade-2"></div>
+          <div class="blade-3"></div>
+          <div class="blade-4"></div>
+        </div>
+      </div>
+      <div class="bearing"></div>
+    </div>
+    <div class="fan-face fan-top"></div>
+  </div>
+  <div class="drive-frame">
+    <div class="drive-face drive-front"></div>
+    <div class="drive-face drive-left"></div>
+  </div>
+  <div class="tower-face tower-front">
+    <label for="checkbox" class="button-wrapper">
+      <div class="button"></div>
+    </label>
+  </div>
+  <div class="tower-face tower-back"></div>
+  <div class="tower-face tower-left"></div>
+  <div class="tower-face tower-right"></div>
+  <div class="tower-face tower-top"></div>
+  <div class="tower-face tower-bottom">
+  </div>
+  <div class="pad-1"></div>
+  <div class="pad-2"></div>
+  <div class="pad-3"></div>
+</div>
+
+
+
+</body>
+
+
+</html>
