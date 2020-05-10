@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name=”viewport” content=”width=device-width, initial-scale=1″>
-    <title>Interactive Keyboard with Neon Lights</title>
-    <meta name="description" content="An interactive neon wave animation to keep you entertained!">
+    <title>3pic.github.io - Satisfying & Arcadey Games</title>
+    <meta name="description" content="A compilation of satisfying & arcadey games to spend time on if you are bored.">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="static/pushpin/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="static/pushpin/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="static/pushpin/favicon-16x16.png">
     <link rel="manifest" href="static/pushpin/site.webmanifest">
+    <script data-ad-client="ca-pub-2104426707154383" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153516768-3"></script>
 <script>
@@ -22,284 +25,262 @@
   gtag('config', 'UA-153516768-3');
 </script>
 </head>
-
-<body>
-<style>
-body {
-  background-color: #625499;
-  display: table-cell;
-  height: 100vh;
-  margin: 0;
-  text-align: center;
-  vertical-align: middle;
-  width: 100vw;
-}
-
-.case {
-  background-color: #463973;
-  border-color: #2e2640;
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 8px 10px 15px 10px;
-  display: inline-grid;
-  grid-template-columns: repeat(36, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  height: 17em;
-  padding: 5px;
-  user-select: none;
-  width: 60em;
-}
-
-.key {
-  border-color: #382e59 #2e2640;
-  border-radius: 2px;
-  border-style: solid;
-  border-width: 3px 5px 8px 5px;
-  color: #bbadd9;
-  display: block;
-  font-family: sans-serif;
-  font-size: 9px;
-  font-weight: 800;
-  grid-column-end: span 2;
-  margin: 3px;
-  padding-top: 2px;
-  padding: 5px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: all 50ms ease-out;
-  will-change: box-shadow, color, text-shadow;
-}
-
-.key:empty::before {
-  content: attr(data-key);
-}
-
-.active {
-  transform: perspective(1200px) translateZ(-90px);
-}
-
-.medium {
-  grid-column-end: span 3;
-}
-
-.large {
-  grid-column-end: span 4;
-}
-
-.xl {
-  grid-column-end: span 5;
-}
-
-.xxl {
-  grid-column-end: span 6;
-}
-
-.xxxl {
-  grid-column-end: 7;
-}
-
-.huge {
-  grid-column-end: span 12;
-}
-
-</style>
-    <nav class="navbar navbar-dark bg-dark fixed-top" style="border-radius: 5px;">
-        <a class="navbar-brand" href="https://3pic.github.io"><b>
-3pic.github.io &trade;</b></a>
-
-
-<a class="nav-link"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-url="https://3pic.github.io/wave" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></a>
-</nav>
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
-<div class="case">
-  <!-- First row -->
-  <div class="key" data-key="escape">esc</div>
-  <div class="key" data-key="1"></div>
-  <div class="key" data-key="2"></div>
-  <div class="key" data-key="3"></div>
-  <div class="key" data-key="4"></div>
-  <div class="key" data-key="5"></div>
-  <div class="key" data-key="6"></div>
-  <div class="key" data-key="7"></div>
-  <div class="key" data-key="8"></div>
-  <div class="key" data-key="9"></div>
-  <div class="key" data-key="0"></div>
-  <div class="key" data-key="-"></div>
-  <div class="key" data-key="="></div>
-  <div class="key xxl" data-key="backspace"></div>
-  <div class="key" data-key="help">ins</div>
-  <div class="key" data-key="home"></div>
-  <!-- Second row -->
-  <div class="key large" data-key="tab"></div>
-  <div class="key" data-key="q"></div>
-  <div class="key" data-key="w"></div>
-  <div class="key" data-key="e"></div>
-  <div class="key" data-key="r"></div>
-  <div class="key" data-key="t"></div>
-  <div class="key" data-key="y"></div>
-  <div class="key" data-key="u"></div>
-  <div class="key" data-key="i"></div>
-  <div class="key" data-key="o"></div>
-  <div class="key" data-key="p"></div>
-  <div class="key" data-key="["></div>
-  <div class="key" data-key="]"></div>
-  <div class="key large" data-key="\"></div>
-  <div class="key" data-key="delete">del</div>
-  <div class="key" data-key="end"></div>
-  <!-- Third row -->
-  <div class="key xl" data-key="capslock">caps</div>
-  <div class="key" data-key="a"></div>
-  <div class="key" data-key="s"></div>
-  <div class="key" data-key="d"></div>
-  <div class="key" data-key="f"></div>
-  <div class="key" data-key="g"></div>
-  <div class="key" data-key="h"></div>
-  <div class="key" data-key="j"></div>
-  <div class="key" data-key="k"></div>
-  <div class="key" data-key="l"></div>
-  <div class="key" data-key=";"></div>
-  <div class="key" data-key="'"></div>
-  <div class="key xl" data-key="enter">return</div>
-  <div class="key" data-key="f15">pause</div>
-  <div class="key" data-key="pageup">pg up</div>
-  <!-- Fourth row -->
-  <div class="key xxl" data-key="shiftleft">shift</div>
-  <div class="key" data-key="z"></div>
-  <div class="key" data-key="x"></div>
-  <div class="key" data-key="c"></div>
-  <div class="key" data-key="v"></div>
-  <div class="key" data-key="b"></div>
-  <div class="key" data-key="n"></div>
-  <div class="key" data-key="m"></div>
-  <div class="key" data-key=","></div>
-  <div class="key" data-key="."></div>
-  <div class="key" data-key="/"></div>
-  <div class="key xxl" data-key="shiftright">shift</div>
-  <div class="key" data-key="arrowup">▲</div>
-  <div class="key" data-key="pagedown">pg dn</div>
-  <!-- Fifth row -->
-  <div class="key medium" data-key="controlleft">ctrl</div>
-  <div class="key medium" data-key="meta">win</div>
-  <div class="key medium" data-key="altleft">alt</div>
-  <div class="key huge" data-key=" "></div>
-  <div class="key medium" data-key="altright">alt</div>
-  <div class="key medium" data-key="fn"></div>
-  <div class="key medium" data-key="controlright">ctrl</div>
-  <div class="key" data-key="arrowleft">◀</div>
-  <div class="key" data-key="arrowdown">▼</div>
-  <div class="key" data-key="arrowright">▶</div>
-</div>
 <script>
-const keysArr = [...document.querySelectorAll(".key")];
+    <script type="text/javascript">
+<!--
+if (screen.width <= 699) {
+    window.location = "mobile.html";
+}
+//-->
+</script>
+<style>
+    body {
+        font-family: 'Roboto';
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    .dividend {
+        width: 50%;
+    }
+    .foot {
+        bottom: 0;
+        position: fixed;
+    }
+    .newcard {
+        float: left;
+        width: 40%;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+    .smalltext {
+        font-size: 18px;
+    }
+    .othertext2 {
+        font-size: 18px;
+    }
+    @media (max-width: 760px) {
+        .dividend {
+            width: 90%;
+        }
+        .newcard {
+            width: 40%;
+            margin-left: 1em;
+            margin-right: 1em;
+        }
+       
+        .mainbox2 {
+            width: 80%;
+            margin-left: 3em;
+            padding: 0.7em 0.7em 0.7em 0.7em;
+            text-align: center;
+            border-radius: 12px;
+        }   
+        #margin {
+            width: 90%;
+            margin-left: 0em;
+            margin-right: 0em;
+            border-radius: 10px;
+        }
+        #nomargin {
+            margin-left: 0em;
+            margin-right: 0em;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            width: 90%; border-radius: 10px;
+        }
+        .mainbox23 {
+            width: 68%;
+            height: 20%; 
+            bottom 0; 
+            margin-top: 65em;
+        }
+        .minus1 {
+            margin-top: 0.5em;
+        }
+        .subtract {
+            font-size: 11px;
+            margin-bottom: -1em;
+        }
+        .smalltext {
+            font-size: 10px;
+        }
 
-const getKey = (event) => {
-  const parsedKey = event.key.toLowerCase().replace("\\", "\\\\");
-  const parsedCode = event.code.toLowerCase();
-  const element =
-    document.querySelector(`[data-key="${parsedCode}"]`) ||
-    document.querySelector(`[data-key="${parsedKey}"]`);
+    }
+    button {
+        margin-bottom: 0.5em;
+    }
 
-  return element;
-};
+    .onscreen {
 
-document.addEventListener("keydown", (event) => {
-  const key = getKey(event);
-  if (key) {
-    key.classList.add("active");
-  }
-});
+    }
+    .vgh {
+        width: 100%;
+    }
 
-document.addEventListener("keyup", (event) => {
-  const key = getKey(event);
-  if (key) {
-    key.classList.remove("active");
-  }
-});
 
-document.addEventListener("mousedown", (event) => {
-  if (event.target.dataset.key) {
-    event.target.classList.add("active");
-  }
-});
+    /*#f1f2f6*/
+</style>
+<body style="background-color: #f1f2f6; text-align: center;" class="turn#1a1a1a">
+<!-- As a link -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="https://3pic.github.io" style="font-size: 24px;">3pic.github.io</a>
+    <a class="nav-link btn btn-primary" onclick="" href="https://3pic.github.io/money" rel="nofollow">Go to Random!</a>
 
-document.addEventListener("mouseup", (event) => {
-  if (event.target.dataset.key) {
-    event.target.classList.remove("active");
-  }
-});
+</nav>
 
-document.addEventListener("touchstart", (event) => {
-  if (event.target.dataset.key) {
-    event.target.classList.add("active");
-  }
-});
+<center>
+<div id="container" style="">
+    <!-- nav class="navbar navbar-lg bg-light fixed-top">
+        <a class="navbar-brand" href="/"><b>🤑 3pic.github.io</b></a>
 
-document.addEventListener("touchend", (event) => {
-  if (event.target.dataset.key) {
-    event.target.classList.remove("active");
-  }
-});
 
-const animate = (element) => {
-  const hueColor = Math.floor(Math.random() * (360 - 0 + 1)) + 0;
-  const color = `hsla(${hueColor}, 100%, 50%, 50%)`;
-  const textColor = `hsl(${hueColor}, 100%, 50%)`;
-  const textShadow = `0 0 0.80em ${color}, 0 0 1.60em ${color}, 0 0 4em ${color}`;
-  const boxShadow = `-3px 3px 4px ${color}, 3px -3px 4px ${color}, 3px 3px 4px ${color}, -3px -3px 4px ${color}, 0 0 10px ${color}`;
+  <a class="nav-link btn btn-danger removeme" onclick="" href="/" rel="nofollow"><span>$</span><span id="JeffBezosNetWorth2">0</span></a>
 
-  const keyIndex = keysArr.indexOf(element);
-  const animatedKeysRight = keysArr.slice(keyIndex);
-  const animatedKeysLeft = keysArr.slice(0, keyIndex);
+</nav> -->
+<div class="dividend">
+<h1 style="margin-top: 1em;">3pic.github.io</h1>
+<p>Bored? Click on one of these games below!</p>
+<hr>
+<div class="mainbox" style="margin-left: 8%;">
+    <center>
+    <a href="https://3pic.github.io/money">
+  <div class="w3-card newcard">
+    <img src="static/money.gif" alt="money spending" style="width:100%;">
+    <div class="w3-container">
+      <h4 class="smalltext"><b>Spend Billionares Money</b></h4>
+      <!-- <p style="font-size: 15px;">Go on a shopping spree with Warren Buffets, Jeff Bezos' & Donald Trumps money!</p> -->
+    </div>
+  </div>
+    </a>
+<a href="https://3pic.github.io/tower">
+  <div class="w3-card newcard">
+    <img src="static/block1.png" alt="keyboard" style="width:100%;">
+    <div class="w3-container">
+      <h4 style="font-size: 19px;"><b>Tower Stacker</b></h4>
+      <!-- <p style="font-size: 15px;">Go on a keyboard pressing spree with our digital keyboard that replicates your clicks!</p> -->
+    </div>
+  </div>
+    </a>
+    <br>
 
-  const transitionHandler = (event) => {
-    event.target.style.boxShadow = "none";
-    event.target.style.color = null;
-    event.target.style.textShadow = "none";
-    event.target.removeEventListener("transitionend", transitionHandler);
-  };
+    <br>
+<a href="https://3pic.github.io/spread">
+  <div class="w3-card newcard" style="margin-top: 1em;">
+    <img src="static/coronavirus.gif" alt="COVID19" style="width:100%;">
+    <div class="w3-container">
+      <h4 class="othertext2"><b>Coronavirus Spread</b></h4>
+      <!-- <p style="font-size: 15px;">This satisfying simulation lets you simulate the spread of coronavirus with several dots!!</p> -->
+    </div>
+  </div>
+    </a>
+    <a href="https://3pic.github.io/wave">
+  <div class="w3-card newcard" style="margin-top: 1em;">
+    <img src="static/lidodeck.gif" alt="Wave" style="width:100%;">
 
-  animatedKeysRight.forEach((keyEl, i) => {
-    setTimeout(() => {
-      keyEl.addEventListener("transitionend", transitionHandler);
-      keyEl.style.boxShadow = boxShadow;
-      keyEl.style.color = textColor;
-      keyEl.style.textShadow = textShadow;
-    }, i * 4.5);
-  });
+      <h4 style="font-size: 18px;"><b>Neon Wave Maker</b></h4>
+<!--       /*<p style="font-size: 15px; margin-bottom: 12%;">This satisfying simulation lets you create neon wave animations! </p>*/
+ -->    </div>
+    <br>
+    <a href="https://3pic.github.io/distance">
+      <div class="w3-card newcard" style="margin-top: 1em; text-align: center; float: left;">
+    <img src="static/socialdistance.gif" alt="Wave" style="width:93%;">
 
-  animatedKeysLeft.forEach((keyEl, j) => {
-    const i = animatedKeysLeft.length - j;
-    setTimeout(() => {
-      keyEl.addEventListener("transitionend", transitionHandler);
-      keyEl.style.boxShadow = boxShadow;
-      keyEl.style.color = textColor;
-      keyEl.style.textShadow = textShadow;
-    }, i * 4.5);
-  });
-};
+      <h4 style="font-size: 18px; margin-top: -2%;"><b>Social Distance Sim</b></h4>
+      <!-- <p style="font-size: 15px;">This satisfying simulation simulate social distancing by creating people! </p> -->
+    </div>
 
-document.addEventListener("keydown", (event) => {
-  const key = getKey(event);
+    </a>
+        <a href="https://3pic.github.io/christmas">
+      <div class="w3-card newcard" style="margin-top: 1em; text-align: center; float: left;">
+    <img src="static/christmas.gif" alt="Wave" style="width:100%;">
 
-  if (key) {
-    animate(key);
-  }
-});
+      <h4 style="font-size: 18px; margin-top: 10%;"><b>Interactive XMAS Lights</b></h4>
+      <!-- <p style="font-size: 15px;">This satisfying simulation simulate social distancing by creating people! </p> -->
+    </div>
 
-document.addEventListener("click", (event) => {
-  if (event.target.dataset.key) {
-    animate(event.target);
-  }
-});
+    </a>
+    <a href="https://3pic.github.io/dots">
+      <div class="w3-card newcard" style="margin-top: 1em; text-align: center; float: left; margin-bottom: 1em;">
+    <img src="static/dots.png" alt="Wave" style="width:100%;">
 
-window.addEventListener("load", () => {
-  const key = document.querySelector(`[data-key="enter"]`);
-  animate(key);
-});
+      <h4 style="font-size: 18px; margin-top: 10%;"><b>Satisfying Hover Dots</b></h4>
+      <!-- <p style="font-size: 15px;">This satisfying simulation simulate social distancing by creating people! </p> -->
+    </div>
+
+    </a>    
+<a href="https://3pic.github.io/crystal">
+      <div class="w3-card newcard" style="margin-top: 1em; text-align: center; float: left; margin-bottom: 2.5em;">
+    <img src="static/crystal.png" alt="Wave" style="width:100%;">
+
+      <h4 style="font-size: 18px; margin-top: 9%;"><b>Crystals</b></h4>
+      <!-- <p style="font-size: 15px;">This satisfying simulation simulate social distancing by creating people! </p> -->
+    </div>
+
+    </a>  
+    <br>
+
+    <a href="https://3pic.github.io/keyboard-color">
+      <div class="w3-card newcard" style="margin-top: 1em; text-align: center; float: left; margin-bottom: 1em;">
+    <img src="static/keyboardimg.png" alt="Interactive Neon Keyboard Image" style="width:100%;">
+
+      <h4 style="font-size: 18px; margin-top: 10%;"><b>Interactive Neon Keyboard</b></h4>
+      <!-- <p style="font-size: 15px;">This satisfying simulation simulate social distancing by creating people! </p> -->
+    </div>
+
+    </a>    
+<a href="https://3pic.github.io/computer">
+      <div class="w3-card newcard" style="margin-top: 1em; text-align: center; float: left; margin-bottom: 2.5em;">
+    <img src="static/computerpc.png" alt="Wave" style="width:100%;">
+
+      <h4 style="font-size: 18px; margin-top: 9%;"><b>Interactive Neon PC</b></h4>
+      <!-- <p style="font-size: 15px;">This satisfying simulation simulate social distancing by creating people! </p> -->
+    </div>
+
+    </a>      
+    <br>
+<center>
+<!-- <a href="https://3pic.github.io/distance">
+      <div class="w3-card newcard" style="
+
+        margin-top: 1em;">
+    <img src="static/dots.png" alt="Wave" style="width:100%;">
+
+      <h4 style="font-size: 18px; margin-top: 23%;"><b>Satisfying Dots</b></h4>
+    </div>
+
+    </a>
+  </div>
+
+</a> -->
+</center>
+</center>
+</div>
+</div>
+</center>
+</div>
+<br>
+<script>
 
 </script>
-</body>
+</script>
+</a>
+</center>
+</div>
+</div>
+</div>
+</center>
 
+<center>
+<div class="dividend" style="text-align: center; margin-top: 5em;" class="bg-light">
+    <br>
+<footer style="margin-top: 2em;">
+    <hr>
+<h3 style="margin-top: 1em;"><a href="https://3pic.github.io/">3pic.github.io</a> 📍</h3>
+<p>All Rights Reserved 2020-2021 &copy;</p>
+</footer>
+</div>
+</center>
+</body>
 
 </html>
