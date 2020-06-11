@@ -1,294 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Asteroid Damage Visualization Map simulates and visualizes the destruction of asteroids in a certain location on a map. View the destruction on a beautiful looking interactive map.">
     <meta name=”viewport” content=”width=device-width, initial-scale=1″>
-    <title>Asteroid Damage Visualization Map</title>
+    <title>3pic.github.io - Satisfying & Arcadey Games</title>
+    <meta name="description" content="A compilation of satisfying & arcadey games to spend time on if you are bored.">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/pushpin/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/pushpin/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/pushpin/favicon-16x16.png">
+    <link rel="manifest" href="static/pushpin/site.webmanifest">
     <script data-ad-client="ca-pub-2104426707154383" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153516768-2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153516768-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-      gtag('config', 'UA-153516768-2');
-    </script>
+  gtag('config', 'UA-153516768-3');
+</script>
 </head>
+<script>
+    <script type="text/javascript">
+<!--
+if (screen.width <= 699) {
+    window.location = "mobile.html";
+}
+//-->
+</script>
 <style>
+    body {
+        font-family: 'Roboto';
+    }
     html {
       scroll-behavior: smooth;
     }
-    #header {
-    width: 100%;
-    background-color: #f2f2f2;
-    height: 30px;
-}
-
-#container {
-    width: 100%;
-    height: 100%;
-    background-color: #f2f2f2;
-}
-#first {
-    width: 75%;
-    float: left;
-    height: 100%;
-    background-color: #f2f2f2;
-}
-#second {
-    width: 25%;
-    float: left;
-    height: 100%;
-    background-color: #f2f2f2;
-}
-
-#sliderbutton {
-    position: fixed;
-<!--    display: none;-->
-}
-#sliderbutton2 {
-    position: fixed;
-    display: none;
-}
-
-.whyhellothere {
-    width: 178px;
-    height: 178px;
-    display: none;
-    position: fixed;
-    bottom: 0;
-    right: 0%;
-    z-index: 1000;
-}
-
-@media (max-width: 769px) {
-    #second {
+    .dividend {
         width: 50%;
-        float: left;
-        height: 100%;
-        background-color: #f2f2f2;
     }
-    #first {
-        width: 50%;
-        float: left;
-        height: 100%;
-        background-color: #f2f2f2;
-    }
-        #sliderbutton {
+    .foot {
+        bottom: 0;
         position: fixed;
-        bottom: 52%;
-        background-color: #f2f2f2;
-        color: black;
-        border-radius: 5px;
-        border: thick solid black
-        text-align: center;
-        vertical-align: middle;
-        font-size: 20px;
-        left: 51.5%;
-        z-index: 2000;
-        width: 32px;
-        height: 32px;
-        animation-name: leftright;
-        animation-duration: 1.3s;
-        animation-iteration-count: infinite;
     }
-    #sliderbutton2 {
-        display: none;
-        position: fixed;
-        bottom: 52%;
-        background-color: #f2f2f2;
-        color: black;
-        border-radius: 5px;
-        text-align: center;
-        vertical-align: middle;
-        font-size: 20px;
-        left: 1.5%;
-        z-index: 2000;
-        width: 32px;
-        height: 32px;
-        animation-name: leftright;
-        animation-duration: 1.3s;
-        animation-iteration-count: infinite;
+    .newcard {
+        float: left;
+        width: 40%;
+        margin-left: 1em;
+        margin-right: 1em;
     }
-}
+    .smalltext {
+        font-size: 18px;
+    }
+    .othertext2 {
+        font-size: 18px;
+    }
+    @media (max-width: 760px) {
+        .dividend {
+            width: 90%;
+        }
+        .newcard {
+            width: 40%;
+            margin-left: 1em;
+            margin-right: 1em;
+        }
+       
+        .mainbox2 {
+            width: 80%;
+            margin-left: 3em;
+            padding: 0.7em 0.7em 0.7em 0.7em;
+            text-align: center;
+            border-radius: 12px;
+        }   
+        #margin {
+            width: 90%;
+            margin-left: 0em;
+            margin-right: 0em;
+            border-radius: 10px;
+        }
+        #nomargin {
+            margin-left: 0em;
+            margin-right: 0em;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            width: 90%; border-radius: 10px;
+        }
+        .mainbox23 {
+            width: 68%;
+            height: 20%; 
+            bottom 0; 
+            margin-top: 65em;
+        }
+        .minus1 {
+            margin-top: 0.5em;
+        }
+        .subtract {
+            font-size: 11px;
+            margin-bottom: -1em;
+        }
+        .smalltext {
+            font-size: 10px;
+        }
 
-@keyframes leftright {
-    0% {margin-left: 0px;}
-    50% {margin-left: 7px;}
-    100% {margin-left: 0px}
-}
+    }
+    button {
+        margin-bottom: 0.5em;
+    }
 
-.desktopandmobile {
-    width: 100%;
-    min-height: 86em;
-}
+    .onscreen {
+
+    }
+    .vgh {
+        width: 100%;
+    }
+
+
+    /*#f1f2f6*/
 </style>
-<body style="background-color: #f2f2f2; margin-top: 1em;">
+<body style="background-color: #f1f2f6; text-align: center;" class="turn#1a1a1a">
+<!-- As a link -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="https://3pic.github.io" style="font-size: 24px;">3pic.github.io</a>
+    <a class="nav-link btn btn-primary" onclick="" href="https://3pic.github.io/money" rel="nofollow">Go to Random!</a>
 
-<div id="container" style="">
-    <div id="second" style="margin-top: -1.7%; overflow-y: auto;"><br>
-<!--        {% include '_navbar.html' %}-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height:-50%;">
-  <a class="navbar-brand" href="/" style="font-size: 25px;"><strong>Asteroid Collision Map</strong></a>
-<!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="text-align: center; margin-left: 40%;">-->
-<!--    <span class="navbar-toggler-icon"></span>-->
-<!--  </button>-->
-  <div class="collapse navbar-collapse" id="navbarNav" style="float: right;">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="/home" style="font-size: 20px;">Home <span class="sr-only">(current)</span></a>
-      </li>
-
-
-    </ul>
-  </div>
 </nav>
-        <div style="margin-left: 1em; margin-right: 1em;">
 
-        </div>
-        <div class="">
-            <h1 style="font-size: 20px; padding-left: 1em; font-weight: normal; margin-top: 1em;"> Asteroid Damage Visualization Map</h1>
-            <h2 style="font-size: 15px; padding-left: 1.3em; font-weight: normal; margin-top: 1em;"> Asteroid Collision Map</h2>
-                        <hr>
-            <a href="/home" style="margin-left: 1.6em; font-size: 12px; margin-right: 1.6em;" class="btn btn-danger">View More Simulations & Maps</a><br>
-            </div>
-        <hr class="display-6">
+<center>
+<div id="container" style="">
+    <!-- nav class="navbar navbar-lg bg-light fixed-top">
+        <a class="navbar-brand" href="/"><b>🤑 3pic.github.io</b></a>
 
-        <p style="padding-left: 1em; padding-right: 1em; font-size: 13px;"> Welcome to <b>Asteroid Damage Visualization Map.</b> Locate and <b>hover/click</b> over the colored circles to <b>view the damage the asteroid has caused</b>. Use the directions below to get started. Simulate an asteroid collision and view the the damage of the impact. Use the directions below to get started. &darr;</p>
-        <div style="margin-left: 1em;">
-<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" style="margin-top: 1em;" class="twitter-share-button" data-text="Check out this asteroid collision simulator map that lets you control the powers of nature and destroy earth with asteroids." data-url="https://asteroidcollision.herokuapp.com/" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>
 
-        <hr>
-                    <p style="color: red; padding-left: 1em;"> {{ message }} </p>
+  <a class="nav-link btn btn-danger removeme" onclick="" href="/" rel="nofollow"><span>$</span><span id="JeffBezosNetWorth2">0</span></a>
 
-        <p style="font-size: 16px; padding-left: 1em; padding-right: 1em;"> <b> 1.</b> Input the area of collision (City or Address)</p>
-        <form method='POST' action="/">
-         <div class="form-group" style="padding-left: 1em; padding-right: 1em;">
-<!--    <label for="exampleFormControlInput1">Location/City Name</label>-->
-    <input type="text" class="form-control" name='city' style="width: 65%;" value="{{word_one}}{{word_two}}{{word_three}}" placeholder="Input City/Address">
-  </div>
-            <p style="font-size: 16px; padding-left: 1em; padding-right: 1em;"> <b> 2.</b> Select a preset diameter of the Asteroid <b>or</b> input your own in meters.</p>
-              <div class="form-group" style="margin-left: 1em; margin-right: 1em; width: 62%;">
-    <label for="exampleFormControlSelect1">Asteroid Size</label>
-    <select class="form-control" id="exampleFormControlSelect1" name="diameter">
-      <option value="22" selected>22m (Length of a large suburban house)</option>
-      <option value="43">43m (Height of a 13 story building)</option>
-        <option value="70">70m (Length of a Jumbojet)</option>
-      <option value="79">79m (Height of a 20 story building)</option>
-        <option value="91">91m (Length of a Football Field)</option>
-        <option value="274">274m (Length of a city downtown)</option>
-      <option value="381">381m (The height of the Empire State Building)</option>
-              <option value="1000">1000m (1 kilometer)</option>
-        <option value="3658">3658m (The length of an International Airport Runway)</option>
-      <option value="4300">4300m (The side length of a small city/town)</option>
-        <option value="8000">8000m (The side length of 1 large city)</option>
-      <option value="15000">15000m (The side length of 2 large cities)</option>
-    </select>
-                  <p style="margin-top: 1em;"> <b>Or</b> input asteroid diameter in meters.</p>
-  </div>
-            <div class="form-group" style="padding-left: 1em; padding-right: 1em;">
-    <input type="text" class="form-control" id="exampleFormControlInput1" name='otherdiameter' placeholder="Input Asteroid Diameter in Meters" style="width: 65%;" value="{{ pre_diameter }}">
-
-                <button type="submit" class="btn btn-lg btn-secondary" style="background-color: #ff4d4d; margin-top: 0.9em;"> View Damage! </button>
-                <p style="font-size: 9px; margin-top: 5px; margin-left: 1.2px;"> By viewing, you agree to the <a href="/terms">terms of service</a></p>
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Horizontal Unit -->
-                <div>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2104426707154383"
-     data-ad-slot="8237103894"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-                    </div>
-                <hr> <p style="font-size: 12px;"> Hover over the colored circles to view the effects of the collision. Fallout and possible Extinction usually occurs from <b>asteroids with a diameter over 1000-2000 meters.</b></p>
-                <p style="font-size: 8px; margin-left: 1.2px;"> Disclaimer: Information and map portrayal of destruction may be exagerated to improve user experience. </p>
-                <hr>
-                <p style="font-size: 12px;"> View all <b>verified asteroid collisions</b> on a beautiful interactive map: <a href="https://asteroidcollision.herokuapp.com/asteroid-collision-location-map">Asteroid Collision Location Map</a> <b style="font-size: 20px; margin-left: 5px;">&larr;</b> <br> Commonly asked Questions (Q&A): <a href="/questions">Learn More</a>  <b style="font-size: 20px; margin-left: 5px; color: black;"> &larr;</b> <br>Asteroid Impact Location Latitude and Longitude Provided By: <a rel="nofollow", href="https://simplemaps.com/data/world-cities">Here</a> <b style="font-size: 20px; margin-left: 5px; color: black;">&larr;</b><br><b> By: </b>Paul McBurney | Updated: March 16th, 2020</p>
-  </div>
+</nav> -->
+<div class="dividend">
+<h1 style="margin-top: 1em;">3pic.github.io</h1>
+<p>Bored? Click on one of these games below!</p>
 <hr>
-        </form>
+<div class="mainbox" style="margin-left: 8%;">
+    <center>
+    <a href="https://3pic.github.io/money">
+  <div class="w3-card newcard">
+    <img src="static/money.gif" alt="money spending" style="width:100%;">
+    <div class="w3-container">
+      <h4 class="smalltext"><b>Spend Billionares Money</b></h4>
+      <!-- <p style="font-size: 15px;">Go on a shopping spree with Warren Buffets, Jeff Bezos' & Donald Trumps money!</p> -->
     </div>
-    <div id="first">
-           <iframe src="/map" class="desktopandmobile" scrolling="no" frameborder="0"></iframe>
-        <form>
-            <button onclick="fullscreen()" class="btn cancel" type="button">
-            <div id="sliderbutton">
-                <p style="margin-top: 2px;" onclick="fullscreen()">&lArr;</p>
-            </div>
-            </button>
-
-            <button onclick="closescreen()" class="btn cancel" type="button">
-            <div id="sliderbutton2">
-                <p>&rArr;</p>
-            </div>
-            </button>
-        </form>
+  </div>
+    </a>
+<a href="https://3pic.github.io/tower">
+  <div class="w3-card newcard">
+    <img src="static/block1.png" alt="keyboard" style="width:100%;">
+    <div class="w3-container">
+      <h4 style="font-size: 19px;"><b>Tower Stacker</b></h4>
+      <!-- <p style="font-size: 15px;">Go on a keyboard pressing spree with our digital keyboard that replicates your clicks!</p> -->
     </div>
-<hr>
-    <div id="NearEarthAsteroidForm" class="whyhellothere">
-  <form class="form-container">
+  </div>
+    </a>
+    <br>
 
-    <div style="background-color: #1a1a1a;">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="fluid"
-     data-ad-layout-key="-fb+5w+4e-db+86"
-     data-ad-client="ca-pub-2104426707154383"
-     data-ad-slot="4606307034"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+    <br>
+<a href="https://3pic.github.io/spread">
+  <div class="w3-card newcard" style="margin-top: 1em;">
+    <img src="static/coronavirus.gif" alt="COVID19" style="width:100%;">
+    <div class="w3-container">
+      <h4 class="othertext2"><b>Coronavirus Spread</b></h4>
+      <!-- <p style="font-size: 15px;">This satisfying simulation lets you simulate the spread of coronavirus with several dots!!</p> -->
+    </div>
+  </div>
+    </a>
+    <a href="https://3pic.github.io/wave">
+  <div class="w3-card newcard" style="margin-top: 1em;">
+    <img src="static/lidodeck.gif" alt="Wave" style="width:100%;">
+
+      <h4 style="font-size: 18px;"><b>Neon Wave Maker</b></h4>
+<!--       /*<p style="font-size: 15px; margin-bottom: 12%;">This satisfying simulation lets you create neon wave animations! </p>*/
+ -->    </div>
+    <br>
+    <a href="https://3pic.github.io/distance">
+      <div class="w3-card newcard" style="margin-top: 1em; text-align: center; float: left;">
+    <img src="static/socialdistance.gif" alt="Wave" style="width:93%;">
+
+      <h4 style="font-size: 18px; margin-top: -2%;"><b>Social Distance Sim</b></h4>
+      <!-- <p style="font-size: 15px;">This satisfying simulation simulate social distancing by creating people! </p> -->
     </div>
 
-  </form>
+    </a>
+        <a href="https://3pic.github.io/christmas">
+      <div class="w3-card newcard" style="margin-top: 1em; text-align: center; float: left;">
+    <img src="static/christmas.gif" alt="Wave" style="width:100%;">
+
+      <h4 style="font-size: 18px; margin-top: 10%;"><b>Interactive XMAS Lights</b></h4>
+      <!-- <p style="font-size: 15px;">This satisfying simulation simulate social distancing by creating people! </p> -->
+    </div>
+
+    </a>
+    <a href="https://3pic.github.io/dots">
+      <div class="w3-card newcard" style="margin-top: 1em; text-align: center; float: left; margin-bottom: 1em;">
+    <img src="static/dots.png" alt="Wave" style="width:100%;">
+
+      <h4 style="font-size: 18px; margin-top: 10%;"><b>Satisfying Hover Dots</b></h4>
+      <!-- <p style="font-size: 15px;">This satisfying simulation simulate social distancing by creating people! </p> -->
+    </div>
+
+    </a>    
+<a href="https://3pic.github.io/crystal">
+      <div class="w3-card newcard" style="margin-top: 1em; text-align: center; float: left; margin-bottom: 2.5em;">
+    <img src="static/crystal.png" alt="Wave" style="width:100%;">
+
+      <h4 style="font-size: 18px; margin-top: 9%;"><b>Crystals</b></h4>
+      <!-- <p style="font-size: 15px;">This satisfying simulation simulate social distancing by creating people! </p> -->
+    </div>
+
+    </a>  
+    <br>
+
+    <a href="https://3pic.github.io/keyboard-color">
+      <div class="w3-card newcard" style="margin-top: 1em; text-align: center; float: left; margin-bottom: 1em;">
+    <img src="static/keyboardimg.png" alt="Interactive Neon Keyboard Image" style="width:100%;">
+
+      <h4 style="font-size: 18px; margin-top: 10%;"><b>Interactive Neon Keyboard</b></h4>
+      <!-- <p style="font-size: 15px;">This satisfying simulation simulate social distancing by creating people! </p> -->
+    </div>
+
+    </a>    
+<a href="https://3pic.github.io/computer">
+      <div class="w3-card newcard" style="margin-top: 1em; text-align: center; float: left; margin-bottom: 2.5em;">
+    <img src="static/computerpc.png" alt="Wave" style="width:100%;">
+
+      <h4 style="font-size: 18px; margin-top: 9%;"><b>Interactive Neon PC</b></h4>
+      <!-- <p style="font-size: 15px;">This satisfying simulation simulate social distancing by creating people! </p> -->
+    </div>
+
+    </a>      
+    <br>
+<center>
+<!-- <a href="https://3pic.github.io/distance">
+      <div class="w3-card newcard" style="
+
+        margin-top: 1em;">
+    <img src="static/dots.png" alt="Wave" style="width:100%;">
+
+      <h4 style="font-size: 18px; margin-top: 23%;"><b>Satisfying Dots</b></h4>
+    </div>
+
+    </a>
+  </div>
+
+</a> -->
+</center>
+</center>
 </div>
 </div>
+</center>
+</div>
+<br>
 <script>
-    window.scrollBy(0, 382);
-    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-        document.getElementById("NearEarthAsteroidForm").style.display = "block";
-        document.getElementById("first").style.width = "100%";
-        document.getElementById("second").style.width = "0%";
-        document.getElementById("sliderbutton").style.display = "none";
-        document.getElementById("sliderbutton2").style.display = "block";
-        document.getElementById("arrow").style.display = "none";
-        document.getElementById("NearEarthAsteroidForm").style.display = "none";
-        map_0d2afc44120f416887520ad473307e09.invalidateSize();
-    }
-    function begoneee() {
-         document.getElementById("NearEarthAsteroidForm").style.display = "none";
-    }
 
-    function fullscreen() {
-        document.getElementById("first").style.width = "100%";
-        document.getElementById("second").style.width = "0%";
-        document.getElementById("sliderbutton").style.display = "none";
-        document.getElementById("sliderbutton2").style.display = "block";
-        document.getElementById("arrow").style.display = "none";
-        document.getElementById("NearEarthAsteroidForm").style.display = "none";
-        map_0d2afc44120f416887520ad473307e09.invalidateSize();
-    }
-    function closescreen() {
-        document.getElementById("first").style.width = "50%";
-        document.getElementById("second").style.width = "50%";
-        document.getElementById("sliderbutton").style.display = "block";
-        document.getElementById("sliderbutton2").style.display = "none";
-        document.getElementById("NearEarthAsteroidForm").style.display = "block";
-        map_0d2afc44120f416887520ad473307e09.invalidateSize();
-    }
 </script>
+</script>
+</a>
+</center>
+</div>
+</div>
+</div>
+</center>
+
+<center>
+<div class="dividend" style="text-align: center; margin-top: 5em;" class="bg-light">
+    <br>
+<footer style="margin-top: 2em;">
+    <hr>
+<h3 style="margin-top: 1em;"><a href="https://3pic.github.io/">3pic.github.io</a> 📍</h3>
+<p>All Rights Reserved 2020-2021 &copy;</p>
+</footer>
+</div>
+</center>
 </body>
+
 </html>
