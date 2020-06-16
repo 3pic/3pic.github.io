@@ -22,6 +22,7 @@
 
   gtag('config', 'UA-153516768-3');
 </script>
+
 </head>
 <style>
     html {
@@ -47,8 +48,9 @@
         text-align: center;
         border-radius: 12px;
     }
+    /*\/ WIDTH PREVIOUSLY 69*/
     .mainbox23 {
-        width: 69%;
+        width: 68%;
         margin: 1em 1em 1em 1em;
         padding: 0.7em 0.7em 0.7em 0.7em;
         text-align: center;
@@ -118,6 +120,7 @@
             width: 90%; border-radius: 10px;
         }
         .mainbox23 {
+            text-align: center;
             width: 68%;
             height: 20%; 
             bottom 0; 
@@ -147,6 +150,44 @@
             font-weight: bold;
         }
     }
+    @media screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+        .mainbox23 {
+            text-align: center;
+            width: 71%;
+            height: 20%; 
+            bottom 0; 
+            margin-top: 807em;
+            margin-right: 6.8%;
+        }
+        .mainbox {
+            width: 71%;
+            margin: 1em 1em 1em 1em;
+            margin-right: 6%;
+            padding: 0.7em 0.7em 0.7em 0.7em;
+            text-align: center;
+            border-radius: 12px;
+        }
+
+    }
+    @media screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+        .mainbox23 {
+            text-align: center;
+            width: 71%;
+            height: 20%; 
+            bottom 0; 
+            margin-top: 807em;
+            margin-right: 6.8%;
+        }     
+        .mainbox {
+            width: 71%;
+            margin: 1em 1em 1em 1em;
+            margin-right: 6%;
+            padding: 0.7em 0.7em 0.7em 0.7em;
+            text-align: center;
+            border-radius: 12px;
+        }        
+    }
+
     button {
         margin-bottom: 0.5em;
     }
@@ -1035,6 +1076,11 @@
             document.getElementById("turnmedred").style.color = "red"
             document.getElementById("deficet").innerHTML = "In Deficet"
         }
+
+
+        // else {
+        //     console.log('exception')
+        // }
     }
 </script>
 </body>
