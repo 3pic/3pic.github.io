@@ -59,7 +59,17 @@ if (screen.width <= 699) {
     .othertext2 {
         font-size: 18px;
     }
-    @media (max-width: 760px) {
+
+    #mobileonly {
+        display: none;
+    }
+    @media (max-width: 1025px) {
+        .mainbox {
+            display: none;
+        }
+        #mobileonly {
+            display: block;
+        }
         .dividend {
             width: 90%;
         }
@@ -124,7 +134,7 @@ if (screen.width <= 699) {
 <body style="background-color: #f1f2f6; text-align: center;" class="turn#1a1a1a">
 <!-- As a link -->
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="https://3pic.github.io" style="font-size: 24px;">3pic.github.io</a>
+  <a class="navbar-brand" href="https://3pic.github.io" style="font-size: 24px; font-weight: bold;">3pic.<span style="color: blue;">github</span>.io &trade; </a>
     <a class="nav-link btn btn-primary" onclick="" href="https://3pic.github.io/money" rel="nofollow">Go to Random!</a>
 
 </nav>
@@ -139,16 +149,105 @@ if (screen.width <= 699) {
 
 </nav> -->
 <div class="dividend">
-<h1 style="margin-top: 1em;">3pic.github.io</h1>
-<p>Bored? Click on one of these games below!</p>
+<h1 style="margin-top: 1em;">3pic.github.io </h1>
+<!-- <p class="desktopgreeting">Our mission is to provide our users with mobile friendly browser games are fun and simple to play. 📍</p> -->
+<p class="mobilegreeting">Bored? Click on one of these games below! 📍</p>
+
 <hr>
-<div class="mainbox" style="margin-left: 8%;">
+<div class="w3-container" id="mobileonly">
+<a href="https://3pic.github.io/money">
+  <div class="w3-card-4" style="width:50%;">
+    <img src="static/money.gif" alt="spend money" style="width:100%">
+    <div class="w3-container w3-center">
+      <h5 style="font-weight: bold;">Spend Billionaires Money</h5>
+    </div>
+  </div>
+</a>
+  <br>
+  <a href="https://3pic.github.io/tower">
+   <div class="w3-card-4" style="width:50%;">
+    <img src="static/block1.png" alt="Alps" style="width:100%">
+    <div class="w3-container w3-center">
+      <h5 style="font-weight: bold;">Tower Stacker</h5>
+    </div>
+  </div> 
+</a>
+  <br>
+ <a href="https://3pic.github.io/wave">
+   <div class="w3-card-4" style="width:50%;">
+    <img src="static/lidodeck.gif" alt="Alps" style="width:100%">
+    <div class="w3-container w3-center">
+      <h5 style="font-weight: bold;">Neon Wave Maker</h5>
+    </div>
+  </div> 
+</a>
+  <br>  
+ <a href="https://3pic.github.io/spread">
+   <div class="w3-card-4" style="width:50%;">
+    <img src="static/coronavirus.gif" alt="Alps" style="width:100%">
+    <div class="w3-container w3-center">
+      <h5 style="font-weight: bold;">COVID-19 Spread</h5>
+    </div>
+  </div> 
+</a>
+<br>
+<a href="https://3pic.github.io/dots">
+   <div class="w3-card-4" style="width:50%;">
+    <img src="static/dots.png" alt="Alps" style="width:100%">
+    <div class="w3-container w3-center">
+      <h5 style="font-weight: bold;">Satisfying Hover Dots</h5>
+    </div>
+  </div> 
+</a>
+</div>
+
+<!-- 
+ -->
+ <!--  -->
+ <!--  -->
+  <!--  -->
+ <!--  -->
+  <!--  -->
+ <!--  -->
+  <!--  -->
+ <!--  -->
+  <!--  -->
+ <!--  -->
+  <!--  -->
+ <!--  -->
+  <!--  -->
+ <!--  -->
+  <!--  -->
+ <!--  -->
+  <!--  -->
+ <!--  -->
+
+  <!--  -->
+ <!--  -->
+  <!--  -->
+ <!--  -->
+  <!--  -->
+ <!--  -->
+  <!--  -->
+ <!--  -->
+  <!--  -->
+ <!--  -->
+  <!--  -->
+ <!--  -->
+  <!--  -->
+ <!--  -->
+  <!--  -->
+ <!--  -->
+  <!--  -->
+ <!--  -->
+
+<div class="mainbox" style="margin-left: 12%;">
     <center>
     <a href="https://3pic.github.io/money">
   <div class="w3-card newcard">
     <img src="static/money.gif" alt="money spending" style="width:100%;">
     <div class="w3-container">
-      <h4 class="smalltext"><b>Spend Billionares Money</b></h4>
+      <h4 class="othertext2"><b>Jeff Bezos' Money</b></h4>
       <!-- <p style="font-size: 15px;">Go on a shopping spree with Warren Buffets, Jeff Bezos' & Donald Trumps money!</p> -->
     </div>
   </div>
@@ -169,7 +268,7 @@ if (screen.width <= 699) {
   <div class="w3-card newcard" style="margin-top: 1em;">
     <img src="static/coronavirus.gif" alt="COVID19" style="width:100%;">
     <div class="w3-container">
-      <h4 class="othertext2"><b>Coronavirus Spread</b></h4>
+      <h4 class="othertext2"><b>Coronavirus </b></h4>
       <!-- <p style="font-size: 15px;">This satisfying simulation lets you simulate the spread of coronavirus with several dots!!</p> -->
     </div>
   </div>
@@ -272,7 +371,7 @@ if (screen.width <= 699) {
 </center>
 
 <center>
-<div class="dividend" style="text-align: center; margin-top: 5em;" class="bg-light">
+<div class="dividend" style="text-align: center;" class="bg-light">
     <br>
 <footer style="margin-top: 2em;">
     <hr>
