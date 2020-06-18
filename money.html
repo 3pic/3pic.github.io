@@ -67,10 +67,10 @@
         margin-left: 1em;
         margin-right: 1em;
     }
-    .dropdown-content {
+    #dropdown-content {
         display: none;
     }
-    .dropdown:hover .dropdown-content {
+    .dropdown:hover #dropdown-content {
         display: block;
     }
     #JeffBezosNetWorth {
@@ -242,8 +242,8 @@
 
                       <div class="dropdown">
 
-                          <p class="btn btn-secondary"><span style="color: yellow;">&#9733;</span>  Choose A Billionare</p>
-                            <div class="dropdown-content">
+                          <p class="btn btn-secondary" onclick="openbutton()"><span style="color: yellow;">&#9733;</span>  Choose A Billionare</p>
+                            <div id="dropdown-content">
                                 <div>
                                     <button onclick="setbezos()" class="btn btn-secondary btn-sm" style="margin-left: 0.5em; margin-right: 0.5em;">&#9733; Jeff Bezos</button><button onclick="setbuffet()" class="btn btn-secondary btn-sm" style="margin-left: 0.5em; margin-right: 0.5em;">&#9733; Warren Buffet</button><button onclick="setmark()" class="btn btn-secondary btn-sm" style="margin-left: 0.5em; margin-right: 0.5em;">&#9733; Mark Zuckerburg</button><button onclick="bloomberg()" class="btn btn-secondary btn-sm" style="margin-left: 0.5em; margin-right: 0.5em;">&#9733; Mike Bloomberg</button><button onclick="trump()" class="btn btn-secondary btn-sm" style="margin-left: 0.5em; margin-right: 0.5em;">&#9733; Donald Trump </button><button onclick="federal()" class="btn btn-secondary btn-sm" style="margin-left: 0.5em; margin-right: 0.5em;">&#9733; Federal Govt</button>
                                 </div>
@@ -674,8 +674,8 @@
 </center>
 <script>
     var moneydynamic = 0
+    var countvar = 0
     document.getElementById("JeffBezosNetWorth").innerHTML = moneydynamic;
-
     function setbezos() {
         moneydynamic = 124700000000
         document.getElementById("JeffBezosNetWorth").innerHTML = moneydynamic;
@@ -813,6 +813,14 @@
         document.getElementById("CruiseShip").value = 0
         document.getElementById("Helicopter").value = 0
         document.getElementById("MonthofRent").value = 0                       
+    }
+    function openbutton() {
+        var isiPad = navigator.userAgent.match(/iPad/i) != null;
+        if (isiPad == false)
+            return;
+        countvar += 1
+        var dropdownvar = document.getElementById("dropdown-content");
+        dropdownvar.style.display = "block"
     }
     function trump() {
         moneydynamic = 2400000000
@@ -1076,6 +1084,7 @@
             document.getElementById("turnmedred").style.color = "red"
             document.getElementById("deficet").innerHTML = "In Deficet"
         }
+
     }
 </script>
 </body>
