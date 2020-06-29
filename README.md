@@ -3,4 +3,4 @@ The 3pic.github.io website built by Paul McBurney Jr is a website aimed at provi
 # Owner
 Paul McBurney Jr is the rightful owner of the 3pic.github.io website.
 # About the Dev
-Hi everyone. My name is Paul. I am a 14 year old programmer. Recently I started investing myself into this hobby, and I created this website.
+Hi everyone. My name is Paul.
