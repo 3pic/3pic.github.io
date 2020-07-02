@@ -123,7 +123,9 @@
     .vgh {
         width: 100%;
     }
-
+    #showduringmobile {
+        display: none;
+    }
 
     /*#f1f2f6*/
 </style>
@@ -195,6 +197,22 @@ if (navigator.userAgent.match(/Android/i) ||
   </div> 
 </a>
   <br>
+  <div id="showduringmobile">
+<script>
+if (navigator.userAgent.match(/Android/i) ||
+  navigator.userAgent.match(/webOS/i) ||
+  navigator.userAgent.match(/iPhone/i) ||
+  navigator.userAgent.match(/iPad/i) ||
+  navigator.userAgent.match(/iPod/i) ||
+  navigator.userAgent.match(/BlackBerry/) ||
+  navigator.userAgent.match(/Windows Phone/i) ||
+  navigator.userAgent.match(/ZuneWP7/i)
+) {
+  document.getElementById("showduringmobile").style.display = "block"
+}
+</script>
+<script data-cfasync="false" type="text/javascript" src="https://www.linkonclick.com/a/display.php?r=3469079"></script>
+</div>
  <a href="https://3pic.github.io/wave">
    <div class="w3-card-4" style="width:50%;">
     <img src="static/lidodeck.gif" alt="Alps" style="width:100%">
@@ -284,7 +302,6 @@ if (navigator.userAgent.match(/Android/i) ||
   </div>
     </a>
     <br>
-
     <br>
 <a href="https://3pic.github.io/spread">
   <div class="w3-card newcard" style="margin-top: 1em;">
