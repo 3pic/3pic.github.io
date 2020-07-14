@@ -1,0 +1,1081 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1″>
+    <title>Disasters To Scale - Comparing Diseases, Wars, and Viruses</title>
+    <meta name="description" content="Comparing the deaths and lethality of disasters like wars, diseases and viruses.">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/pushpin/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/pushpin/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/pushpin/favicon-16x16.png">
+    <link rel="manifest" href="static/pushpin/site.webmanifest">
+    <script data-ad-client="ca-pub-2104426707154383" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153516768-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-153516768-3');
+</script>
+<meta property="og:image"
+    content="static/fires.jpg" />
+</head>
+</head>
+
+<body>
+
+<style>
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #f1f2f6;
+  color: black;
+}
+.centered-box {
+  width: 60%;
+  margin-top: 4em;
+}
+
+.container-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+.upper-container-item {
+  width: 100%;
+  margin-bottom: 1.5%;
+  background-color: #fefefe;
+  padding-bottom: 2%;
+  padding-top: 2%;
+  /*border-radius: 4px;*/
+}
+
+.n-c {
+  width: 100%;
+  margin-bottom: 1.5%;
+  background-color: #fefefe;
+  padding-bottom: 1%;
+  padding-top: 2%;
+  /*border-radius: 3px;*/
+}
+
+.t-t {
+  font-weight: bold;
+  font-size: 35px;
+  text-shadow: 0.08px 0.08px;
+}
+.s-t-t {
+  font-weight: bold;
+  font-size: 27px;
+}
+.middle-tag {
+  width: 100%;
+  margin-bottom: 1.5%;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(77,152,20,1) 0%, rgba(0,212,255,1) 100%);
+  padding-bottom: 0.5%;
+  padding-top: 0.5%;
+/*  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;*/
+}
+
+.secondary-t-t {
+
+}
+
+.buymeacoffee-img {
+  width: 5%;
+}
+
+.deathtoll-paragraph {
+  margin-top: 1em;
+}
+
+.inner-div-text {
+  width: 65%;
+  color: #333333;
+  font-size: 16.5px;
+}
+
+.wtc-image {
+  width: 55%;
+  margin-top: -1%;
+}
+.bmac {
+  width: 4%;
+  margin-top: -0.5%;
+}
+.inner-div-smaller {
+  font-size: 15.5px;
+}
+
+.square {
+  height: 100px;
+  width: 100px;
+  background-color: #555;
+}
+#footer-text-other {
+  font-size: 12px;
+}
+@media (max-width: 1025px) {
+  .inner-div-smaller {
+    font-size: 13px;
+  }
+  .centered-box {
+    width: 94%;
+  }
+  .normal-container-item {
+    width: 100%;
+  }
+  .wtc-image {
+    width: 96%;
+  }
+  .bnmac {
+    margin-top: -4%;
+    width: 12%;
+  }
+  .inner-div-text {
+    font-size: 14px;
+  }
+  #footer-text {
+    font-size: 12px;
+  }
+  #footer-text-other {
+    font-size: 10px;
+  }
+  #footer-text-small {
+    font-size: 10px;
+  }
+}
+.bold-it {
+  font-weight: bold;
+}
+.tiny-text {
+  font-size: 9.8px;
+}
+.wtc-people {
+  font-size: 11.5px;
+}
+.yemen-people {
+  font-size: 9px;
+}
+.iraq-people {
+  font-size: 9px;
+}
+.suicide-deaths-people {
+  font-size: 9px;
+}
+.covid-people {
+  font-size: 8.5px;
+}
+#allign-left-it {
+  text-align: left;
+  padding-left: 1em;
+  padding-bottom: 0.4%;
+}
+#mid-to-end {
+  display: none;
+}
+#final-div {
+  display: none;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  right: 0;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  right: 0;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.button-left {
+  margin-right: 1%;
+}
+.button-right {
+  margin-left: 1%;
+}
+button {
+  margin-bottom: 0.99%;
+}
+.n-c-c {
+  padding: 2% 2% 2% 2%;
+}
+#cemetary_img {
+  display: none;
+}
+/*#second_chart_display_none {
+  display: none;
+}*/
+/*.btn-custom {
+  background: rgb(152,20,20);
+  background: linear-gradient(90deg, rgba(152,20,20,1) 0%, rgba(141,13,13,1) 25%, rgba(167,75,10,1) 50%, rgba(196,50,7,1) 75%, rgba(255,0,0,1) 100%);
+}*/
+</style>
+<style>
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  -webkit-animation-name: fadeIn; /* Fade in the background */
+  -webkit-animation-duration: 0.4s;
+  animation-name: fadeIn;
+  animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-content {
+  position: fixed;
+  bottom: 0;
+  background-color: #fefefe;
+  width: 100%;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.4s;
+  animation-name: slideIn;
+  animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(77,152,20,1) 0%, rgba(0,212,255,1) 100%);  
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+/*.modal-footer {
+  padding: 2px 16px;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(77,152,20,1) 0%, rgba(0,212,255,1) 100%);
+  color: white;
+}*/
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+  from {bottom: -300px; opacity: 0} 
+  to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+  from {bottom: -300px; opacity: 0}
+  to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+.modal-header-content {
+  font-size: 12px;
+}
+#warning-message {
+  display: none;
+}
+.popup {
+  position: relative;
+  display: inline-block;
+  border-bottom: 0.1px dotted #0d0d0d;
+}
+
+.popup .popuptext {
+  visibility: hidden;
+  width: 125px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.popup:hover .popuptext {
+  visibility: visible;
+  opacity: 1;
+}
+</style>
+
+<nav class="navbar navbar-custom fixed-top" style="background-color: #fefefe; color: black;">
+  <a class="navbar-brand" href="https://3pic.github.io/"><b style="text-shadow: 0.08px 0.08px;">3PIC &trade;</b></a>
+  
+  <div class="dropdown">
+  <a class="btn" href="#"><span class="nav-bar-icon">&#9432; &#9662;</span></a>
+    <div class="dropdown-content">
+      <a href="https://3pic.github.io/">HOME</a>
+      <a href="https://3pic.github.io/coronavirus">NEW</a>
+      <a href="https://twitter.com/paul_mcb">CONTACT</a>
+      <a href="https://www.buymeacoffee.com/IWolfy" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important; border-radius: 10px;" ></a>
+    </div>
+  </div>
+
+
+<!-- <p>&#9432;</p> -->
+  <!-- <a class="nav-link btn" href="https://3pic.github.io/" rel="nofollow"><i class="fa fa-th" style="color: black;"></i></a> -->
+</nav>
+<center>
+
+<div class="centered-box">
+
+<div class="container-box">
+
+  <div class="upper-container-item">
+  <h1 class="t-t" style="color: #262626;">Disasters To Scale</h1>
+  <p>Comprehending Loss of Life</p>
+  <p class="tiny-text">By: <span class="popup"><a href="https://www.buymeacoffee.com/IWolfy" style="color: #00ff99;"> Paul McBurney Jr</a><span class="popuptext">Support the creator by buying him a coffee!</span></span></p>
+
+  <!--   <p class="secondary-t-t"><i>Humanizing the Coronavirus Deathtoll</i></p>
+    <p>By:<a href="https://twitter.com/paul_mcb" style="color: lightblue;"> Paul McBurney Jr</a></p>
+    <a href="https://www.buymeacoffee.com/IWolfy"> <img src="static/buymeacoffee.png" class="buymeacoffee-img"> </a>
+    <p class="deathtoll-paragraph">Current Deathtoll: 534000</p> -->
+  </div>
+  <div class="middle-tag">
+  <h1 class="s-t-t" style="color: #fefefe;"><span id="value">0</span> Deaths</h1>
+  </div>
+  <div class="n-c">
+    <div class="centered-div-within-div">
+  <p class="inner-div-text"><span class="bold-it" id="value-front-page">Choose</span> a disaster below and <span class="bold-it">compare it</span> with the <span class="bold-it">death tolls</span> of wars, diseases, and disasters.</p>
+    <button onclick="adddisaster()" class="btn btn-danger button-left bgn-lg" id="mybtn">Add Disaster</button><button class="btn btn-success button-right" onclick="remove_all_collumns()">Fully Clear ✅</button>
+    <br><button class="btn btn-sm btn-info" onclick="document.getElementById('id01').style.display='block'">Enter Your Own Disaster</button>
+  <!-- <img src="static/comparingimg.png" class="wtc-image"> -->
+    </div>
+  </div>
+
+  <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h6 class="modal-header-content">Select <span class="bold-it">Multiple</span> Disasters 💀</h2>
+      <span class="close">x</span>
+    </div>
+    <div class="modal-body">
+      <center><p style="font-size: 11px; position: fixed; left:0;" class="btn btn-danger" id="warning-message">* Your Chart Has Exceeded 6 Bars. Please clear the graph to add new disasters. *</p></center>
+<!--        <button class="btn btn-info bold-it btn-sm" onclick="add_collumn(1510500981, 'Tuberculosis')">Tuberculosis (1.5B+ All Time)</button>
+ -->       
+       <button class="btn btn-info bold-it btn-sm" onclick="add_collumn(500145728, 'SmallPox')">SmallPox (500M+)</button> 
+       <button class="btn btn-info bold-it btn-sm" onclick="add_collumn(216283718, 'Black Death')">Black Death (200M+)</button> 
+       <button class="btn btn-info bold-it btn-sm" onclick="add_collumn(85153112, 'WW2')">World War 2 (85M+)</button> 
+       <button class="btn btn-info bold-it btn-sm" onclick="add_collumn(65012543, 'Crashes')">Car Crashes (65M+ in 20th Century)</button> 
+       <button class="btn btn-info bold-it btn-sm" onclick="add_collumn(50000000, 'H1N1 Virus')">1918 H1N1 Pandemic (50M+)</button> 
+       <button class="btn btn-info bold-it btn-sm" onclick="add_collumn(32000000, 'HIV/AIDS')">HIV/AIDS (32M+)</button> 
+       <button class="btn btn-info bold-it btn-sm" onclick="add_collumn(11000000, 'Holocaust')">Nazi Holocaust (11M+)</button> 
+       <button class="btn btn-info bold-it btn-sm" onclick="add_collumn(1700000, 'Slip/Fall')">Slipping & Falling (1.7M+ Every Century)</button> 
+       <button class="btn btn-info bold-it btn-sm" onclick="add_collumn(1200000, 'Stairs')">Stair Deaths (1.2M+ Every Century)</button> 
+       <button class="btn btn-info bold-it btn-sm" onclick="add_collumn(599281, 'Cancer')">Cancer (599K+ Yearly)</button> 
+       <button class="btn btn-info bold-it btn-sm" onclick="add_collumn(561324, 'Coronavirus')">Coronavirus (560K+)</button> 
+       <button class="btn btn-info bold-it btn-sm" onclick="add_collumn(507236, 'Iraq War')">Iraq War Post 9/11 (507K+)</button> 
+       <button class="btn btn-info bold-it btn-sm" onclick="add_collumn(22100, 'Japan Tsunami')">2011 Japan Tsunami (22.1K+)</button> 
+       <button class="btn btn-info bold-it btn-sm" onclick="add_collumn(47800, 'Revolution')">American Revolutionary War (47.8K)</button> 
+       <button class="btn btn-info bold-it btn-sm" onclick="add_collumn(3200, '1906 Earthquake')">1906 San Francisco Earthquake (3.2K+)</button> 
+       <button class="btn btn-info bold-it btn-sm" onclick="add_collumn(2800, '9/11')">9/11 (2.9K+)</button> 
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="n-c n-c-c">
+<script>
+window.onload = function () {
+var varcol = {y: 100000, label: "Hola"}
+var y1 = 161000
+var y2 = 160000
+var y3 = 161000
+var y4 = 160000
+var y5 = 161000
+var y6 = 160000
+var y7 = 161000
+var y8 = 160000
+var y1_label = "Choose";
+var y2_label = "Two";
+var y3_label = "Disasters";
+var y4_label = "To";
+var y5_label = "Begin";
+var y6_label = "Comparing";
+
+var chart1 = 0;
+var chart1 = new CanvasJS.Chart("chartContainer", {
+  animationEnabled: true,
+  theme: "light2", // "light1", "light2", "dark1", "dark2"
+  title:{
+    text: "Disaster Bar Graph:"
+  },
+
+  data: [{        
+    type: "column",  
+    showInLegend: true, 
+    legendMarkerColor: "grey",
+    legendText: " = 10,000 💀",
+    dataPoints: [      
+      { y: y1,  label: y1_label },
+      { y: y2,  label: y2_label },
+      { y: y3,  label: y3_label },
+      { y: y4,  label: y4_label },
+      { y: y5,  label: y5_label },
+      { y: y6,  label: y6_label },
+    ]
+  }]
+});
+
+chart1.render();
+
+
+
+window.chart1 = 0;
+
+window.y1 = 0
+window.y2 = 0
+window.y3 = 0
+window.y4 = 0
+window.y5 = 0
+window.y6 = 0
+
+window.y1_label = "";
+window.y2_label = "";
+window.y3_label = "";
+window.y4_label = "";
+window.y5_label = "";
+window.y6_label = "";
+
+var col_count = 0;
+
+
+}
+
+
+window.collumns_created = 0;
+window.col_count = 0;
+window.y1 = 0
+window.y2 = 0
+window.y3 = 0
+window.y4 = 0
+window.y5 = 0
+window.y6 = 0
+
+window.y1_label = " ";
+window.y2_label = " ";
+window.y3_label = " ";
+window.y4_label = " ";
+window.y5_label = " ";
+window.y6_label = " ";
+
+window.f_t_r = 0;
+
+function add_collumn(height, chart_label) {
+  console.log(window.y1)
+  console.log(window.y2)
+  console.log(window.y3)
+  console.log(window.y4)
+  console.log(window.y5)
+  console.log(window.y6)
+  col_count = col_count + 1;
+  document.getElementById("warning-message").style.display = "none";
+  if (window.col_count == 1) {
+    window.y1 = parseInt(height);
+    window.y1_label = chart_label;
+    window.y2 = 0
+    window.y3 = 0
+    window.y4 = 0
+    window.y5 = 0
+    window.y6 = 0
+    var epicchart = new CanvasJS.Chart("chartContainer_TWO", {
+      animationEnabled: true,
+      title: {
+        text: "Disaster Pi Chart"
+      },
+      data: [{
+        type: "pie",
+        startAngle: 240,
+        yValueFormatString: "##0 Deaths\"\"",
+        indexLabel: "{label} {y}",
+        dataPoints: [
+          {y: window.y1, label: window.y1_label}
+        ]
+      }]
+    });
+    epicchart.render();
+  }
+  if (window.col_count == 2) {
+    window.y2 = parseInt(height);
+    window.y2_label = chart_label;
+    window.y3 = 0
+    window.y4 = 0
+    window.y5 = 0
+    window.y6 = 0
+    var epicchart = new CanvasJS.Chart("chartContainer_TWO", {
+      animationEnabled: true,
+      title: {
+        text: "Disaster Pi Chart"
+      },
+      data: [{
+        type: "pie",
+        startAngle: 240,
+        yValueFormatString: "##0 Deaths\"\"",
+        indexLabel: "{label} {y}",
+        dataPoints: [
+          {y: window.y1, label: window.y1_label},
+          {y: window.y2, label: window.y2_label}
+        ]
+      }]
+    });
+    epicchart.render();
+  }
+  if (window.col_count == 3) {
+    window.y3 = parseInt(height);
+    window.y3_label = chart_label;
+    window.y4 = 0
+    window.y5 = 0
+    window.y6 = 0
+    var epicchart = new CanvasJS.Chart("chartContainer_TWO", {
+      animationEnabled: true,
+      title: {
+        text: "Disaster Pi Chart"
+      },
+      data: [{
+        type: "pie",
+        startAngle: 240,
+        yValueFormatString: "##0 Deaths\"\"",
+        indexLabel: "{label} {y}",
+        dataPoints: [
+          {y: window.y1, label: window.y1_label},
+          {y: window.y2, label: window.y2_label},
+          {y: window.y3, label: window.y3_label}
+        ]
+      }]
+    });
+    epicchart.render();
+  }
+  if (window.col_count == 4) {
+    window.y4 = parseInt(height);
+    window.y4_label = chart_label;
+    window.y5 = 0
+    window.y6 = 0
+    var epicchart = new CanvasJS.Chart("chartContainer_TWO", {
+      animationEnabled: true,
+      title: {
+        text: "Disaster Pi Chart"
+      },
+      data: [{
+        type: "pie",
+        startAngle: 240,
+        yValueFormatString: "##0 Deaths\"\"",
+        indexLabel: "{label} {y}",
+        dataPoints: [
+          {y: window.y1, label: window.y1_label},
+          {y: window.y2, label: window.y2_label},
+          {y: window.y3, label: window.y3_label},
+          {y: window.y4, label: window.y4_label}
+        ]
+      }]
+    });
+    epicchart.render();
+  }
+  if (window.col_count == 5) {
+    window.y5 = parseInt(height);
+    window.y5_label = chart_label;
+    window.y6 = 0
+    var epicchart = new CanvasJS.Chart("chartContainer_TWO", {
+      animationEnabled: true,
+      title: {
+        text: "Disaster Pi Chart"
+      },
+      data: [{
+        type: "pie",
+        startAngle: 240,
+        yValueFormatString: "##0 Deaths\"\"",
+        indexLabel: "{label} {y}",
+        dataPoints: [
+          {y: window.y1, label: window.y1_label},
+          {y: window.y2, label: window.y2_label},
+          {y: window.y3, label: window.y3_label},
+          {y: window.y4, label: window.y4_label},
+          {y: window.y5, label: window.y5_label}
+        ]
+      }]
+    });
+    epicchart.render();
+  }
+  if (window.col_count == 6) {
+    window.y6 = parseInt(height);
+    window.y6_label = chart_label;
+    var epicchart = new CanvasJS.Chart("chartContainer_TWO", {
+      animationEnabled: true,
+      title: {
+        text: "Disaster Pi Chart"
+      },
+      data: [{
+        type: "pie",
+        startAngle: 240,
+        yValueFormatString: "##0 Deaths\"\"",
+        indexLabel: "{label} {y}",
+        dataPoints: [
+          {y: window.y1, label: window.y1_label},
+          {y: window.y2, label: window.y2_label},
+          {y: window.y3, label: window.y3_label},
+          {y: window.y4, label: window.y4_label},
+          {y: window.y5, label: window.y5_label},
+          {y: window.y6, label: window.y6_label}
+        ]
+      }]
+    });
+    epicchart.render();
+  }
+  if (window.col_count > 6) {
+    document.getElementById("warning-message").style.display = "block";
+    return "hello"
+  }
+  var chart1 = 0;//global variable  
+  var chart1 = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    theme: "light2", // "light1", "light2", "dark1", "dark2"
+    axisY:{
+      valueFormatString:"#######",
+    },
+    title:{
+      text: "Deaths:"
+    },
+     axisX:{
+       interval: 1,
+     },
+    data: [{        
+      type: "column",
+      indexLabelPlacement: "outside",  
+      showInLegend: true, 
+      legendMarkerColor: "grey",
+      legendText: " = 10,000 💀",
+      dataPoints: [      
+        { y: window.y1,  label: window.y1_label },
+        { y: window.y2,  label: window.y2_label },
+        { y: window.y3,  label: window.y3_label },
+        { y: window.y4,  label: window.y4_label },
+        { y: window.y5,  label: window.y5_label },
+        { y: window.y6,  label: window.y6_label },
+      ]
+    }]
+  });
+  chart1.render();
+  chart1 = 0;
+  if (window.f_t_r == 2) {
+    window.f_t_r += 1
+    console.log('second')
+    var lower_container = document.getElementById("chartContainer_TWO");
+    lower_container.scrollIntoView();
+  }
+  if (window.f_t_r == 1) {
+    window.f_t_r += 1
+    console.log('second')
+    var lower_container = document.getElementById("chartContainer_TWO");
+    lower_container.scrollIntoView();
+  }
+  modal.style.display = "none";
+  if (window.f_t_r == 0) {
+    window.f_t_r += 1
+    console.log(window.f_t_r)
+    console.log("hi")
+    var lower_container_1 = document.getElementById("chartContainer");
+    lower_container_1.scrollIntoView();
+  }
+  window.combined_number = window.y1 + window.y2 + window.y3 + window.y4 + window.y5 + window.y6
+  document.getElementById("value").innerHTML = window.combined_number;
+  document.getElementById("value2").innerHTML = window.combined_number;
+}
+
+function remove_all_collumns() {
+  document.getElementById("warning-message").style.display = "none";
+  document.getElementById("value").innerHTML = 0;
+  document.getElementById("value2").innerHTML = 0;
+  window.col_count = 0;
+  window.y1 = 0
+  window.y2 = 0
+  window.y3 = 0
+  window.y4 = 0
+  window.y5 = 0
+  window.y6 = 0
+  window.y7 = 0
+  window.y8 = 0
+  window.y1_label = "Choose";
+  window.y2_label = "Two";
+  window.y3_label = "Disasters";
+  window.y4_label = "To";
+  window.y5_label = "Begin";
+  window.y6_label = "Comparing";
+  var chart1 = 0;//global variable  
+  var chart1 = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    theme: "light2", // "light1", "light2", "dark1", "dark2"
+    title:{
+      text: "Bar Graph"
+    },
+
+    data: [{        
+      type: "column",  
+      showInLegend: true, 
+      legendMarkerColor: "grey",
+      legendText: " = 10,000 💀",
+      dataPoints: [      
+        { y: window.y1,  label: window.y1_label },
+        { y: window.y2,  label: window.y2_label },
+        { y: window.y3,  label: window.y3_label },
+        { y: window.y4,  label: window.y4_label },
+        { y: window.y5,  label: window.y5_label },
+        { y: window.y6,  label: window.y6_label },
+      ]
+    }]
+  });
+  chart1.render();
+  chart1 = 0;
+  var epicchart = 0;
+  var epicchart = new CanvasJS.Chart("chartContainer_TWO", {
+    animationEnabled: true,
+    title: {
+      text: "Disaster Pi Chart"
+    },
+    data: [{
+      type: "pie",
+      startAngle: 240,
+      yValueFormatString: "##0 Deaths\"\"",
+      indexLabel: "{label} {y}",
+      dataPoints: [
+        {y: 100, label: "Choose a Disaster"}
+      ]
+    }]
+  });
+  epicchart.render();
+  }
+// remove_all_collumns()
+
+</script>
+<!-- MAIN MIDDLE SECTION -->
+<div id="chartContainer" style="height: 600px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</div>
+  <div class="middle-tag" id="middle0death">
+  <h1 class="s-t-t" style="color: #fefefe;"><span id="value2">0</span> Deaths</h1>
+  </div>
+<div class="n-c">
+  <p class="inner-div-text">
+As you view the cummulative deaths above, try <span class="bold-it">not</span> to view these <span class="bold-it">numbers as statistics.</span> Try and visualize their family, friends, and dreams that went <span class="bold-it">unfillfilled.</span> </p>
+</div>
+
+<div class="n-c n-c-c" id="second_chart_display_none">
+<div id="chartContainer_TWO" style="height: 500px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</div>
+<!--   <div class="middle-tag" id="middle0death">
+  <h1 class="s-t-t" style="color: #fefefe;">Size Comparison</h1>
+  </div>
+  <div class="n-c">
+  <p class="inner-div-text inner-div-smaller"><div class="square"> hello </div> hello</p>
+  
+
+</div> -->
+  <div class="middle-tag" id="middle0death">
+  <h1 class="s-t-t" style="color: #fefefe;">Conclusion</h1>
+  </div>
+  <div class="n-c">
+  <p class="inner-div-text inner-div-smaller">
+This webpage was <span class="bold-it">created</span> to help you and me comprehend <span class="bold-it">insane</span> loss of life and suffering, as well as to compare the <span class="bold-it">lethality</span> of different disasters.</p>
+</div>
+<div class="n-c">
+<img src="static/fires.jpg" class="wtc-image" id="cemetary_img" alt="natural disaster occuring">
+</div>
+<div class="n-c">
+  <p class="inner-div-text inner-div-smaller">
+Lets not forget that these numbers are <span class="bold-it">not</span> statistics. They're <span class="bold-it">real people</span> like you and me.</p>
+</div>
+<div class="n-c">
+  <h3 class="inner-div-text bold-it" style="font-size: 25px;">3pic.github.io</h3>
+  <p class="inner-div-text" id="footer-text" style="">Page created by <span class="popup"><a href="https://www.buymeacoffee.com/IWolfy" style="color: #00ff99;"> Paul McBurney Jr</a><span class="popuptext">Support the creator by buying him a coffee!</span></span></p>
+  <!-- <p class="inner-div-text" id="footer-text-other" style="margin-top: -2%;"><a href="https://www.buymeacoffee.com/IWolfy" style="color: #00ff99;"> Buy Me a Coffee</a></p> -->
+  <a href="https://www.buymeacoffee.com/IWolfy"><img src="static/buymeacoffee.jpg" class="bmac"></a>
+</div>
+<script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+function adddisaster() {
+  modal.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+<!-- \/ CIRCLE GRAPH JS  -->
+<!-- <script>
+window.onload = function() {
+
+var chart_circle = new CanvasJS.Chart("chartContainer_TWO", {
+  theme: "light2", // "light1", "light2", "dark1", "dark2"
+  exportEnabled: true,
+  animationEnabled: true,
+  title: {
+    text: "Desktop Browser Market Share in 2016"
+  },
+  data: [{
+    type: "pie",
+    startAngle: 25,
+    toolTipContent: "<b>{label}</b>: {y}%",
+    showInLegend: "true",
+    legendText: "{label}",
+    indexLabelFontSize: 16,
+    indexLabel: "{label} - {y}%",
+    dataPoints: [
+      { y: 51.08, label: "Chrome" },
+      { y: 27.34, label: "Internet Explorer" },
+      { y: 10.62, label: "Firefox" },
+      { y: 5.02, label: "Microsoft Edge" },
+      { y: 4.07, label: "Safari" },
+      { y: 1.22, label: "Opera" },
+      { y: 0.44, label: "Others" }
+    ]
+  }]
+});
+chart_circle.render();
+
+}
+
+</script> -->
+<script>
+
+function loadchart() {
+var oy1 = 100
+var oy2 = 160000
+var oy3 = 161000
+var oy4 = 160000
+var oy5 = 161000
+var oy6 = 160000
+var oy7 = 161000
+var oy8 = 160000
+var oy1_label = "Choose a Disaster";
+var oy2_label = "Choose a Disaster";
+var oy3_label = "Choose a Disaster";
+var oy4_label = "Choose a Disaster";
+var oy5_label = "Choose a Disaster";
+var oy6_label = "Choose a Disaster";
+var epicchart = new CanvasJS.Chart("chartContainer_TWO", {
+  animationEnabled: true,
+  title: {
+    text: "Disaster Pi Chart"
+  },
+  data: [{
+    type: "pie",
+    startAngle: 240,
+    yValueFormatString: "##0.00\"%\"",
+    indexLabel: "{label} {y}",
+    dataPoints: [
+      {y: oy1, label: oy1_label},
+    ]
+  }]
+});
+epicchart.render();
+}
+loadchart()
+</script>
+<div class="w3-container">
+
+<div id="id01" class="w3-modal" style="margin-top: 3%;">
+ <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+  <header class="w3-container w3-blue"> 
+   <span onclick="document.getElementById('id01').style.display='none'" 
+   class="w3-button w3-blue w3-xsmall w3-display-topright">&times;</span>
+   <h6>Custom Input</h2>
+  </header>
+
+  <div class="w3-bar w3-border-bottom">
+   <!-- <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'London')">London</button> -->
+<!--    <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Paris')">Paris</button>
+   <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Tokyo')">Tokyo</button> -->
+  </div>
+
+  <div id="London" class="w3-container city">
+   <h3>Enter a Disaster:</h1>
+   <p>Are the presets not deadly enough? Enter one yourself!</p>
+   <input id="disaster-count-text-area" class="form-control" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number"
+    maxlength = "15" placeholder="Death Count" style="width: 50%;">
+   <input id="disaster-name-textarea" class="form-control" type="text" placeholder="Disaster Name" style="width: 50%; margin-top: 1%; margin-bottom: 1%;" maxlength="20">
+
+  </div>
+
+  <!-- <div id="Paris" class="w3-container city">
+   <h1>Paris</h1>
+   <p>Paris is the capital of France.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+
+  <div id="Tokyo" class="w3-container city">
+   <h1>Tokyo</h1>
+   <p>Tokyo is the capital of Japan.</p><br>
+  </div>
+ -->
+  <div class="w3-container w3-light-grey w3-padding">
+   <button class="w3-button w3-right w3-custom w3-border" style="background-color: limegreen; color: white; "
+   onclick="document.getElementById('id01').style.display='none'; add_collumn(document.getElementById('disaster-count-text-area').value, document.getElementById('disaster-name-textarea').value);">GO!</button>
+  </div>
+ </div>
+</div>
+
+</div>
+
+<script>
+// document.getElementsByClassName("tablink")[0].click();
+
+function openCity(evt, cityName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].classList.remove("w3-light-grey");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.classList.add("w3-light-grey");
+}
+var first_time_scroll = 1;
+window.addEventListener("scroll",function(){
+  if (first_time_scroll == 1) {
+    // document.getElementById("second_chart_display_none").style.display = "block";
+    document.getElementById("cemetary_img").style.display = "block";
+    first_time_scroll = 0;
+  }
+})
+</script>
+</body>
+
+</html>
