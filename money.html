@@ -22,8 +22,6 @@
 
   gtag('config', 'UA-153516768-3');
 </script>
-
-</head>
 <style>
     html {
       scroll-behavior: smooth;
@@ -124,7 +122,7 @@
             width: 68%;
             height: 20%; 
             bottom 0; 
-            margin-top: 65em;
+            margin-top: 60em;
         }
         .minus1 {
             margin-top: 0.5em;
@@ -187,7 +185,26 @@
             border-radius: 12px;
         }        
     }
+    @media only screen and (min-device-width: 1366px) and (max-device-height: 1024px) and (-webkit-min-device-pixel-ratio: 2)  and (orientation: landscape)  {
+        .mainbox23 {
+            margin-top: 978em;
+        }
+        .mainbox {
+            width:71%;
+            margin-right: 7%;
+        }
+    }
 
+    /* Portrait*/
+    @media only screen and (min-device-width: 1024px) and (max-device-height: 1366px) and (-webkit-min-device-pixel-ratio: 2)  and (orientation: portrait)  {
+        .mainbox23 {
+            margin-top: 978em;
+        }
+        .mainbox {
+            width: 71%;
+            margin-right: 7%;
+        }
+    }
     button {
         margin-bottom: 0.5em;
     }
