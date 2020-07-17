@@ -287,7 +287,7 @@ body {
     <p class="deathtoll-paragraph">Current Deathtoll: 534000</p> -->
   </div>
   <div class="middle-tag">
-  <h1 class="s-t-t" style="color: #fefefe;">Lets begin!</h1>
+  <h1 class="s-t-t" style="color: #fefefe;">$<span id="big_value">999000000</span></h1>
   </div>
   <div class="n-c">
     <p class="inner-div-text">The human brain is <span class="bold-it">dumb.</span> If we truly want to comprehend how <span class="bold-it">big $1B</span> is, our visualization needs to be <span class="bold-it">1 Dimensional.</span> And the only way to do that, is to utilize just one thing. <span class="bold-it">The emoji...</span></p>
@@ -612,7 +612,40 @@ window.onscroll = function(){
       document.getElementById("badscroller").style.display = "none";
     }
 }
+function animateValue(id, start, end, duration) {
+    // assumes integer values for start and end
+    
+    var obj = document.getElementById(id);
+    var range = end - start;
+    // no timer shorter than 50ms (not really visible any way)
+    var minTimer = 50;
+    // calc step time to show all interediate values
+    var stepTime = Math.abs(Math.floor(duration / range));
+    
+    // never go below minTimer
+    stepTime = Math.max(stepTime, minTimer);
+    
+    // get current time and calculate desired end time
+    var startTime = new Date().getTime();
+    var endTime = startTime + duration;
+    var timer;
+  
+    function run() {
+        var now = new Date().getTime();
+        var remaining = Math.max((endTime - now) / duration, 0);
+        var value = Math.round(end - (remaining * range));
+        obj.innerHTML = value;
+        if (value == end) {
+            clearInterval(timer);
+        }
+    }
+    
+    timer = setInterval(run, stepTime);
+    run();
+}
 
+
+animateValue("big_value", 990000000, 1000000000, 10000);
 </script>
 </body>
 
