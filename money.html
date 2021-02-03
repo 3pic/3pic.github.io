@@ -217,6 +217,22 @@
 
     
 </style>
+    <script>
+    window.aiptag = window.aiptag || {cmd: []};
+    aiptag.cmd.display = aiptag.cmd.display || [];
+
+    //CMP tool settings
+    aiptag.cmp = {
+        show: true,
+        position: "centered",  //centered, bottom
+        button: true,
+        buttonText: "Privacy settings",
+        buttonPosition: "bottom-left" //bottom-left, bottom-right, top-left, top-right
+    }
+
+    </script>
+    <script async src="//api.adinplay.com/libs/aiptag/pub/TPK/3pic.github.io/tag.min.js"></script>
+</head>
 <body style="color: #cccccc; background-color: #1a1a1a; text-align: center; touch-action: manipulation;" class="turn#1a1a1a">
 
 <div id="fb-root"></div>
@@ -250,6 +266,11 @@
 <!--        </div>-->
 <center>
                 <div class="bg-dark mainbox" class="mainbox">
+                        <div id='3pic-github-io_728X90'>
+        <script type='text/javascript'>
+            aiptag.cmd.display.push(function() { aipDisplayTag.display('3pic-github-io_728X90'); });
+        </script>
+    </div>
                     <h1 class="spendmoney">Spend Jeff Bezos Money</h1>
 
 
