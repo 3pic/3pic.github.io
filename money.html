@@ -712,6 +712,19 @@
 
 </center>
 <script>
+	// format money like  124699926725 -> $124,699,926,725
+	function formatmoney(moneyInt, split, start) {
+		var money = String(moneyInt)
+		var offset = money.length % 3 - 1
+		var formatted = start
+		for(i in money) {
+			formatted += money[i]
+			if(i % 3 == offset) formatted += split
+		}
+		var flipped = String(Array(formatted).reverse()) // the string is built backwards
+		return flipped.substr(0, flipped.length - 1) // trailing split character
+	}
+
     var moneydynamic = 0
     var countvar = 0
     document.getElementById("JeffBezosNetWorth").innerHTML = moneydynamic;
@@ -1042,8 +1055,8 @@
 
         // moneydynamic2 = cost * currentvaluecamry
         updatedmoneydynamic = moneydynamic - moneydynamic2
-        document.getElementById("JeffBezosNetWorth").innerHTML = updatedmoneydynamic
-        document.getElementById("JeffBezosNetWorth2").innerHTML = updatedmoneydynamic
+        document.getElementById("JeffBezosNetWorth").innerHTML = formatmoney(updatedmoneydynamic, ",", "")
+        document.getElementById("JeffBezosNetWorth2").innerHTML = formatmoney(updatedmoneydynamic, ",", "")
 
         if (updatedmoneydynamic >= 0) {
             console.log("GREATER")
@@ -1108,9 +1121,8 @@
 
         // moneydynamic2 = cost * currentvaluecamry
         updatedmoneydynamic = moneydynamic - moneydynamic2
-        document.getElementById("JeffBezosNetWorth").innerHTML = updatedmoneydynamic
-        document.getElementById("JeffBezosNetWorth2").innerHTML = updatedmoneydynamic
-
+        document.getElementById("JeffBezosNetWorth").innerHTML = formatmoney(updatedmoneydynamic, ",", "")
+        document.getElementById("JeffBezosNetWorth2").innerHTML = formatmoney(updatedmoneydynamic, ",", "")
         if (updatedmoneydynamic >= 0) {
             console.log("GREATER")
             document.getElementById("JeffBezosNetWorth").style.color = "limegreen"
